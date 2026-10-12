@@ -9,31 +9,42 @@
     bar.style.width = p + '%';
   }, { passive: true });
 
-  // 현재 섹션 도트 표시
+  // 현재 섹션 도트 표시 + 그래프 애니메이션 (떠나면 리셋, 돌아오면 리플레이)
   const dots = [...document.querySelectorAll('[data-dot]')];
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
         dots.forEach((d) => d.classList.toggle('active', d.dataset.dot === e.target.id));
+        // 재진입 시 transition이 다시 발동하도록 리플로우 후 클래스 부착
+        e.target.classList.remove('visible');
+        void e.target.offsetWidth;
         e.target.classList.add('visible');
-        // 도넛 숫자 카운트
+        // 도넛 숫자 카운트 (리셋 후 재시작)
         e.target.querySelectorAll('.count').forEach(runCount);
+      } else {
+        e.target.classList.remove('visible');
+        e.target.querySelectorAll('.count').forEach(resetCount);
       }
     });
-  }, { root: scroller, threshold: 0.45 });
+  }, { root: scroller, threshold: 0.3 });
   document.querySelectorAll('.screen').forEach((s) => { s.classList.add('reveal'); io.observe(s); });
 
+  function resetCount(el) {
+    delete el.dataset.done;
+    el.textContent = '0';
+  }
+
   function runCount(el) {
-    if (el.dataset.done) return;
+    resetCount(el);
     el.dataset.done = '1';
     const target = Number(el.dataset.count || 0);
     const t0 = performance.now();
     const dur = 1200;
     (function tick(t) {
       const k = Math.min(1, (t - t0) / dur);
-      el.textContent = Math.round(target * (0.2 + 0.8 * k) * (k >= 1 ? 1 : 1));
-      if (k < 1) requestAnimationFrame(tick);
-      else el.textContent = target;
+      el.textContent = Math.round(target * (0.2 + 0.8 * k));
+      if (el.dataset.done && k < 1) requestAnimationFrame(tick);
+      else if (el.dataset.done) el.textContent = target;
     })(t0);
   }
 

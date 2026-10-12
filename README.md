@@ -3,10 +3,11 @@
 정적 포트폴리오 예시입니다. 빌드 없이 `index.html`만으로 동작합니다.
 
 ## 구조
-- 웹 4쪽 = PDF 2쪽
+- 웹 4쪽 = PDF 2쪽 (각 쪽 210×148.5mm = A4 절반 비율로 웹·인쇄 공통 고정)
   - 웹 1~2쪽 → PDF 1쪽
   - 웹 3~4쪽 → PDF 2쪽
-- `assets/css/style.css`의 `@media print`가 2쪽 합치기를 담당
+- 와이드 화면에서는 종이가 중앙에 슬라이드처럼 보임 (좌우 여백), 700px 이하는 비율 해제
+- `assets/css/style.css`의 `@media print`가 2쪽 합치기를 담당 (`@page margin 0`, 여백은 종이 안쪽 padding)
 - `assets/js/main.js`가 스크롤 스냅 진행률, 그래프 애니메이션, 아키텍처 클릭 처리
 
 ## 로컬 확인

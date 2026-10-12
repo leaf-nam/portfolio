@@ -32,10 +32,23 @@ body{
 .dots a{width:32px; height:32px; display:grid; place-items:center; border-radius:50%; background:#fff; border:1px solid var(--line); text-decoration:none; color:var(--muted); font-size:13px}
 .dots a.active{background:var(--brand); color:#fff; border-color:var(--brand)}
 
-/* 스크롤 스냅: 한 화면씩 */
-#scroller{height:100vh; overflow-y:auto; scroll-snap-type:y mandatory; padding-top:58px}
-.screen{min-height:calc(100vh - 58px); scroll-snap-align:start; scroll-snap-stop:always; display:flex; flex-direction:column; justify-content:center; padding:28px 18px 14px; border-bottom:1px solid var(--line)}
-.screen-inner{max-width:1100px; width:100%; margin:0 auto; background:var(--card); border:1px solid var(--line); border-radius:20px; padding:30px; box-shadow:0 10px 30px rgba(20,40,90,.06)}
+/* 스크롤 스냅: 한 화면씩 (종이 비율 고정) */
+#scroller{height:100vh; overflow-y:auto; scroll-snap-type:y mandatory; padding-top:58px; background:#e9edf5}
+.screen{min-height:calc(100vh - 58px); scroll-snap-align:start; scroll-snap-stop:always; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:20px 18px 12px}
+.screen-inner{width:100%; margin:0 auto; background:var(--card); border:1px solid var(--line); border-radius:20px; padding:30px; box-shadow:0 10px 30px rgba(20,40,90,.10)}
+/*
+ * A4 절반 비율(가로 210 : 세로 148.5 = 1.41414)을 웹에서도 그대로 고정한다.
+ * 와이드 화면에서는 좌우 여백을 두고 슬라이드처럼 중앙에 보인다.
+ * 높이 기준 width 상한을 함께 걸어 세로로 넘치지 않게 한다.
+ */
+@media (min-width:701px){
+  .screen-inner{
+    width:min(1060px, 100%, calc((100vh - 190px) * 1.41414));
+    aspect-ratio:210 / 148.5;
+    overflow:hidden;
+    display:flex; flex-direction:column; justify-content:center;
+  }
+}
 .kicker{color:var(--brand); font-weight:800; font-size:13px; letter-spacing:1px; margin:0 0 6px}
 h1{font-size:clamp(32px,5vw,52px); line-height:1.15; margin:.1em 0 .3em; letter-spacing:-.5px}
 h2{font-size:clamp(24px,3.4vw,34px); margin:.1em 0 .2em; letter-spacing:-.3px}
@@ -108,42 +121,47 @@ h2{font-size:clamp(24px,3.4vw,34px); margin:.1em 0 .2em; letter-spacing:-.3px}
   .screen-inner{padding:20px}
   .dots{display:none}
 }
+/* 모바일/좁은 화면: 종이 비율 해제, 내용 우선 */
+@media (max-width:700px){
+  .screen-inner{aspect-ratio:auto; overflow:visible}
+  .donut-wrap{width:120px}
+  .donut{width:120px; height:120px}
+}
 
-/* ===== 인쇄: 웹 2쪽 → PDF 1쪽 (A4 여백 포함, 잘림 방지) ===== */
-@page{size:A4 portrait; margin:10mm 10mm}
+/* ===== 인쇄: 웹 2쪽 → PDF 1쪽 (A4 절반 비율 고정) =====
+ * 웹 종이와 동일한 바깥 치수(210 x 148.5mm)를 그대로 인쇄한다.
+ * 브라우저 여백 변수를 없애기 위해 @page margin 0,
+ * 여백은 종이 안쪽 padding(상하 8mm·좌우 10mm)으로 둔다.
+ * 내용 영역 = 190 x 132.5mm (검증済: 4쪽 overflow 0).
+ * Chrome 인쇄 설정: 여백 "없음", 머리글/바닥글 OFF, 배경 그래픽 ON.
+ */
+@page{size:A4 portrait; margin:0}
 @media print{
   .no-print{display:none !important}
   .print-only{display:block !important}
   table.print-only{display:table !important}
   html,body{margin:0 !important; padding:0 !important; background:#fff}
   body{width:auto}
-  #scroller{height:auto; overflow:visible; padding:0; margin:0; display:block}
-  /*
-   * A4 실측: 210 x 297mm, 여백 10mm → 가용 190 x 277mm.
-   * 웹 1쪽당 정확히 절반(138.5mm)을 차지해야 잘리지 않으므로
-   * .screen 전체 높이를 138.5mm로 고정하고,
-   * 안쪽 카드(132.5mm) + 하단 태그(약 5mm) + 여유(1mm)로 배분한다.
-   * border-box이므로 padding까지 높이에 포함된다.
-   */
+  #scroller{height:auto; overflow:visible; padding:0; margin:0; display:block; background:#fff}
   .screen{
-    height:138.5mm; min-height:0; max-height:138.5mm;
-    margin:0; padding:0 0 1mm 0;
-    border:0; justify-content:flex-start;
+    width:210mm; height:148.5mm; min-height:0; max-height:148.5mm;
+    margin:0; padding:0;
     scroll-snap-align:unset;
     break-inside:avoid; page-break-inside:avoid; overflow:hidden;
+    display:block;
   }
   #skills{break-after:always; page-break-after:always}
   #cover,#projects{break-after:auto; page-break-after:auto}
   #arch{break-after:avoid; page-break-after:avoid}
   .screen-inner{
-    box-shadow:none; border:1px solid #ddd; border-radius:3mm;
-    margin:0; max-width:none; width:100%;
-    height:132.5mm; min-height:0; max-height:132.5mm;
-    padding:4mm 5mm; overflow:hidden;
+    width:210mm; height:148.5mm; min-height:0; max-height:148.5mm;
+    aspect-ratio:auto; margin:0; border:0; border-radius:0; box-shadow:none;
+    padding:8mm 10mm; overflow:hidden;
     display:flex; flex-direction:column; justify-content:center;
   }
-  section.screen > .screen-inner{flex:0 0 auto}
-  .page-tag{height:5mm; line-height:4mm; margin:1mm 1mm 0; font-size:7pt; color:#888; overflow:hidden; white-space:nowrap}
+  /* 같은 PDF 쪽 안 두 반쪽 경계에만 절취선 */
+  #cover .screen-inner,#projects .screen-inner{border-bottom:0.4mm dashed #d4d9e4}
+  .page-tag{display:none !important}
   /* 인쇄용으로 자간·여백 축소 (가로가 세로의 절반이 아니라서 그대로 두면 넘침) */
   h1{font-size:20pt; line-height:1.2; margin:0 0 2mm}
   h2{font-size:13pt; margin:0 0 1.5mm}

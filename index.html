@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>홍길동 — Backend Portfolio (예시)</title>
+  <meta name="description" content="스크롤 포트폴리오 예시 — 웹 2쪽 = PDF 1쪽, 인터랙티브 아키텍처, PDF 내보내기" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar no-print">
+    <div class="topbar-inner">
+      <a class="brand" href="#cover">PORTFOLIO <span>예시</span></a>
+      <nav class="topnav">
+        <a href="#cover">표지</a>
+        <a href="#skills">역량</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#arch">아키텍처</a>
+      </nav>
+      <div class="top-actions">
+        <span class="pdf-hint">웹 2쪽 → PDF 1쪽</span>
+        <button id="btn-print" type="button">PDF로 내보내기</button>
+      </div>
+    </div>
+    <div class="progress no-print"><i id="progress-bar"></i></div>
+  </header>
+
+  <aside class="dots no-print" aria-label="섹션 이동">
+    <a href="#cover" data-dot="cover" class="active">1</a>
+    <a href="#skills" data-dot="skills">2</a>
+    <a href="#projects" data-dot="projects">3</a>
+    <a href="#arch" data-dot="arch">4</a>
+  </aside>
+
+  <main id="scroller">
+    <!-- 1쪽: 표지 -->
+    <section id="cover" class="screen">
+      <div class="screen-inner cover-grid">
+        <div>
+          <p class="kicker">예시 포트폴리오 · Backend · 2026</p>
+          <h1>문제를 구조로 풀어<br />성과로 증명합니다</h1>
+          <p class="lead">
+            홍길동 — 백엔드 3년차 예시입니다. 내용은 더미지만 레이아웃·인쇄·배포 구조는 실사용 그대로입니다.
+            이 페이지는 <b>웹 4쪽 = PDF 2쪽</b> 구조입니다. 스크롤하면 한 화면씩 스냅됩니다.
+          </p>
+          <ul class="meta">
+            <li><b>Email</b> example@test.com</li>
+            <li><b>GitHub</b> github.com/leaf-nam</li>
+            <li><b>Blog</b> example.blog</li>
+          </ul>
+          <div class="btn-row no-print">
+            <a class="btn primary" href="#skills">역량 보기 ↓</a>
+            <button class="btn" onclick="window.print()">PDF 저장</button>
+          </div>
+          <p class="print-only print-note">웹 1·2쪽 → PDF 1쪽 · 웹 3·4쪽 → PDF 2쪽으로 합쳐집니다. (Chrome: 여백 “없음”, 배경 그래픽 ON 권장)</p>
+        </div>
+        <div class="cover-card">
+          <div class="card-head">핵심 요약</div>
+          <ul class="check">
+            <li>주문 API p95 <b>1.2s → 280ms</b> (예시)</li>
+            <li>장애 대응 MTTR <b>45분 → 12분</b> (예시)</li>
+            <li>배치 비용 <b>월 38% 절감</b> (예시)</li>
+          </ul>
+          <div class="mini-stats">
+            <div><b>3+</b><span>년차</span></div>
+            <div><b>12</b><span>프로젝트</span></div>
+            <div><b>99.9%</b><span>가용성</span></div>
+          </div>
+          <p class="tip">※ 실제 문구로 교체하세요. 숫자는 그래프와 연동됩니다.</p>
+        </div>
+      </div>
+      <footer class="page-tag">웹 1/4 · PDF 1쪽의 왼쪽</footer>
+    </section>
+
+    <!-- 2쪽: 역량 + 그래프 -->
+    <section id="skills" class="screen">
+      <div class="screen-inner">
+        <p class="kicker">02 — Skills & Graphs</p>
+        <h2>스크롤하면 그래프가 차오릅니다</h2>
+        <p class="sub">IntersectionObserver로 감지 → CSS width 애니메이션. 인쇄(PDF)에서는 최종값으로 고정됩니다.</p>
+        <div class="two-col">
+          <div class="bars reveal">
+            <div class="bar-row"><div class="bar-label"><span>Java / Spring</span><b>90%</b></div><div class="bar"><i style="--v:90%"></i></div></div>
+            <div class="bar-row"><div class="bar-label"><span>SQL / 인덱스 튜닝</span><b>85%</b></div><div class="bar"><i style="--v:85%"></i></div></div>
+            <div class="bar-row"><div class="bar-label"><span>MSA / Kafka</span><b>78%</b></div><div class="bar"><i style="--v:78%"></i></div></div>
+            <div class="bar-row"><div class="bar-label"><span>AWS / IaC</span><b>72%</b></div><div class="bar"><i style="--v:72%"></i></div></div>
+            <div class="bar-row"><div class="bar-label"><span>React (협업 가능)</span><b>60%</b></div><div class="bar"><i style="--v:60%"></i></div></div>
+          </div>
+          <div class="donuts">
+            <div class="donut-card">
+              <h3>API 지연 개선 (예시)</h3>
+              <div class="donut-wrap">
+                <svg viewBox="0 0 120 120" class="donut">
+                  <circle cx="60" cy="60" r="52" class="bg" />
+                  <circle cx="60" cy="60" r="52" class="fg" style="--p:77" />
+                </svg>
+                <div class="donut-center"><b class="count" data-count="77">0</b><span>% 개선</span></div>
+              </div>
+              <p>p95 1,200ms → 280ms</p>
+            </div>
+            <div class="donut-card">
+              <h3>배치 비용 절감 (예시)</h3>
+              <div class="donut-wrap">
+                <svg viewBox="0 0 120 120" class="donut">
+                  <circle cx="60" cy="60" r="52" class="bg" />
+                  <circle cx="60" cy="60" r="52" class="fg alt" style="--p:38" />
+                </svg>
+                <div class="donut-center"><b class="count" data-count="38">0</b><span>% 절감</span></div>
+              </div>
+              <p>야간 배치 → 증분 처리</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="page-tag">웹 2/4 · PDF 1쪽의 오른쪽</footer>
+    </section>
+
+    <!-- 3쪽: 프로젝트 -->
+    <section id="projects" class="screen">
+      <div class="screen-inner">
+        <p class="kicker">03 — Projects</p>
+        <h2>프로젝트 2건 (예시)</h2>
+        <p class="sub">실제 작성 시 “문제 → 해결 → 지표” 3단으로만 쓰세요. 이 카드는 PDF에서 나란히 붙습니다.</p>
+        <div class="cards">
+          <article class="p-card">
+            <p class="pill">2025 · 주문/결제</p>
+            <h3>재고 초과 판매 방지 큐</h3>
+            <ul>
+              <li><b>문제:</b> 동시 주문 시 재고 정합성 깨짐</li>
+              <li><b>해결:</b> Redis 분산락 + Kafka 순서 보장</li>
+              <li><b>지표:</b> oversell 0건, p95 280ms (예시)</li>
+            </ul>
+            <p class="stack">Spring · Kafka · Redis · MySQL</p>
+          </article>
+          <article class="p-card">
+            <p class="pill">2024 · 정산 배치</p>
+            <h3>대용량 정산 증분 파이프라인</h3>
+            <ul>
+              <li><b>문제:</b> 전량 재계산 6시간 소요</li>
+              <li><b>해결:</b> CDC + 일자 파티션 + 재시도 큐</li>
+              <li><b>지표:</b> 6h → 40m, 비용 -38% (예시)</li>
+            </ul>
+            <p class="stack">Debezium · Batch · S3 · Athena</p>
+          </article>
+        </div>
+      </div>
+      <footer class="page-tag">웹 3/4 · PDF 2쪽의 왼쪽</footer>
+    </section>
+
+    <!-- 4쪽: 아키텍처 (인터랙티브) -->
+    <section id="arch" class="screen">
+      <div class="screen-inner">
+        <p class="kicker">04 — Interactive Architecture</p>
+        <h2>아키텍처를 눌러보세요</h2>
+        <p class="sub no-print">웹에서는 버튼을 누르면 설명이 바뀝니다. PDF에서는 전체 설명이 표로 고정 출력됩니다.</p>
+        <div class="arch-grid">
+          <div class="arch-map no-print" role="group" aria-label="아키텍처 다이어그램">
+            <button class="node active" data-node="client">Browser<br><small>정적 페이지</small></button>
+            <span class="arrow">→</span>
+            <button class="node" data-node="cdn">GitHub Pages<br><small>CDN</small></button>
+            <span class="arrow">→</span>
+            <button class="node" data-node="api">API 서버<br><small>Spring</small></button>
+            <span class="arrow">→</span>
+            <button class="node" data-node="db">DB / Cache<br><small>MySQL·Redis</small></button>
+            <button class="node wide" data-node="queue">Queue · Batch<br><small>Kafka · CDC</small></button>
+          </div>
+          <div class="arch-detail">
+            <h3 id="arch-title">Browser — 정적 페이지</h3>
+            <p id="arch-desc">이 포트폴리오 자체가 예시입니다. 빌드 없이 HTML/CSS/JS만으로 GitHub Pages에 배포됩니다.</p>
+            <p class="stack" id="arch-stack">HTML · CSS scroll-snap · print CSS</p>
+          </div>
+          <table class="arch-table print-only">
+            <tr><th>구간</th><th>설명 (PDF 고정)</th></tr>
+            <tr><td>Browser</td><td>반응형 + 스크롤 스냅, Pretendard 폰트</td></tr>
+            <tr><td>GitHub Pages</td><td>정적 호스팅, Actions로 자동 배포</td></tr>
+            <tr><td>API 서버</td><td>주문/결제 예시, p95 280ms 목표</td></tr>
+            <tr><td>DB / Cache</td><td>인덱스 튜닝 + Redis 분산락 예시</td></tr>
+            <tr><td>Queue · Batch</td><td>Kafka 순서 보장, CDC 증분 정산 예시</td></tr>
+          </table>
+        </div>
+      </div>
+      <footer class="page-tag">웹 4/4 · PDF 2쪽의 오른쪽</footer>
+    </section>
+  </main>
+
+  <script src="./assets/js/main.js"></script>
+</body>
+</html>

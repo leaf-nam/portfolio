@@ -47,8 +47,8 @@ body{
     width:min(1060px, 100%, calc((100vh - 190px) * 1.41414));
     aspect-ratio:210 / 148.5;
     overflow:hidden;
-    display:flex; flex-direction:column; justify-content:center;
-    align-content:center;
+    display:flex; flex-direction:column; justify-content:flex-start;
+    align-content:start;
   }
   .page-tag{width:min(1060px, 100%, calc((100vh - 190px) * 1.41414))}
 }
@@ -150,7 +150,7 @@ ol.steps{margin:0 0 6px; padding-left:22px; font-size:14px; color:#33405e; displ
     width:210mm; height:148.4mm; min-height:0; max-height:148.4mm;
     aspect-ratio:auto; margin:0; border:0; border-radius:0; box-shadow:none;
     padding:7mm 10mm; overflow:hidden;
-    display:flex; flex-direction:column; justify-content:center;
+    display:flex; flex-direction:column; justify-content:flex-start;
   }
   .screen-inner .fit{zoom:1 !important}
   #cover .screen-inner,#index .screen-inner,#p1-overview .screen-inner,#p1-verify .screen-inner,

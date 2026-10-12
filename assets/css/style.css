@@ -33,7 +33,7 @@ body{
 .dots a.active{background:var(--brand); color:#fff; border-color:var(--brand)}
 
 /* 스크롤 스냅: 한 화면씩 (종이 비율 고정) */
-#scroller{height:100vh; overflow-y:auto; scroll-snap-type:y mandatory; padding-top:58px; background:#e9edf5}
+#scroller{height:100vh; overflow-y:auto; scroll-snap-type:y mandatory; padding-top:58px; scroll-padding-top:58px; background:#e9edf5}
 .screen{min-height:calc(100vh - 58px); scroll-snap-align:start; scroll-snap-stop:always; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:20px 18px 12px}
 /* margin:auto 중앙정렬: 들어가면 중앙, 넘치면 위쪽부터 보여줌 (flex center처럼 위가 잘리지 않음) */
 .screen-inner{width:100%; margin:auto auto 4px; background:var(--card); border:1px solid var(--line); border-radius:20px; padding:30px; box-shadow:0 10px 30px rgba(20,40,90,.10)}
@@ -50,6 +50,7 @@ body{
     aspect-ratio:210 / 148.5;
     overflow:hidden;
     display:flex; flex-direction:column; justify-content:center;
+    align-content:center; /* cover-grid(display:grid)의 행도 세로 중앙에 */
   }
   .page-tag{width:min(1060px, 100%, calc((100vh - 190px) * 1.41414))}
 }

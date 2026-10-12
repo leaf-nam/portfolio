@@ -28,22 +28,6 @@
   // PDF 버튼
   document.getElementById('btn-print').addEventListener('click', () => window.print());
 
-  // 핵심 구현 탭 (프로젝트별 그룹)
-  document.querySelectorAll('[data-impl-group]').forEach((group) => {
-    const name = group.dataset.implGroup;
-    const screen = group.closest('.screen');
-    group.querySelectorAll('button').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        group.querySelectorAll('button').forEach((b) => b.classList.remove('on'));
-        btn.classList.add('on');
-        screen.querySelectorAll('.impl-panel').forEach((p) => {
-          p.classList.toggle('on', p.dataset.panel === name + '-' + btn.dataset.impl);
-        });
-        fitPapers();
-      });
-    });
-  });
-
   // 용지 맞춤: 내용이 고정비율 용지를 넘치면 Web에서만 축소 (인쇄 CSS는 별도 검증됨)
   function fitOne(inner) {
     const fit = inner.querySelector(':scope > .fit');
@@ -70,6 +54,17 @@
     fit.className = 'fit';
     while (inner.firstChild) fit.appendChild(inner.firstChild);
     inner.appendChild(fit);
+  });
+
+  // 펼침형 구현 패널 3개를 가로 그리드로 묶기 (데스크탑만 3단, 인쇄·모바일은 쌓기)
+  document.querySelectorAll('.screen-inner .fit').forEach((fit) => {
+    const panels = fit.querySelectorAll(':scope > .impl-panel');
+    if (panels.length > 1) {
+      const grid = document.createElement('div');
+      grid.className = 'impl-grid';
+      fit.insertBefore(grid, panels[0]);
+      panels.forEach((p) => grid.appendChild(p));
+    }
   });
 
   let raf = 0;

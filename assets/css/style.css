@@ -93,17 +93,19 @@ ol.steps{margin:0 0 6px; padding-left:22px; font-size:14px; color:#33405e; displ
   min-height:140px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
   color:#5b657a; text-align:center; padding:14px;
 }
-.diagram-empty.sm{min-height:96px}
+.diagram-empty.sm{min-height:84px}
 .diagram-empty span{font-weight:800; font-size:14px}
 .diagram-empty em{font-style:normal; font-size:12px; opacity:.8}
 .diagram figcaption{font-size:12px; color:#8a94ab; margin-top:4px}
 
-/* 핵심 구현 탭 (인터랙티브) */
-.impl-tabs{display:flex; gap:8px; margin:8px 0 10px; flex-wrap:wrap}
-.impl-tabs button{border:2px solid var(--line); background:#fff; border-radius:12px; padding:9px 14px; font-weight:800; font-size:14px; cursor:pointer; color:var(--muted)}
-.impl-tabs button.on{border-color:var(--brand); color:var(--brand); box-shadow:0 4px 14px rgba(37,99,235,.15)}
-.impl-panel{display:none; border:1px solid var(--line); border-radius:14px; padding:14px 16px; background:#fbfcff}
-.impl-panel.on{display:block}
+/* 핵심 구현 (펼침형: 데스크탑 3단, 인쇄·모바일 쌓기) */
+@media (min-width:861px){
+  .impl-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+  .impl-grid .impl-panel{margin-bottom:0}
+  .impl-grid .diagram-empty.sm{min-height:64px}
+}
+.impl-panel{border:1px solid var(--line); border-radius:14px; padding:12px 14px; background:#fbfcff; margin-bottom:8px}
+.impl-panel:last-child{margin-bottom:0}
 
 /* 검증 표 */
 .v-table{width:100%; border-collapse:collapse; font-size:14px; margin:6px 0 4px}

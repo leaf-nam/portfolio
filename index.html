@@ -1,488 +1,839 @@
 <!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>남상엽 — Backend Portfolio</title>
-  <meta name="description" content="연결을 이해하고, 신뢰를 만드는 백엔드 개발자 — 남상엽 포트폴리오 (웹 2쪽 = PDF 1쪽)" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
-<body>
-  <header class="topbar no-print">
-    <div class="topbar-inner">
-      <a class="brand" href="#cover">남상엽 <span>Backend Portfolio</span></a>
-      <nav class="topnav">
-        <a href="#about">소개</a>
-        <a href="#index">목차</a>
-        <a href="#p1-overview">House Of Ong R</a>
-        <a href="#p2-overview">Chaerok</a>
-        <a href="#p3-overview">MatchUP</a>
-      </nav>
-      <div class="top-actions">
-        <span class="pdf-hint">웹 2쪽 → PDF 1쪽</span>
-        <button id="btn-print" type="button">PDF로 내보내기</button>
-      </div>
-    </div>
-    <div class="progress no-print"><i id="progress-bar"></i></div>
-  </header>
-
-  <aside class="dots no-print" aria-label="섹션 이동">
-    <a href="#cover" data-dot="cover" title="표지">1</a>
-    <a href="#about" data-dot="about" title="Profile·Skills">2</a>
-    <a href="#index" data-dot="index" title="Projects 목차">3</a>
-    <a href="#p1-overview" data-dot="p1-overview" title="P1 개요·문제">4</a>
-    <a href="#p1-scenario" data-dot="p1-scenario" title="P1 시나리오·원인">5</a>
-    <a href="#p1-solve" data-dot="p1-solve" title="P1 해결·구현">6</a>
-    <a href="#p1-verify" data-dot="p1-verify" title="P1 검증">7</a>
-    <a href="#p1-effect" data-dot="p1-effect" title="P1 효과·회고">8</a>
-    <a href="#p2-overview" data-dot="p2-overview" title="P2 개요·문제">9</a>
-    <a href="#p2-scenario" data-dot="p2-scenario" title="P2 시나리오·원인">10</a>
-    <a href="#p2-solve" data-dot="p2-solve" title="P2 해결·구현">11</a>
-    <a href="#p2-verify" data-dot="p2-verify" title="P2 검증">12</a>
-    <a href="#p2-effect" data-dot="p2-effect" title="P2 효과·회고">13</a>
-    <a href="#p3-overview" data-dot="p3-overview" title="P3 개요·문제">14</a>
-    <a href="#p3-scenario" data-dot="p3-scenario" title="P3 시나리오·원인">15</a>
-    <a href="#p3-solve" data-dot="p3-solve" title="P3 해결·구현">16</a>
-    <a href="#p3-verify" data-dot="p3-verify" title="P3 검증">17</a>
-    <a href="#p3-effect" data-dot="p3-effect" title="P3 효과·회고">18</a>
-  </aside>
-
-  <main id="scroller">
-    <!-- 1. 표지 -->
-    <section id="cover" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Sangyeop Nam · Backend Engineer</p>
-        <h1>연결을 이해하고,<br />신뢰를 만드는 백엔드 개발자</h1>
-        <p class="lead">군 통신장교로서 네트워크와 서버를 운영했고, 백엔드 개발자로서 서비스와 데이터의 연결을 다뤄 왔습니다. 연결이 끊기지 않도록 원인을 찾고, 사용자가 믿고 쓸 수 있는 시스템을 만들기 위해 노력합니다.</p>
-        <ul class="meta">
-          <li><b>남상엽</b></li>
-          <li><b>Email</b> spearoad15@gmail.com</li>
-          <li><b>GitHub</b> github.com/leaf-nam</li>
-          <li><b>Blog</b> leaf-nam.github.io</li>
-        </ul>
-        <div class="btn-row no-print">
-          <a class="btn primary" href="#index">프로젝트 보기 ↓</a>
-          <button class="btn" onclick="window.print()">PDF 저장</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>남상엽 — Backend Portfolio</title>
+    <meta
+      name="description"
+      content="연결을 이해하고, 신뢰를 만드는 백엔드 개발자 — 남상엽 포트폴리오 (웹 2쪽 = PDF 1쪽)"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header class="topbar no-print">
+      <div class="topbar-inner">
+        <a class="brand" href="#cover">남상엽 <span>Portfolio</span></a>
+        <nav class="topnav">
+          <a href="#about">소개</a>
+          <a href="#index">목차</a>
+          <a href="#p1-overview">House Of Ong R</a>
+          <a href="#p2-overview">Chaerok</a>
+          <a href="#p3-overview">MatchUP</a>
+        </nav>
+        <div class="top-actions">
+          <span class="pdf-hint">웹 2쪽 → PDF 1쪽</span>
+          <button id="btn-print" type="button">PDF로 내보내기</button>
         </div>
-        <p class="print-only print-note">웹 2쪽 → PDF 1쪽 (A4 절반 210×148.5mm 고정). Chrome 인쇄: 여백 “없음”, 머리글/바닥글 OFF, 배경 그래픽 ON.</p>
       </div>
-      <footer class="page-tag">웹 1/18</footer>
-    </section>
+      <div class="progress no-print"><i id="progress-bar"></i></div>
+    </header>
 
-    <!-- 2. Profile + Skills -->
-    <section id="about" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Profile · Skills</p>
-        <h2>소개 및 보유 역량</h2>
-        <div class="two-col">
-          <div class="rise" style="--d:.05s">
-            <h3>Profile</h3>
+    <aside class="dots no-print" aria-label="섹션 이동">
+      <a href="#cover" data-dot="cover" title="표지">1</a>
+      <a href="#about" data-dot="about" title="Profile·Skills">2</a>
+      <a href="#index" data-dot="index" title="Projects 목차">3</a>
+      <a href="#p1-overview" data-dot="p1-overview" title="P1 개요·문제">4</a>
+      <a href="#p1-scenario" data-dot="p1-scenario" title="P1 시나리오·원인"
+        >5</a
+      >
+      <a href="#p1-solve" data-dot="p1-solve" title="P1 해결·구현">6</a>
+      <a href="#p1-verify" data-dot="p1-verify" title="P1 검증">7</a>
+      <a href="#p1-effect" data-dot="p1-effect" title="P1 효과·회고">8</a>
+      <a href="#p2-overview" data-dot="p2-overview" title="P2 개요·문제">9</a>
+      <a href="#p2-scenario" data-dot="p2-scenario" title="P2 시나리오·원인"
+        >10</a
+      >
+      <a href="#p2-solve" data-dot="p2-solve" title="P2 해결·구현">11</a>
+      <a href="#p2-verify" data-dot="p2-verify" title="P2 검증">12</a>
+      <a href="#p2-effect" data-dot="p2-effect" title="P2 효과·회고">13</a>
+      <a href="#p3-overview" data-dot="p3-overview" title="P3 개요·문제">14</a>
+      <a href="#p3-scenario" data-dot="p3-scenario" title="P3 시나리오·원인"
+        >15</a
+      >
+      <a href="#p3-solve" data-dot="p3-solve" title="P3 해결·구현">16</a>
+      <a href="#p3-verify" data-dot="p3-verify" title="P3 검증">17</a>
+      <a href="#p3-effect" data-dot="p3-effect" title="P3 효과·회고">18</a>
+    </aside>
+
+    <main id="scroller">
+      <!-- 1. 표지 -->
+      <section id="cover" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Sangyeop Nam · Backend Engineer</p>
+          <h1>연결을 이해하고,<br />신뢰를 만드는 백엔드 개발자</h1>
+          <p class="lead">
+            군 통신장교로서 네트워크와 서버를 운영했고, 백엔드 개발자로서
+            서비스와 데이터의 연결을 다뤄 왔습니다. 연결이 끊기지 않도록 원인을
+            찾고, 사용자가 믿고 쓸 수 있는 시스템을 만들기 위해 노력합니다.
+          </p>
+          <ul class="meta">
+            <li><b>남상엽</b></li>
+            <li><b>Email</b> spearoad15@gmail.com</li>
+            <li><b>GitHub</b> github.com/leaf-nam</li>
+            <li><b>Blog</b> leaf-nam.github.io</li>
+          </ul>
+          <div class="btn-row no-print">
+            <a class="btn primary" href="#index">프로젝트 보기 ↓</a>
+            <button class="btn" onclick="window.print()">PDF 저장</button>
+          </div>
+          <p class="print-only print-note">
+            웹 2쪽 → PDF 1쪽 (A4 절반 210×148.5mm 고정). Chrome 인쇄: 여백
+            “없음”, 머리글/바닥글 OFF, 배경 그래픽 ON.
+          </p>
+        </div>
+        <footer class="page-tag">웹 1/18</footer>
+      </section>
+
+      <!-- 2. Profile + Skills -->
+      <section id="about" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Profile · Skills</p>
+          <h2>소개 및 보유 역량</h2>
+          <div class="two-col">
+            <div class="rise" style="--d: 0.05s">
+              <h3>Profile</h3>
+              <ul class="tight">
+                <li>군에서 5년간 근무하다가 개발이 좋아 전역했습니다.</li>
+                <li>소통과 문서화를 중요하게 생각합니다.</li>
+                <li>객체지향과 TDD, 클린 아키텍처에 관심이 많습니다.</li>
+              </ul>
+            </div>
+            <dl class="skills rise" style="--d: 0.15s">
+              <div>
+                <dt>Languages</dt>
+                <dd>Java, Javascript, C, C++, C#, Shell Script, Groovy</dd>
+              </div>
+              <div>
+                <dt>Frameworks</dt>
+                <dd>
+                  Spring, SpringBoot, JPA, MyBatis, Flyway, React.js, Vue.js,
+                  WPF
+                </dd>
+              </div>
+              <div>
+                <dt>Network</dt>
+                <dd>
+                  TCP/UDP, HTTP(S), GRPC, Kafka, NGinX, Spring Cloud Gateway
+                </dd>
+              </div>
+              <div>
+                <dt>Database · Cache</dt>
+                <dd>MySQL, Oracle, MongoDB, Redis</dd>
+              </div>
+              <div>
+                <dt>OS · Infra</dt>
+                <dd>Linux, RTOS, Docker, AWS (SAA)</dd>
+              </div>
+              <div>
+                <dt>CI/CD · 협업</dt>
+                <dd>Jenkins, Git, Jira, Notion</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <footer class="page-tag">웹 2/18</footer>
+      </section>
+
+      <!-- 3. Projects 목차 -->
+      <section id="index" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Projects</p>
+          <h2>프로젝트 목차</h2>
+          <div class="cards">
+            <a class="p-card rise" style="--d: 0.05s" href="#p1-overview">
+              <p class="pill">01 · House Of Ong R</p>
+              <h3>서비스 간 데이터 정합성 확보</h3>
+              <p>분산된 서비스의 실패처리와 복구</p>
+              <p class="stack">2026.07.10. ~ 2026.08.31. (8주)</p>
+            </a>
+            <a class="p-card rise" style="--d: 0.15s" href="#p2-overview">
+              <p class="pill">02 · Chaerok</p>
+              <h3>운영 자동화 및 장애대응</h3>
+              <p>AI 및 MCP 활용 모니터링, 알람 자동화</p>
+              <p class="stack">2025.06.10. ~ 2026.07.31. (7주)</p>
+            </a>
+            <a class="p-card rise" style="--d: 0.25s" href="#p3-overview">
+              <p class="pill">03 · MatchUP</p>
+              <h3>대규모 데이터 처리 성능 개선</h3>
+              <p>병목 분석과 비동기 처리</p>
+              <p class="stack">2025.06.10. ~ 2026.07.31. (7주)</p>
+            </a>
+          </div>
+        </div>
+        <footer class="page-tag">웹 3/18</footer>
+      </section>
+
+      <!-- P1-1. 개요 + 문제 -->
+      <section id="p1-overview" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 01 · House Of Ong R</p>
+          <h2>서비스 간 데이터 정합성 확보</h2>
+          <h3 class="rise">Overview — 개요</h3>
+          <p class="rise" style="--d: 0.05s">
+            인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
+            데이터 불일치 문제를 해결했습니다. 서비스 간 요청이 부분적으로
+            실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
+            만드는 것이 목표였습니다.
+          </p>
+          <h3 class="rise" style="--d: 0.1s">Problem — 문제 상황</h3>
+          <p class="rise" style="--d: 0.12s">
+            기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을
+            분리한 이후 회원가입 과정에서 문제가 발생했습니다.
+          </p>
+          <figure class="diagram rise" style="--d: 0.15s">
+            <div class="diagram-empty" data-diagram="p1-before-after">
+              <span>개선 전후 다이어그램</span
+              ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+            </div>
+            <figcaption>그림 1-1. 개선 전후 다이어그램 (예정)</figcaption>
+          </figure>
+        </div>
+        <footer class="page-tag">웹 4/18</footer>
+      </section>
+
+      <!-- P1-2. 시나리오 + 원인 -->
+      <section id="p1-scenario" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 01 · House Of Ong R</p>
+          <div class="two-col">
+            <div>
+              <h3>문제 시나리오</h3>
+              <ol class="steps rise" style="--d: 0.05s">
+                <li>사용자가 회원가입을 요청합니다.</li>
+                <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
+                <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
+                <li>
+                  사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.
+                </li>
+                <li>
+                  사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수
+                  없습니다.
+                </li>
+              </ol>
+              <p class="note">
+                서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입
+                요청이 부분적으로만 완료될 수 있었습니다.
+              </p>
+            </div>
+            <div>
+              <figure class="diagram rise" style="--d: 0.1s">
+                <div class="diagram-empty" data-diagram="p1-signup-seq">
+                  <span>회원가입 실패 시퀀스 다이어그램</span
+                  ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+                </div>
+                <figcaption>그림 1-2. 회원가입 실패 시퀀스 (예정)</figcaption>
+              </figure>
+              <h3>Reason — 원인 분석</h3>
+              <ul class="tight rise" style="--d: 0.15s">
+                <li>
+                  <b>재시도에 대한 안전성 부족:</b> 동일한 요청이 반복됐을 때
+                  중복 데이터나 충돌이 발생할 수 있었습니다.
+                </li>
+                <li>
+                  <b>부분 실패에 대한 처리 부족:</b> 한 서비스의 실패가 다른
+                  서비스에 이미 반영된 데이터를 자동으로 되돌리지 못했습니다.
+                </li>
+                <li>
+                  <b>데이터 복구 절차 부족:</b> 요청 처리 도중 발생한 불일치를
+                  찾아 복구하여, 결과적 정합성을 달성하는 절차가 필요했습니다.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="page-tag">웹 5/18</footer>
+      </section>
+
+      <!-- P1-3. 해결 + 핵심 구현 (인터랙티브) -->
+      <section id="p1-solve" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 01 · House Of Ong R</p>
+          <h2 class="h2-sm">Solve — 해결 방안</h2>
+          <p class="compact">
+            회원가입 과정에서 각 서비스의 처리 결과를 구분하고, 중간 단계에서
+            실패하더라도 데이터가 불일치한 상태로 방치되지 않도록 처리 흐름을
+            개선했습니다.
+          </p>
+          <h3>Implementation — 핵심 구현</h3>
+          <div class="impl-panel">
+            <h4>① 멱등성 확보</h4>
             <ul class="tight">
-              <li>군에서 5년간 근무하다가 개발이 좋아 전역했습니다.</li>
-              <li>소통과 문서화를 중요하게 생각합니다.</li>
-              <li>객체지향과 TDD, 클린 아키텍처에 관심이 많습니다.</li>
+              <li>요청의 중복 여부를 확인할 기준을 정의합니다.</li>
+              <li>이미 처리된 요청을 구분해 중복 실행을 방지합니다.</li>
+              <li>
+                네트워크 오류나 응답 유실로 인한 재시도에도 안전하게 처리되도록
+                합니다.
+              </li>
             </ul>
-          </div>
-          <dl class="skills rise" style="--d:.15s">
-            <div><dt>Languages</dt><dd>Java, Javascript, C, C++, C#, Shell Script, Groovy</dd></div>
-            <div><dt>Frameworks</dt><dd>Spring, SpringBoot, JPA, MyBatis, Flyway, React.js, Vue.js, WPF</dd></div>
-            <div><dt>Network</dt><dd>TCP/UDP, HTTP(S), GRPC, Kafka, NGinX, Spring Cloud Gateway</dd></div>
-            <div><dt>Database · Cache</dt><dd>MySQL, Oracle, MongoDB, Redis</dd></div>
-            <div><dt>OS · Infra</dt><dd>Linux, RTOS, Docker, AWS (SAA)</dd></div>
-            <div><dt>CI/CD · 협업</dt><dd>Jenkins, Git, Jira, Notion</dd></div>
-          </dl>
-        </div>
-      </div>
-      <footer class="page-tag">웹 2/18</footer>
-    </section>
-
-    <!-- 3. Projects 목차 -->
-    <section id="index" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Projects</p>
-        <h2>프로젝트 목차</h2>
-        <div class="cards">
-          <a class="p-card rise" style="--d:.05s" href="#p1-overview">
-            <p class="pill">01 · House Of Ong R</p>
-            <h3>서비스 간 데이터 정합성 확보</h3>
-            <p>분산된 서비스의 실패처리와 복구</p>
-            <p class="stack">2026.07.10. ~ 2026.08.31. (8주)</p>
-          </a>
-          <a class="p-card rise" style="--d:.15s" href="#p2-overview">
-            <p class="pill">02 · Chaerok</p>
-            <h3>운영 자동화 및 장애대응</h3>
-            <p>AI 및 MCP 활용 모니터링, 알람 자동화</p>
-            <p class="stack">2025.06.10. ~ 2026.07.31. (7주)</p>
-          </a>
-          <a class="p-card rise" style="--d:.25s" href="#p3-overview">
-            <p class="pill">03 · MatchUP</p>
-            <h3>대규모 데이터 처리 성능 개선</h3>
-            <p>병목 분석과 비동기 처리</p>
-            <p class="stack">2025.06.10. ~ 2026.07.31. (7주)</p>
-          </a>
-        </div>
-      </div>
-      <footer class="page-tag">웹 3/18</footer>
-    </section>
-
-    <!-- P1-1. 개요 + 문제 -->
-    <section id="p1-overview" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 01 · House Of Ong R — 2026.07.10. ~ 2026.08.31. (8주)</p>
-        <h2>서비스 간 데이터 정합성 확보</h2>
-        <h3 class="rise">Overview — 개요</h3>
-        <p class="rise" style="--d:.05s">인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및 데이터 불일치 문제를 해결했습니다. 서비스 간 요청이 부분적으로 실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를 만드는 것이 목표였습니다.</p>
-        <h3 class="rise" style="--d:.1s">Problem — 문제 상황</h3>
-        <p class="rise" style="--d:.12s">기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을 분리한 이후 회원가입 과정에서 문제가 발생했습니다.</p>
-        <figure class="diagram rise" style="--d:.15s">
-          <div class="diagram-empty" data-diagram="p1-before-after"><span>개선 전후 다이어그램</span><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em></div>
-          <figcaption>그림 1-1. 개선 전후 다이어그램 (예정)</figcaption>
-        </figure>
-      </div>
-      <footer class="page-tag">웹 4/18</footer>
-    </section>
-
-    <!-- P1-2. 시나리오 + 원인 -->
-    <section id="p1-scenario" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 01 · House Of Ong R — 문제 시나리오 · 원인 분석</p>
-        <div class="two-col">
-          <div>
-            <h3>문제 시나리오</h3>
-            <ol class="steps rise" style="--d:.05s">
-              <li>사용자가 회원가입을 요청합니다.</li>
-              <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
-              <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
-              <li>사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.</li>
-              <li>사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수 없습니다.</li>
-            </ol>
-            <p class="note">서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입 요청이 부분적으로만 완료될 수 있었습니다.</p>
-          </div>
-          <div>
-            <figure class="diagram rise" style="--d:.1s">
-              <div class="diagram-empty" data-diagram="p1-signup-seq"><span>회원가입 실패 시퀀스 다이어그램</span><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em></div>
-              <figcaption>그림 1-2. 회원가입 실패 시퀀스 (예정)</figcaption>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p1-idem">
+                <span>멱등성 확보 다이어그램</span><em>빈 이미지</em>
+              </div>
             </figure>
-            <h3>Reason — 원인 분석</h3>
-            <ul class="tight rise" style="--d:.15s">
-              <li><b>재시도에 대한 안전성 부족:</b> 동일한 요청이 반복됐을 때 중복 데이터나 충돌이 발생할 수 있었습니다.</li>
-              <li><b>부분 실패에 대한 처리 부족:</b> 한 서비스의 실패가 다른 서비스에 이미 반영된 데이터를 자동으로 되돌리지 못했습니다.</li>
-              <li><b>데이터 복구 절차 부족:</b> 요청 처리 도중 발생한 불일치를 찾아 복구하여, 결과적 정합성을 달성하는 절차가 필요했습니다.</li>
+          </div>
+          <div class="impl-panel" data-panel="p1-i2">
+            <h4>② 실패 시 보상 처리</h4>
+            <ul class="tight">
+              <li>각 단계의 성공 및 실패 상태를 구분합니다.</li>
+              <li>
+                후속 단계가 실패하면 이전 단계의 결과를 보상하는 절차를
+                수행합니다.
+              </li>
+              <li>
+                보상 처리 자체가 실패할 가능성도 고려해 별도 복구가 가능하도록
+                합니다.
+              </li>
             </ul>
-          </div>
-        </div>
-      </div>
-      <footer class="page-tag">웹 5/18</footer>
-    </section>
-
-    <!-- P1-3. 해결 + 핵심 구현 (인터랙티브) -->
-    <section id="p1-solve" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 01 · House Of Ong R — 해결 방안 · 핵심 구현</p>
-        <h2 class="h2-sm">Solve — 해결 방안</h2>
-        <p class="compact">회원가입 과정에서 각 서비스의 처리 결과를 구분하고, 중간 단계에서 실패하더라도 데이터가 불일치한 상태로 방치되지 않도록 처리 흐름을 개선했습니다.</p>
-        <h3>Implementation — 핵심 구현 <span class="no-print hint"> (번호를 눌러보세요)</span></h3>
-        <div class="impl-tabs no-print" role="tablist" data-impl-group="p1">
-          <button class="on" data-impl="i1" role="tab">① 멱등성 확보</button>
-          <button data-impl="i2" role="tab">② 실패 시 보상 처리</button>
-          <button data-impl="i3" role="tab">③ 정합성 점검 및 복구</button>
-        </div>
-        <div class="impl-panel on" data-panel="p1-i1">
-          <h4>① 멱등성 확보</h4>
-          <ul class="tight"><li>요청의 중복 여부를 확인할 기준을 정의합니다.</li><li>이미 처리된 요청을 구분해 중복 실행을 방지합니다.</li><li>네트워크 오류나 응답 유실로 인한 재시도에도 안전하게 처리되도록 합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p1-idem"><span>멱등성 확보 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-        <div class="impl-panel" data-panel="p1-i2">
-          <h4>② 실패 시 보상 처리</h4>
-          <ul class="tight"><li>각 단계의 성공 및 실패 상태를 구분합니다.</li><li>후속 단계가 실패하면 이전 단계의 결과를 보상하는 절차를 수행합니다.</li><li>보상 처리 자체가 실패할 가능성도 고려해 별도 복구가 가능하도록 합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p1-comp"><span>보상 처리 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-        <div class="impl-panel" data-panel="p1-i3">
-          <h4>③ 데이터 정합성 점검 및 복구</h4>
-          <ul class="tight"><li>인증 정보와 사용자 데이터의 불일치 여부를 확인합니다.</li><li>복구가 필요한 데이터를 식별합니다.</li><li>재처리 또는 보상 처리를 통해 정상 상태로 복구합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p1-recon"><span>정합성 점검·복구 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-      </div>
-      <footer class="page-tag">웹 6/18</footer>
-    </section>
-
-    <!-- P1-4. 검증 -->
-    <section id="p1-verify" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 01 · House Of Ong R — 검증</p>
-        <h2 class="h2-sm">Verification — 검증</h2>
-        <table class="v-table rise" style="--d:.05s">
-          <tr><th>테스트 시나리오</th><th>주요 확인사항</th></tr>
-          <tr><td>정상 회원가입</td><td>인증 정보와 사용자 데이터가 모두 정상적으로 생성되는가</td></tr>
-          <tr><td>동일 요청 재전송</td><td>중복 데이터가 생성되지 않는가</td></tr>
-          <tr><td>인증 생성 실패</td><td>사용자 데이터만 남는 불일치가 처리되는가</td></tr>
-          <tr><td>불일치 데이터 처리</td><td>복구가 필요한 상태를 식별 후 복구 절차를 통해 정상 상태로 돌아가는가</td></tr>
-        </table>
-        <figure class="diagram rise" style="--d:.1s">
-          <div class="diagram-empty sm" data-diagram="p1-test"><span>통합테스트 결과 캡쳐</span><em>빈 이미지 — 실제 캡쳐로 교체 예정</em></div>
-          <figcaption>그림 1-3. 통합테스트 결과 (예정)</figcaption>
-        </figure>
-      </div>
-      <footer class="page-tag">웹 7/18</footer>
-    </section>
-
-    <!-- P1-5. 효과 + 회고 -->
-    <section id="p1-effect" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 01 · House Of Ong R — 개선 효과 · 회고</p>
-        <h2 class="h2-sm">Effect — 개선 효과</h2>
-        <ul class="tight rise" style="--d:.05s">
-          <li><b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리 문제를 방지합니다.</li>
-          <li><b>실패 복구 가능성:</b> 중간 단계 실패 시 데이터 상태를 복구할 수 있는 절차를 마련했습니다.</li>
-          <li><b>운영 안정성:</b> 요청 처리 중 해결되지 않은 데이터 불일치를 확인하고 복구할 수 있도록 개선했습니다.</li>
-        </ul>
-        <h3 class="rise" style="--d:.1s">Review — 회고</h3>
-        <p class="compact rise" style="--d:.12s">서비스 간 데이터 정합성은 정상적인 요청 흐름만으로 보장되지 않습니다. 중간 실패와 재시도, 복구 과정까지 함께 설계해야 합니다. 이번 경험을 통해 기능을 서비스별로 분리하는 것뿐 아니라, 서비스 경계를 넘어 데이터의 상태를 어떻게 유지하고 복구할 것인지 고려하는 것이 중요하다는 점을 확인했습니다.</p>
-        <p class="compact rise" style="--d:.15s">향후에는 장애 상황별 테스트를 확대하고, 불일치 발생과 복구 이력을 추적할 수 있도록 관측 가능성을 강화해 데이터 정합성을 더욱 안정적으로 관리하고자 합니다.</p>
-      </div>
-      <footer class="page-tag">웹 8/18</footer>
-    </section>
-
-    <!-- P2-1. 개요 + 문제 -->
-    <section id="p2-overview" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 02 · Chaerok — 2025.06.10. ~ 2026.07.31. (7주)</p>
-        <h2>운영 자동화 및 장애대응</h2>
-        <p class="sub">AI 및 MCP 활용 모니터링, 알람 자동화</p>
-        <h3 class="rise">Overview — 개요</h3>
-        <p class="rise" style="--d:.05s">인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및 데이터 불일치 문제를 해결했습니다. 서비스 간 요청이 부분적으로 실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를 만드는 것이 목표였습니다.</p>
-        <h3 class="rise" style="--d:.1s">Problem — 문제 상황</h3>
-        <p class="rise" style="--d:.12s">기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을 분리한 이후 회원가입 과정에서 문제가 발생했습니다.</p>
-        <figure class="diagram rise" style="--d:.15s">
-          <div class="diagram-empty" data-diagram="p2-before-after"><span>개선 전후 다이어그램</span><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em></div>
-          <figcaption>그림 2-1. 개선 전후 다이어그램 (예정)</figcaption>
-        </figure>
-      </div>
-      <footer class="page-tag">웹 9/18</footer>
-    </section>
-
-    <!-- P2-2. 시나리오 + 원인 -->
-    <section id="p2-scenario" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 02 · Chaerok — 문제 시나리오 · 원인 분석</p>
-        <div class="two-col">
-          <div>
-            <h3>문제 시나리오</h3>
-            <ol class="steps rise" style="--d:.05s">
-              <li>사용자가 회원가입을 요청합니다.</li>
-              <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
-              <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
-              <li>사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.</li>
-              <li>사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수 없습니다.</li>
-            </ol>
-            <p class="note">서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입 요청이 부분적으로만 완료될 수 있었습니다.</p>
-          </div>
-          <div>
-            <figure class="diagram rise" style="--d:.1s">
-              <div class="diagram-empty" data-diagram="p2-signup-seq"><span>회원가입 실패 시퀀스 다이어그램</span><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em></div>
-              <figcaption>그림 2-2. 회원가입 실패 시퀀스 (예정)</figcaption>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p1-comp">
+                <span>보상 처리 다이어그램</span><em>빈 이미지</em>
+              </div>
             </figure>
-            <h3>Reason — 원인 분석</h3>
-            <ul class="tight rise" style="--d:.15s">
-              <li><b>부분 실패에 대한 처리 부족:</b> 한 서비스의 실패가 다른 서비스에 이미 반영된 데이터를 자동으로 되돌리지 못했습니다.</li>
-              <li><b>재시도에 대한 안전성 부족:</b> 동일한 요청이 반복됐을 때 중복 데이터나 충돌이 발생할 수 있었습니다.</li>
-              <li><b>데이터 복구 절차 부족:</b> 요청 처리 도중 발생한 불일치를 찾아 복구하는 절차가 필요했습니다.</li>
+          </div>
+          <div class="impl-panel" data-panel="p1-i3">
+            <h4>③ 데이터 정합성 점검 및 복구</h4>
+            <ul class="tight">
+              <li>인증 정보와 사용자 데이터의 불일치 여부를 확인합니다.</li>
+              <li>복구가 필요한 데이터를 식별합니다.</li>
+              <li>재처리 또는 보상 처리를 통해 정상 상태로 복구합니다.</li>
             </ul>
-          </div>
-        </div>
-      </div>
-      <footer class="page-tag">웹 10/18</footer>
-    </section>
-
-    <!-- P2-3. 해결 + 핵심 구현 -->
-    <section id="p2-solve" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 02 · Chaerok — 해결 방안 · 핵심 구현</p>
-        <h2 class="h2-sm">Solve — 해결 방안</h2>
-        <p class="compact">회원가입 과정에서 각 서비스의 처리 결과를 구분하고, 중간 단계에서 실패하더라도 데이터가 불일치한 상태로 방치되지 않도록 처리 흐름을 개선했습니다.</p>
-        <h3>Implementation — 핵심 구현 <span class="no-print hint"> (번호를 눌러보세요)</span></h3>
-        <div class="impl-tabs no-print" role="tablist" data-impl-group="p2">
-          <button class="on" data-impl="i1" role="tab">① 멱등성 확보</button>
-          <button data-impl="i2" role="tab">② 실패 시 보상 처리</button>
-          <button data-impl="i3" role="tab">③ 정합성 점검 및 복구</button>
-        </div>
-        <div class="impl-panel on" data-panel="p2-i1">
-          <h4>① 멱등성 확보</h4>
-          <ul class="tight"><li>요청의 중복 여부를 확인할 기준을 정의합니다.</li><li>이미 처리된 요청을 구분해 중복 실행을 방지합니다.</li><li>네트워크 오류나 응답 유실로 인한 재시도에도 안전하게 처리되도록 합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p2-idem"><span>멱등성 확보 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-        <div class="impl-panel" data-panel="p2-i2">
-          <h4>② 실패 시 보상 처리</h4>
-          <ul class="tight"><li>각 단계의 성공 및 실패 상태를 구분합니다.</li><li>후속 단계가 실패하면 이전 단계의 결과를 보상하는 절차를 수행합니다.</li><li>보상 처리 자체가 실패할 가능성도 고려해 별도 복구가 가능하도록 합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p2-comp"><span>보상 처리 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-        <div class="impl-panel" data-panel="p2-i3">
-          <h4>③ 데이터 정합성 점검 및 복구</h4>
-          <ul class="tight"><li>인증 정보와 사용자 데이터의 불일치 여부를 확인합니다.</li><li>복구가 필요한 데이터를 식별합니다.</li><li>재처리 또는 보상 처리를 통해 정상 상태로 복구합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p2-recon"><span>정합성 점검·복구 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-      </div>
-      <footer class="page-tag">웹 11/18</footer>
-    </section>
-
-    <!-- P2-4. 검증 -->
-    <section id="p2-verify" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 02 · Chaerok — 검증</p>
-        <h2 class="h2-sm">Verification — 검증</h2>
-        <table class="v-table rise" style="--d:.05s">
-          <tr><th>테스트 시나리오</th><th>주요 확인사항</th></tr>
-          <tr><td>정상 회원가입</td><td>인증 정보와 사용자 데이터가 모두 정상적으로 생성되는가</td></tr>
-          <tr><td>동일 요청 재전송</td><td>중복 데이터가 생성되지 않는가</td></tr>
-          <tr><td>인증 생성 실패</td><td>사용자 데이터만 남는 불일치가 처리되는가</td></tr>
-          <tr><td>불일치 데이터 처리</td><td>복구가 필요한 상태를 식별 후 복구 절차를 통해 정상 상태로 돌아가는가</td></tr>
-        </table>
-        <figure class="diagram rise" style="--d:.1s">
-          <div class="diagram-empty sm" data-diagram="p2-test"><span>통합테스트 결과 캡쳐</span><em>빈 이미지 — 실제 캡쳐로 교체 예정</em></div>
-          <figcaption>그림 2-3. 통합테스트 결과 (예정)</figcaption>
-        </figure>
-      </div>
-      <footer class="page-tag">웹 12/18</footer>
-    </section>
-
-    <!-- P2-5. 효과 + 회고 -->
-    <section id="p2-effect" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 02 · Chaerok — 개선 효과 · 회고</p>
-        <h2 class="h2-sm">Effect — 개선 효과</h2>
-        <ul class="tight rise" style="--d:.05s">
-          <li><b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리 문제를 방지합니다.</li>
-          <li><b>실패 복구 가능성:</b> 중간 단계 실패 시 데이터 상태를 복구할 수 있는 절차를 마련했습니다.</li>
-          <li><b>운영 안정성:</b> 요청 처리 중 해결되지 않은 데이터 불일치를 확인하고 복구할 수 있도록 개선했습니다.</li>
-        </ul>
-        <h3 class="rise" style="--d:.1s">Review — 회고</h3>
-        <p class="compact rise" style="--d:.12s">서비스 간 데이터 정합성은 정상적인 요청 흐름만으로 보장되지 않습니다. 중간 실패와 재시도, 복구 과정까지 함께 설계해야 합니다. 이번 경험을 통해 기능을 서비스별로 분리하는 것뿐 아니라, 서비스 경계를 넘어 데이터의 상태를 어떻게 유지하고 복구할 것인지 고려하는 것이 중요하다는 점을 확인했습니다.</p>
-        <p class="compact rise" style="--d:.15s">향후에는 장애 상황별 테스트를 확대하고, 불일치 발생과 복구 이력을 추적할 수 있도록 관측 가능성을 강화해 데이터 정합성을 더욱 안정적으로 관리하고자 합니다.</p>
-      </div>
-      <footer class="page-tag">웹 13/18</footer>
-    </section>
-
-    <!-- P3-1. 개요 + 문제 -->
-    <section id="p3-overview" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 03 · MatchUP — 2025.06.10. ~ 2026.07.31. (7주)</p>
-        <h2>대규모 데이터 처리 성능 개선</h2>
-        <p class="sub">병목 분석과 비동기 처리</p>
-        <h3 class="rise">Overview — 개요</h3>
-        <p class="rise" style="--d:.05s">인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및 데이터 불일치 문제를 해결했습니다. 서비스 간 요청이 부분적으로 실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를 만드는 것이 목표였습니다.</p>
-        <h3 class="rise" style="--d:.1s">Problem — 문제 상황</h3>
-        <p class="rise" style="--d:.12s">기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을 분리한 이후 회원가입 과정에서 문제가 발생했습니다.</p>
-        <figure class="diagram rise" style="--d:.15s">
-          <div class="diagram-empty" data-diagram="p3-before-after"><span>개선 전후 다이어그램</span><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em></div>
-          <figcaption>그림 3-1. 개선 전후 다이어그램 (예정)</figcaption>
-        </figure>
-      </div>
-      <footer class="page-tag">웹 14/18</footer>
-    </section>
-
-    <!-- P3-2. 시나리오 + 원인 -->
-    <section id="p3-scenario" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 03 · MatchUP — 문제 시나리오 · 원인 분석</p>
-        <div class="two-col">
-          <div>
-            <h3>문제 시나리오</h3>
-            <ol class="steps rise" style="--d:.05s">
-              <li>사용자가 회원가입을 요청합니다.</li>
-              <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
-              <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
-              <li>사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.</li>
-              <li>사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수 없습니다.</li>
-            </ol>
-            <p class="note">서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입 요청이 부분적으로만 완료될 수 있었습니다.</p>
-          </div>
-          <div>
-            <figure class="diagram rise" style="--d:.1s">
-              <div class="diagram-empty" data-diagram="p3-signup-seq"><span>회원가입 실패 시퀀스 다이어그램</span><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em></div>
-              <figcaption>그림 3-2. 회원가입 실패 시퀀스 (예정)</figcaption>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p1-recon">
+                <span>정합성 점검·복구 다이어그램</span><em>빈 이미지</em>
+              </div>
             </figure>
-            <h3>Reason — 원인 분석</h3>
-            <ul class="tight rise" style="--d:.15s">
-              <li><b>부분 실패에 대한 처리 부족:</b> 한 서비스의 실패가 다른 서비스에 이미 반영된 데이터를 자동으로 되돌리지 못했습니다.</li>
-              <li><b>재시도에 대한 안전성 부족:</b> 동일한 요청이 반복됐을 때 중복 데이터나 충돌이 발생할 수 있었습니다.</li>
-              <li><b>데이터 복구 절차 부족:</b> 요청 처리 도중 발생한 불일치를 찾아 복구하는 절차가 필요했습니다.</li>
-            </ul>
           </div>
         </div>
-      </div>
-      <footer class="page-tag">웹 15/18</footer>
-    </section>
+        <footer class="page-tag">웹 6/18</footer>
+      </section>
 
-    <!-- P3-3. 해결 + 핵심 구현 -->
-    <section id="p3-solve" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 03 · MatchUP — 해결 방안 · 핵심 구현</p>
-        <h2 class="h2-sm">Solve — 해결 방안</h2>
-        <p class="compact">회원가입 과정에서 각 서비스의 처리 결과를 구분하고, 중간 단계에서 실패하더라도 데이터가 불일치한 상태로 방치되지 않도록 처리 흐름을 개선했습니다.</p>
-        <h3>Implementation — 핵심 구현 <span class="no-print hint"> (번호를 눌러보세요)</span></h3>
-        <div class="impl-tabs no-print" role="tablist" data-impl-group="p3">
-          <button class="on" data-impl="i1" role="tab">① 멱등성 확보</button>
-          <button data-impl="i2" role="tab">② 실패 시 보상 처리</button>
-          <button data-impl="i3" role="tab">③ 정합성 점검 및 복구</button>
+      <!-- P1-4. 검증 -->
+      <section id="p1-verify" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 01 · House Of Ong R</p>
+          <h2 class="h2-sm">Verification — 검증</h2>
+          <table class="v-table rise" style="--d: 0.05s">
+            <tr>
+              <th>테스트 시나리오</th>
+              <th>주요 확인사항</th>
+            </tr>
+            <tr>
+              <td>정상 회원가입</td>
+              <td>인증 정보와 사용자 데이터가 모두 정상적으로 생성되는가</td>
+            </tr>
+            <tr>
+              <td>동일 요청 재전송</td>
+              <td>중복 데이터가 생성되지 않는가</td>
+            </tr>
+            <tr>
+              <td>인증 생성 실패</td>
+              <td>사용자 데이터만 남는 불일치가 처리되는가</td>
+            </tr>
+            <tr>
+              <td>불일치 데이터 처리</td>
+              <td>
+                복구가 필요한 상태를 식별 후 복구 절차를 통해 정상 상태로
+                돌아가는가
+              </td>
+            </tr>
+          </table>
+          <figure class="diagram rise" style="--d: 0.1s">
+            <div class="diagram-empty sm" data-diagram="p1-test">
+              <span>통합테스트 결과 캡쳐</span
+              ><em>빈 이미지 — 실제 캡쳐로 교체 예정</em>
+            </div>
+            <figcaption>그림 1-3. 통합테스트 결과 (예정)</figcaption>
+          </figure>
         </div>
-        <div class="impl-panel on" data-panel="p3-i1">
-          <h4>① 멱등성 확보</h4>
-          <ul class="tight"><li>요청의 중복 여부를 확인할 기준을 정의합니다.</li><li>이미 처리된 요청을 구분해 중복 실행을 방지합니다.</li><li>네트워크 오류나 응답 유실로 인한 재시도에도 안전하게 처리되도록 합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p3-idem"><span>멱등성 확보 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-        <div class="impl-panel" data-panel="p3-i2">
-          <h4>② 실패 시 보상 처리</h4>
-          <ul class="tight"><li>각 단계의 성공 및 실패 상태를 구분합니다.</li><li>후속 단계가 실패하면 이전 단계의 결과를 보상하는 절차를 수행합니다.</li><li>보상 처리 자체가 실패할 가능성도 고려해 별도 복구가 가능하도록 합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p3-comp"><span>보상 처리 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-        <div class="impl-panel" data-panel="p3-i3">
-          <h4>③ 데이터 정합성 점검 및 복구</h4>
-          <ul class="tight"><li>인증 정보와 사용자 데이터의 불일치 여부를 확인합니다.</li><li>복구가 필요한 데이터를 식별합니다.</li><li>재처리 또는 보상 처리를 통해 정상 상태로 복구합니다.</li></ul>
-          <figure class="diagram"><div class="diagram-empty sm" data-diagram="p3-recon"><span>정합성 점검·복구 다이어그램</span><em>빈 이미지</em></div></figure>
-        </div>
-      </div>
-      <footer class="page-tag">웹 16/18</footer>
-    </section>
+        <footer class="page-tag">웹 7/18</footer>
+      </section>
 
-    <!-- P3-4. 검증 -->
-    <section id="p3-verify" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 03 · MatchUP — 검증</p>
-        <h2 class="h2-sm">Verification — 검증</h2>
-        <table class="v-table rise" style="--d:.05s">
-          <tr><th>테스트 시나리오</th><th>주요 확인사항</th></tr>
-          <tr><td>정상 회원가입</td><td>인증 정보와 사용자 데이터가 모두 정상적으로 생성되는가</td></tr>
-          <tr><td>동일 요청 재전송</td><td>중복 데이터가 생성되지 않는가</td></tr>
-          <tr><td>인증 생성 실패</td><td>사용자 데이터만 남는 불일치가 처리되는가</td></tr>
-          <tr><td>불일치 데이터 처리</td><td>복구가 필요한 상태를 식별 후 복구 절차를 통해 정상 상태로 돌아가는가</td></tr>
-        </table>
-        <figure class="diagram rise" style="--d:.1s">
-          <div class="diagram-empty sm" data-diagram="p3-test"><span>통합테스트 결과 캡쳐</span><em>빈 이미지 — 실제 캡쳐로 교체 예정</em></div>
-          <figcaption>그림 3-3. 통합테스트 결과 (예정)</figcaption>
-        </figure>
-      </div>
-      <footer class="page-tag">웹 17/18</footer>
-    </section>
+      <!-- P1-5. 효과 + 회고 -->
+      <section id="p1-effect" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 01 · House Of Ong R</p>
+          <h2 class="h2-sm">Effect — 개선 효과</h2>
+          <ul class="tight rise" style="--d: 0.05s">
+            <li>
+              <b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리
+              문제를 방지합니다.
+            </li>
+            <li>
+              <b>실패 복구 가능성:</b> 중간 단계 실패 시 데이터 상태를 복구할 수
+              있는 절차를 마련했습니다.
+            </li>
+            <li>
+              <b>운영 안정성:</b> 요청 처리 중 해결되지 않은 데이터 불일치를
+              확인하고 복구할 수 있도록 개선했습니다.
+            </li>
+          </ul>
+          <h3 class="rise" style="--d: 0.1s">Review — 회고</h3>
+          <p class="compact rise" style="--d: 0.12s">
+            서비스 간 데이터 정합성은 정상적인 요청 흐름만으로 보장되지
+            않습니다. 중간 실패와 재시도, 복구 과정까지 함께 설계해야 합니다.
+            이번 경험을 통해 기능을 서비스별로 분리하는 것뿐 아니라, 서비스
+            경계를 넘어 데이터의 상태를 어떻게 유지하고 복구할 것인지 고려하는
+            것이 중요하다는 점을 확인했습니다.
+          </p>
+          <p class="compact rise" style="--d: 0.15s">
+            향후에는 장애 상황별 테스트를 확대하고, 불일치 발생과 복구 이력을
+            추적할 수 있도록 관측 가능성을 강화해 데이터 정합성을 더욱
+            안정적으로 관리하고자 합니다.
+          </p>
+        </div>
+        <footer class="page-tag">웹 8/18</footer>
+      </section>
 
-    <!-- P3-5. 효과 + 회고 -->
-    <section id="p3-effect" class="screen">
-      <div class="screen-inner">
-        <p class="kicker">Project 03 · MatchUP — 개선 효과 · 회고</p>
-        <h2 class="h2-sm">Effect — 개선 효과</h2>
-        <ul class="tight rise" style="--d:.05s">
-          <li><b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리 문제를 방지합니다.</li>
-          <li><b>실패 복구 가능성:</b> 중간 단계 실패 시 데이터 상태를 복구할 수 있는 절차를 마련했습니다.</li>
-          <li><b>운영 안정성:</b> 요청 처리 중 해결되지 않은 데이터 불일치를 확인하고 복구할 수 있도록 개선했습니다.</li>
-        </ul>
-        <h3 class="rise" style="--d:.1s">Review — 회고</h3>
-        <p class="compact rise" style="--d:.12s">서비스 간 데이터 정합성은 정상적인 요청 흐름만으로 보장되지 않습니다. 중간 실패와 재시도, 복구 과정까지 함께 설계해야 합니다. 이번 경험을 통해 기능을 서비스별로 분리하는 것뿐 아니라, 서비스 경계를 넘어 데이터의 상태를 어떻게 유지하고 복구할 것인지 고려하는 것이 중요하다는 점을 확인했습니다.</p>
-        <p class="compact rise" style="--d:.15s">향후에는 장애 상황별 테스트를 확대하고, 불일치 발생과 복구 이력을 추적할 수 있도록 관측 가능성을 강화해 데이터 정합성을 더욱 안정적으로 관리하고자 합니다.</p>
-      </div>
-      <footer class="page-tag">웹 18/18</footer>
-    </section>
-  </main>
+      <!-- P2-1. 개요 + 문제 -->
+      <section id="p2-overview" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 02 · Chaerok</p>
+          <h2>운영 자동화 및 장애대응</h2>
+          <p class="sub">AI 및 MCP 활용 모니터링, 알람 자동화</p>
+          <h3 class="rise">Overview — 개요</h3>
+          <p class="rise" style="--d: 0.05s">
+            인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
+            데이터 불일치 문제를 해결했습니다. 서비스 간 요청이 부분적으로
+            실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
+            만드는 것이 목표였습니다.
+          </p>
+          <h3 class="rise" style="--d: 0.1s">Problem — 문제 상황</h3>
+          <p class="rise" style="--d: 0.12s">
+            기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을
+            분리한 이후 회원가입 과정에서 문제가 발생했습니다.
+          </p>
+          <figure class="diagram rise" style="--d: 0.15s">
+            <div class="diagram-empty" data-diagram="p2-before-after">
+              <span>개선 전후 다이어그램</span
+              ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+            </div>
+            <figcaption>그림 2-1. 개선 전후 다이어그램 (예정)</figcaption>
+          </figure>
+        </div>
+        <footer class="page-tag">웹 9/18</footer>
+      </section>
 
-  <script src="./assets/js/main.js"></script>
-</body>
+      <!-- P2-2. 시나리오 + 원인 -->
+      <section id="p2-scenario" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 02 · Chaerok</p>
+          <div class="two-col">
+            <div>
+              <h3>문제 시나리오</h3>
+              <ol class="steps rise" style="--d: 0.05s">
+                <li>사용자가 회원가입을 요청합니다.</li>
+                <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
+                <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
+                <li>
+                  사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.
+                </li>
+                <li>
+                  사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수
+                  없습니다.
+                </li>
+              </ol>
+              <p class="note">
+                서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입
+                요청이 부분적으로만 완료될 수 있었습니다.
+              </p>
+            </div>
+            <div>
+              <figure class="diagram rise" style="--d: 0.1s">
+                <div class="diagram-empty" data-diagram="p2-signup-seq">
+                  <span>회원가입 실패 시퀀스 다이어그램</span
+                  ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+                </div>
+                <figcaption>그림 2-2. 회원가입 실패 시퀀스 (예정)</figcaption>
+              </figure>
+              <h3>Reason — 원인 분석</h3>
+              <ul class="tight rise" style="--d: 0.15s">
+                <li>
+                  <b>부분 실패에 대한 처리 부족:</b> 한 서비스의 실패가 다른
+                  서비스에 이미 반영된 데이터를 자동으로 되돌리지 못했습니다.
+                </li>
+                <li>
+                  <b>재시도에 대한 안전성 부족:</b> 동일한 요청이 반복됐을 때
+                  중복 데이터나 충돌이 발생할 수 있었습니다.
+                </li>
+                <li>
+                  <b>데이터 복구 절차 부족:</b> 요청 처리 도중 발생한 불일치를
+                  찾아 복구하는 절차가 필요했습니다.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="page-tag">웹 10/18</footer>
+      </section>
+
+      <!-- P2-3. 해결 + 핵심 구현 -->
+      <section id="p2-solve" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 02 · Chaerok</p>
+          <h2 class="h2-sm">Solve — 해결 방안</h2>
+          <p class="compact">
+            회원가입 과정에서 각 서비스의 처리 결과를 구분하고, 중간 단계에서
+            실패하더라도 데이터가 불일치한 상태로 방치되지 않도록 처리 흐름을
+            개선했습니다.
+          </p>
+          <h3>Implementation — 핵심 구현</h3>
+          <div class="impl-panel">
+            <h4>① 멱등성 확보</h4>
+            <ul class="tight">
+              <li>요청의 중복 여부를 확인할 기준을 정의합니다.</li>
+              <li>이미 처리된 요청을 구분해 중복 실행을 방지합니다.</li>
+              <li>
+                네트워크 오류나 응답 유실로 인한 재시도에도 안전하게 처리되도록
+                합니다.
+              </li>
+            </ul>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p2-idem">
+                <span>멱등성 확보 다이어그램</span><em>빈 이미지</em>
+              </div>
+            </figure>
+          </div>
+          <div class="impl-panel" data-panel="p2-i2">
+            <h4>② 실패 시 보상 처리</h4>
+            <ul class="tight">
+              <li>각 단계의 성공 및 실패 상태를 구분합니다.</li>
+              <li>
+                후속 단계가 실패하면 이전 단계의 결과를 보상하는 절차를
+                수행합니다.
+              </li>
+              <li>
+                보상 처리 자체가 실패할 가능성도 고려해 별도 복구가 가능하도록
+                합니다.
+              </li>
+            </ul>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p2-comp">
+                <span>보상 처리 다이어그램</span><em>빈 이미지</em>
+              </div>
+            </figure>
+          </div>
+          <div class="impl-panel" data-panel="p2-i3">
+            <h4>③ 데이터 정합성 점검 및 복구</h4>
+            <ul class="tight">
+              <li>인증 정보와 사용자 데이터의 불일치 여부를 확인합니다.</li>
+              <li>복구가 필요한 데이터를 식별합니다.</li>
+              <li>재처리 또는 보상 처리를 통해 정상 상태로 복구합니다.</li>
+            </ul>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p2-recon">
+                <span>정합성 점검·복구 다이어그램</span><em>빈 이미지</em>
+              </div>
+            </figure>
+          </div>
+        </div>
+        <footer class="page-tag">웹 11/18</footer>
+      </section>
+
+      <!-- P2-4. 검증 -->
+      <section id="p2-verify" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 02 · Chaerok</p>
+          <h2 class="h2-sm">Verification — 검증</h2>
+          <table class="v-table rise" style="--d: 0.05s">
+            <tr>
+              <th>테스트 시나리오</th>
+              <th>주요 확인사항</th>
+            </tr>
+            <tr>
+              <td>정상 회원가입</td>
+              <td>인증 정보와 사용자 데이터가 모두 정상적으로 생성되는가</td>
+            </tr>
+            <tr>
+              <td>동일 요청 재전송</td>
+              <td>중복 데이터가 생성되지 않는가</td>
+            </tr>
+            <tr>
+              <td>인증 생성 실패</td>
+              <td>사용자 데이터만 남는 불일치가 처리되는가</td>
+            </tr>
+            <tr>
+              <td>불일치 데이터 처리</td>
+              <td>
+                복구가 필요한 상태를 식별 후 복구 절차를 통해 정상 상태로
+                돌아가는가
+              </td>
+            </tr>
+          </table>
+          <figure class="diagram rise" style="--d: 0.1s">
+            <div class="diagram-empty sm" data-diagram="p2-test">
+              <span>통합테스트 결과 캡쳐</span
+              ><em>빈 이미지 — 실제 캡쳐로 교체 예정</em>
+            </div>
+            <figcaption>그림 2-3. 통합테스트 결과 (예정)</figcaption>
+          </figure>
+        </div>
+        <footer class="page-tag">웹 12/18</footer>
+      </section>
+
+      <!-- P2-5. 효과 + 회고 -->
+      <section id="p2-effect" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 02 · Chaerok</p>
+          <h2 class="h2-sm">Effect — 개선 효과</h2>
+          <ul class="tight rise" style="--d: 0.05s">
+            <li>
+              <b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리
+              문제를 방지합니다.
+            </li>
+            <li>
+              <b>실패 복구 가능성:</b> 중간 단계 실패 시 데이터 상태를 복구할 수
+              있는 절차를 마련했습니다.
+            </li>
+            <li>
+              <b>운영 안정성:</b> 요청 처리 중 해결되지 않은 데이터 불일치를
+              확인하고 복구할 수 있도록 개선했습니다.
+            </li>
+          </ul>
+          <h3 class="rise" style="--d: 0.1s">Review — 회고</h3>
+          <p class="compact rise" style="--d: 0.12s">
+            서비스 간 데이터 정합성은 정상적인 요청 흐름만으로 보장되지
+            않습니다. 중간 실패와 재시도, 복구 과정까지 함께 설계해야 합니다.
+            이번 경험을 통해 기능을 서비스별로 분리하는 것뿐 아니라, 서비스
+            경계를 넘어 데이터의 상태를 어떻게 유지하고 복구할 것인지 고려하는
+            것이 중요하다는 점을 확인했습니다.
+          </p>
+          <p class="compact rise" style="--d: 0.15s">
+            향후에는 장애 상황별 테스트를 확대하고, 불일치 발생과 복구 이력을
+            추적할 수 있도록 관측 가능성을 강화해 데이터 정합성을 더욱
+            안정적으로 관리하고자 합니다.
+          </p>
+        </div>
+        <footer class="page-tag">웹 13/18</footer>
+      </section>
+
+      <!-- P3-1. 개요 + 문제 -->
+      <section id="p3-overview" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 03 · MatchUP</p>
+          <h2>대규모 데이터 처리 성능 개선</h2>
+          <p class="sub">병목 분석과 비동기 처리</p>
+          <h3 class="rise">Overview — 개요</h3>
+          <p class="rise" style="--d: 0.05s">
+            인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
+            데이터 불일치 문제를 해결했습니다. 서비스 간 요청이 부분적으로
+            실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
+            만드는 것이 목표였습니다.
+          </p>
+          <h3 class="rise" style="--d: 0.1s">Problem — 문제 상황</h3>
+          <p class="rise" style="--d: 0.12s">
+            기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을
+            분리한 이후 회원가입 과정에서 문제가 발생했습니다.
+          </p>
+          <figure class="diagram rise" style="--d: 0.15s">
+            <div class="diagram-empty" data-diagram="p3-before-after">
+              <span>개선 전후 다이어그램</span
+              ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+            </div>
+            <figcaption>그림 3-1. 개선 전후 다이어그램 (예정)</figcaption>
+          </figure>
+        </div>
+        <footer class="page-tag">웹 14/18</footer>
+      </section>
+
+      <!-- P3-2. 시나리오 + 원인 -->
+      <section id="p3-scenario" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 03 · MatchUP</p>
+          <div class="two-col">
+            <div>
+              <h3>문제 시나리오</h3>
+              <ol class="steps rise" style="--d: 0.05s">
+                <li>사용자가 회원가입을 요청합니다.</li>
+                <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
+                <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
+                <li>
+                  사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.
+                </li>
+                <li>
+                  사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수
+                  없습니다.
+                </li>
+              </ol>
+              <p class="note">
+                서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입
+                요청이 부분적으로만 완료될 수 있었습니다.
+              </p>
+            </div>
+            <div>
+              <figure class="diagram rise" style="--d: 0.1s">
+                <div class="diagram-empty" data-diagram="p3-signup-seq">
+                  <span>회원가입 실패 시퀀스 다이어그램</span
+                  ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+                </div>
+                <figcaption>그림 3-2. 회원가입 실패 시퀀스 (예정)</figcaption>
+              </figure>
+              <h3>Reason — 원인 분석</h3>
+              <ul class="tight rise" style="--d: 0.15s">
+                <li>
+                  <b>부분 실패에 대한 처리 부족:</b> 한 서비스의 실패가 다른
+                  서비스에 이미 반영된 데이터를 자동으로 되돌리지 못했습니다.
+                </li>
+                <li>
+                  <b>재시도에 대한 안전성 부족:</b> 동일한 요청이 반복됐을 때
+                  중복 데이터나 충돌이 발생할 수 있었습니다.
+                </li>
+                <li>
+                  <b>데이터 복구 절차 부족:</b> 요청 처리 도중 발생한 불일치를
+                  찾아 복구하는 절차가 필요했습니다.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <footer class="page-tag">웹 15/18</footer>
+      </section>
+
+      <!-- P3-3. 해결 + 핵심 구현 -->
+      <section id="p3-solve" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 03 · MatchUP</p>
+          <h2 class="h2-sm">Solve — 해결 방안</h2>
+          <p class="compact">
+            회원가입 과정에서 각 서비스의 처리 결과를 구분하고, 중간 단계에서
+            실패하더라도 데이터가 불일치한 상태로 방치되지 않도록 처리 흐름을
+            개선했습니다.
+          </p>
+          <h3>Implementation — 핵심 구현</h3>
+          <div class="impl-panel">
+            <h4>① 멱등성 확보</h4>
+            <ul class="tight">
+              <li>요청의 중복 여부를 확인할 기준을 정의합니다.</li>
+              <li>이미 처리된 요청을 구분해 중복 실행을 방지합니다.</li>
+              <li>
+                네트워크 오류나 응답 유실로 인한 재시도에도 안전하게 처리되도록
+                합니다.
+              </li>
+            </ul>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p3-idem">
+                <span>멱등성 확보 다이어그램</span><em>빈 이미지</em>
+              </div>
+            </figure>
+          </div>
+          <div class="impl-panel" data-panel="p3-i2">
+            <h4>② 실패 시 보상 처리</h4>
+            <ul class="tight">
+              <li>각 단계의 성공 및 실패 상태를 구분합니다.</li>
+              <li>
+                후속 단계가 실패하면 이전 단계의 결과를 보상하는 절차를
+                수행합니다.
+              </li>
+              <li>
+                보상 처리 자체가 실패할 가능성도 고려해 별도 복구가 가능하도록
+                합니다.
+              </li>
+            </ul>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p3-comp">
+                <span>보상 처리 다이어그램</span><em>빈 이미지</em>
+              </div>
+            </figure>
+          </div>
+          <div class="impl-panel" data-panel="p3-i3">
+            <h4>③ 데이터 정합성 점검 및 복구</h4>
+            <ul class="tight">
+              <li>인증 정보와 사용자 데이터의 불일치 여부를 확인합니다.</li>
+              <li>복구가 필요한 데이터를 식별합니다.</li>
+              <li>재처리 또는 보상 처리를 통해 정상 상태로 복구합니다.</li>
+            </ul>
+            <figure class="diagram">
+              <div class="diagram-empty sm" data-diagram="p3-recon">
+                <span>정합성 점검·복구 다이어그램</span><em>빈 이미지</em>
+              </div>
+            </figure>
+          </div>
+        </div>
+        <footer class="page-tag">웹 16/18</footer>
+      </section>
+
+      <!-- P3-4. 검증 -->
+      <section id="p3-verify" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 03 · MatchUP</p>
+          <h2 class="h2-sm">Verification — 검증</h2>
+          <table class="v-table rise" style="--d: 0.05s">
+            <tr>
+              <th>테스트 시나리오</th>
+              <th>주요 확인사항</th>
+            </tr>
+            <tr>
+              <td>정상 회원가입</td>
+              <td>인증 정보와 사용자 데이터가 모두 정상적으로 생성되는가</td>
+            </tr>
+            <tr>
+              <td>동일 요청 재전송</td>
+              <td>중복 데이터가 생성되지 않는가</td>
+            </tr>
+            <tr>
+              <td>인증 생성 실패</td>
+              <td>사용자 데이터만 남는 불일치가 처리되는가</td>
+            </tr>
+            <tr>
+              <td>불일치 데이터 처리</td>
+              <td>
+                복구가 필요한 상태를 식별 후 복구 절차를 통해 정상 상태로
+                돌아가는가
+              </td>
+            </tr>
+          </table>
+          <figure class="diagram rise" style="--d: 0.1s">
+            <div class="diagram-empty sm" data-diagram="p3-test">
+              <span>통합테스트 결과 캡쳐</span
+              ><em>빈 이미지 — 실제 캡쳐로 교체 예정</em>
+            </div>
+            <figcaption>그림 3-3. 통합테스트 결과 (예정)</figcaption>
+          </figure>
+        </div>
+        <footer class="page-tag">웹 17/18</footer>
+      </section>
+
+      <!-- P3-5. 효과 + 회고 -->
+      <section id="p3-effect" class="screen">
+        <div class="screen-inner">
+          <p class="kicker">Project 03 · MatchUP</p>
+          <h2 class="h2-sm">Effect — 개선 효과</h2>
+          <ul class="tight rise" style="--d: 0.05s">
+            <li>
+              <b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리
+              문제를 방지합니다.
+            </li>
+            <li>
+              <b>실패 복구 가능성:</b> 중간 단계 실패 시 데이터 상태를 복구할 수
+              있는 절차를 마련했습니다.
+            </li>
+            <li>
+              <b>운영 안정성:</b> 요청 처리 중 해결되지 않은 데이터 불일치를
+              확인하고 복구할 수 있도록 개선했습니다.
+            </li>
+          </ul>
+          <h3 class="rise" style="--d: 0.1s">Review — 회고</h3>
+          <p class="compact rise" style="--d: 0.12s">
+            서비스 간 데이터 정합성은 정상적인 요청 흐름만으로 보장되지
+            않습니다. 중간 실패와 재시도, 복구 과정까지 함께 설계해야 합니다.
+            이번 경험을 통해 기능을 서비스별로 분리하는 것뿐 아니라, 서비스
+            경계를 넘어 데이터의 상태를 어떻게 유지하고 복구할 것인지 고려하는
+            것이 중요하다는 점을 확인했습니다.
+          </p>
+          <p class="compact rise" style="--d: 0.15s">
+            향후에는 장애 상황별 테스트를 확대하고, 불일치 발생과 복구 이력을
+            추적할 수 있도록 관측 가능성을 강화해 데이터 정합성을 더욱
+            안정적으로 관리하고자 합니다.
+          </p>
+        </div>
+        <footer class="page-tag">웹 18/18</footer>
+      </section>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>

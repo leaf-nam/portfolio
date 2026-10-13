@@ -654,12 +654,43 @@ ol.steps {
   margin: 0;
 }
 
-/* 핵심 구현 (펼침형: 데스크탑 3단, 인쇄·모바일 쌓기) */
+/* Solve 2단: 카드 2개(위아래) + 순서도 */
+.solve-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-top: 8px;
+}
+.solve-cards {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+.solve-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #fbfcff;
+}
+.solve-card h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+.solve-card .impl-img {
+  margin-top: 8px;
+}
+.solve-grid .diagram {
+  margin: 0;
+}
 @media screen and (min-width: 861px) {
   .impl-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
+  }
+  #p3-solve .impl-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   .impl-grid .impl-panel {
     margin-bottom: 0;
@@ -730,6 +761,9 @@ ol.steps {
     grid-template-columns: 1fr;
   }
   .paired {
+    grid-template-columns: 1fr;
+  }
+  .solve-grid {
     grid-template-columns: 1fr;
   }
   .topic-img {

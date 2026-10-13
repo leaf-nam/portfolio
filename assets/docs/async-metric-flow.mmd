@@ -1,0 +1,14 @@
+sequenceDiagram
+    %% 개선된 지표 생성과정: 상세 20개·타임라인 400개 동시 전송 (초안)
+    %% 미리보기: https://mermaid.live 에 붙여넣기
+    autonumber
+    actor D as Developer
+    participant S as Statistics Server
+    participant R as Riot API
+    D->>S: 지표 생성 명령
+    S->>R: 게임 상세정보 요청 (20개 동시 전송)
+    R-->>S: 전체 응답 확인
+    S->>R: 게임 타임라인 정보 요청 (400개 동시 전송)
+    R-->>S: 전체 응답 확인
+    S->>S: 지표 일괄 생성
+    Note over S,R: 응답 대기 없이 전송

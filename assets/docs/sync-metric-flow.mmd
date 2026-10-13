@@ -1,0 +1,18 @@
+sequenceDiagram
+    %% 기존 지표 생성과정: 동기 방식 + 이중 루프 (초안)
+    %% 미리보기: https://mermaid.live 에 붙여넣기
+    autonumber
+    actor D as Developer
+    participant S as Statistics Server
+    participant R as Riot API
+    D->>S: 지표 생성 명령
+    loop 20회 반복
+        S->>R: 게임 상세정보 요청
+        R-->>S: 게임 상세정보 응답
+        loop 타임라인 20회 전송
+            S->>R: 게임 타임라인 정보 요청
+            R-->>S: 게임 타임라인 정보 응답
+        end
+    end
+    Note over S,R: 1개 요청 전송 후 응답 대기
+    S->>S: 지표 생성

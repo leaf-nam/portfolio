@@ -763,6 +763,22 @@ ol.steps {
 .solve-grid .diagram {
   margin: 0;
 }
+#p3-solve .solve-grid {
+  gap: 10px;
+  margin-top: 6px;
+}
+#p3-solve .solve-card {
+  padding: 10px 12px;
+}
+#p3-solve .solve-card .impl-img {
+  max-height: 80px;
+}
+#p3-solve .mermaid-slot svg {
+  max-height: 300px;
+}
+#p3-solve h3 {
+  margin: 10px 0 4px;
+}
 @media screen and (min-width: 861px) {
   .impl-grid {
     display: grid;

@@ -173,12 +173,20 @@ body {
 /* margin:auto 중앙정렬: 들어가면 중앙, 넘치면 위쪽부터 보여줌 */
 .screen-inner {
   width: 100%;
-  margin: auto auto 4px;
+  margin: 0 auto 4px;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(20, 40, 90, 0.1);
+}
+.screen-kicker {
+  width: 100%;
+  margin: auto auto 4px;
+  color: var(--brand);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }
 .page-tag {
   width: 100%;
@@ -200,7 +208,8 @@ body {
     justify-content: flex-start;
     align-content: start;
   }
-  .page-tag {
+  .page-tag,
+  .screen-kicker {
     width: min(1060px, 100%, calc((100vh - 190px) * 1.41414));
   }
 }
@@ -705,7 +714,8 @@ ol.steps {
   #p3-verify .screen-inner {
     border-bottom: 0.4mm dashed #d4d9e4;
   }
-  .page-tag {
+  .page-tag,
+  .screen-kicker {
     display: none !important;
   }
   .kicker {

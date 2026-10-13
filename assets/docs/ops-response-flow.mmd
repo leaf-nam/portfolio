@@ -1,12 +1,13 @@
 flowchart LR
-    %% 장애 대응 흐름 (초안)
+    %% AI 장애 자동대응 흐름 (초안)
     %% 미리보기: https://mermaid.live 에 붙여넣기
-    AL["Grafana 알람·제보"] --> S["server-mcp 현재 상태 조회"]
-    S --> I["incident-mcp 과거 사례 조회"]
-    I --> A["조치"]
-    A --> R["incident-mcp에 기록"]
-    R -. "재발 시 참조" .-> I
+    TR["n8n: 오류·장애 감지"] --> C["server-mcp 메트릭·로그 수집"]
+    C --> L["LLM API 원인 분석"]
+    L --> I["incident-mcp 과거 원인 대조"]
+    I --> S["문제 해결"]
+    S --> R["incident DB에 기록"]
+    R -. "히스토리 축적" .-> L
     classDef step fill:#e9f0e7,stroke:#4a6a53,stroke-width:2px,color:#1a2233
     classDef rec fill:#f2ede9,stroke:#a99aa3,stroke-width:2px,stroke-dasharray:6 4,color:#1a2233
-    class AL,S,I,A step
+    class TR,C,L,I,S step
     class R rec

@@ -46,8 +46,8 @@
       <a href="#p1-effect" data-dot="p1-effect" title="P1 효과·회고">8</a>
       <a href="#p2-overview" data-dot="p2-overview" title="P2 개요">9</a>
       <a href="#p2-problem" data-dot="p2-problem" title="P2 문제">10</a>
-      <a href="#p2-scenario" data-dot="p2-scenario" title="P2 시나리오·원인">11</a>
-      <a href="#p2-solve" data-dot="p2-solve" title="P2 해결·구현">12</a>
+      <a href="#p2-solve" data-dot="p2-solve" title="P2 해결">11</a>
+      <a href="#p2-impl" data-dot="p2-impl" title="P2 구현">12</a>
       <a href="#p2-verify" data-dot="p2-verify" title="P2 검증">13</a>
       <a href="#p2-effect" data-dot="p2-effect" title="P2 효과·회고">14</a>
       <a href="#p3-overview" data-dot="p3-overview" title="P3 개요">15</a>
@@ -245,7 +245,7 @@
               </div>
               <p class="pill">02 · Chaerok</p>
               <h3>운영 자동화 및 장애대응</h3>
-              <p>AI 및 MCP 활용 모니터링, 알람 자동화</p>
+              <p>n8n·LLM·MCP 기반 장애 자동대응</p>
               <svg
                 viewBox="0 0 200 110"
                 class="topic-img"
@@ -466,7 +466,7 @@
         <footer class="page-tag">5/12</footer>
       </section>
 
-      <!-- 5. P1 해결 + 핵심 구현 (펼침형) -->
+      <!-- 6. P1 해결 + 핵심 구현 (펼침형) -->
       <section id="p1-solve" class="screen">
         <div class="screen-kicker">Project 01 · HouseOfOngr</div>
         <div class="screen-inner">
@@ -717,7 +717,7 @@
         <footer class="page-tag">6/12</footer>
       </section>
 
-      <!-- 6. P1 검증 -->
+      <!-- 7. P1 검증 -->
       <section id="p1-verify" class="screen">
         <div class="screen-kicker">Project 01 · HouseOfOngr</div>
         <div class="screen-inner">
@@ -759,7 +759,7 @@
         <footer class="page-tag">7/12</footer>
       </section>
 
-      <!-- 7. P1 효과 + 회고 -->
+      <!-- 8. P1 효과 + 회고 -->
       <section id="p1-effect" class="screen">
         <div class="screen-kicker">Project 01 · HouseOfOngr</div>
         <div class="screen-inner">
@@ -819,30 +819,31 @@
         <footer class="page-tag">8/12</footer>
       </section>
 
-      <!-- 8. P2 개요 + 문제 (작성 중) -->
+      <!-- 9. P2 개요 + 문제 (작성 중) -->
       <section id="p2-overview" class="screen fill-screen">
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
           <h1>운영 자동화 및 장애대응</h1>
-          <p class="sub">AI 및 MCP 활용 모니터링, 알람 자동화</p>
+          <p class="sub">n8n·LLM·MCP 기반 장애 자동대응</p>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
-            단일 서버에서 운영되는 다수 스택의 상태를 사람이 순회 확인하던
-            운영을, 메트릭·로그 수집과 MCP 기반 진단, 알람 자동화로 바꾸는 것이
-            목표였습니다. 장애가 나면 현재 상태와 과거 사례를 함께 조회해
-            조치하고 기록까지 남기는 흐름을 만드는 데 집중했습니다.
+            배포 오류나 장애가 나면 사용자가 직접 로그를 확인하고 원인을
+            분석해야 했습니다. n8n과 LLM API, incident-MCP·server-MCP를 엮어
+            AI가 메트릭을 수집하고 과거 원인에서 답을 찾아 해결하도록
+            했습니다. 해결된 결과는 다시 incident DB에 쌓여 다음 해결을 더
+            낫게 만드는 선순환 구조가 목표였습니다.
           </p>
           <figure class="diagram fill-figure rise" style="--d: 0.1s">
             <div class="fill-frame">
               <div class="diagram-empty" data-diagram="p2-infra">
-                <span>인프라 구성 다이어그램</span
+                <span>AI 장애대응 구조도</span
                 ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
               </div>
             </div>
-            <figcaption>그림 2-1. 인프라 구성 (예정)</figcaption>
+            <figcaption>그림 2-1. AI 장애대응 구조 (예정)</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">9/16</footer>
+        <footer class="page-tag">9/15</footer>
       </section>
 
       <!-- 10. P2 문제 -->
@@ -854,40 +855,62 @@
             Problem <span class="ko">문제상황</span>
           </h3>
           <p class="rise" style="--d: 0.12s">
-            모니터링은 있었지만 깨진 대시보드와 수집되지 않는 메트릭이 있었고,
-            장애 대응은 개인의 경험과 수동 명령어에 의존했습니다. 야간이나 반복
-            장애에서 원인 특정이 느렸습니다.
+            배포 오류나 장애가 발생하면 사용자가 직접 서버에 접속해 로그를
+            뒤지고 원인을 분석해야 했습니다. 로그 양이 많고 원인이 흩어져 있어
+            특정이 느렸고, 같은 장애가 반복돼도 매번 처음부터 살펴봐야 했습니다.
           </p>
           <figure class="diagram rise" style="--d: 0.15s">
             <div class="diagram-empty" data-diagram="p2-monitoring">
-              <span>운영 모니터링 구성도</span
+              <span>기존 수동 대응 흐름도</span
               ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
             </div>
-            <figcaption>그림 2-2. 운영 모니터링 구성 (예정)</figcaption>
+            <figcaption>그림 2-2. 기존 수동 대응 흐름 (예정)</figcaption>
           </figure>
+          <h3 class="rise" style="--d: 0.12s">
+            Reason <span class="ko">원인분석</span>
+          </h3>
+          <ul class="tight rise" style="--d: 0.15s">
+            <li>
+              <b>직접 확인:</b> 장애가 나면 서버에 접속해 로그를 직접 뒤져야
+              했습니다.
+            </li>
+            <li>
+              <b>원인 분산:</b> 로그가 많고 원인이 흩어져 특정이 느렸습니다.
+            </li>
+            <li>
+              <b>반복 대응:</b> 같은 장애도 매번 처음부터 분석해야 했습니다.
+            </li>
+          </ul>
         </div>
-        <footer class="page-tag">10/16</footer>
+        <footer class="page-tag">10/15</footer>
       </section>
 
-      <!-- 11. P2 시나리오 + 원인 -->
-      <section id="p2-scenario" class="screen">
+      <!-- 11. P2 해결 (아이디어 + 대응 시나리오) -->
+      <section id="p2-solve" class="screen">
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
+          <h2>Solve <span class="ko">해결</span></h2>
+          <h3>Idea <span class="ko">아이디어</span></h3>
+          <p class="compact">
+            n8n이 감지하고, MCP가 수집하고, LLM이 분석·해결하고, 결과가 DB에
+            쌓이는 선순환으로 연결했습니다. 사람은 최종 판단만 하고, 수집·분석·기록은
+            AI에게 맡기는 것이 목표였습니다.
+          </p>
           <h3>Operation Scenario <span class="ko">대응 시나리오</span></h3>
           <div class="paired">
             <div class="paired-text">
               <ol class="steps rise" style="--d: 0.05s">
-                <li>Grafana 알람(또는 제보)으로 장애를 인지합니다.</li>
+                <li>n8n이 배포 오류·장애 발생을 감지합니다.</li>
+                <li>server-mcp로 메트릭과 로그를 수집합니다.</li>
                 <li>
-                  server-mcp로 현재 상태를 조회합니다 (docker ps·팬/온도·로그).
+                  LLM API가 incident-mcp 과거 원인과 대조해 원인을 분석합니다.
                 </li>
-                <li>incident-mcp에서 과거 유사 사례를 조회합니다.</li>
-                <li>원인을 특정해 조치합니다 (재기동·설정 변경).</li>
-                <li>조치 내용을 incident-mcp에 기록합니다.</li>
+                <li>분석 결과로 문제를 해결합니다.</li>
+                <li>해결 결과를 incident DB에 기록해 히스토리를 쌓습니다.</li>
               </ol>
               <p class="note">
-                현재 상태와 과거 사례를 함께 보는 흐름으로, 개인 경험에
-                의존하던 대응을 절차화했습니다.
+                수집→분석→해결→기록이 자동으로 돌고, 기록이 쌓일수록 해결이
+                나아지는 선순환 구조입니다.
               </p>
             </div>
             <figure class="diagram rise" style="--d: 0.1s">
@@ -903,97 +926,80 @@
               <figcaption>그림 2-3. 장애 대응 흐름</figcaption>
             </figure>
           </div>
-          <h3 class="rise" style="--d: 0.12s">
-            Reason <span class="ko">원인분석</span>
-          </h3>
-          <ul class="tight rise" style="--d: 0.15s">
-            <li>
-              <b>수동 확인 의존:</b> 상태를 알려면 서버에 직접 접속해 명령어를
-              실행해야 했습니다.
-            </li>
-            <li>
-              <b>사례의 휘발성:</b> 과거 장애의 원인과 조치가 개인 기억에만
-              남았습니다.
-            </li>
-            <li>
-              <b>알람 부적합:</b> 임계치가 현실과 맞지 않아 울려야 할 때 울리지
-              않았습니다.
-            </li>
-          </ul>
         </div>
         <footer class="page-tag">11/16</footer>
       </section>
 
-      <!-- 12. P2 해결 + 핵심 구현 (펼침형) -->
-      <section id="p2-solve" class="screen">
+      <!-- 12. P2 구현 -->
+      <section id="p2-impl" class="screen">
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
-          <h2>Solve <span class="ko">해결</span></h2>
-          <h3>Idea <span class="ko">아이디어</span></h3>
-          <p class="compact">
-            수집(메트릭·로그)→진단(MCP)→알람·기록 자동화로 연결했습니다.
-            사람이 판단할 일은 남기고, 조회와 전파는 자동화하는 것이
-            목표였습니다.
-          </p>
           <h3>Implementation <span class="ko">핵심구현</span></h3>
           <div class="impl-panel">
-            <h4>① 모니터링 스택 구축</h4>
+            <h4>① n8n 감지·트리거</h4>
             <ul class="tight">
               <li>
-                Prometheus에 node-exporter·cadvisor·weed 스크랩을 구성했습니다.
+                n8n 워크플로우가 배포 오류·장애 발생을 감지합니다.
               </li>
-              <li>
-                깨진 대시보드를 정리하고 코드 프로비저닝 3종을 신설했습니다.
-              </li>
-              <li>
-                promtail→Loki→Grafana 로그 조회 환경을 마련했습니다.
-              </li>
+              <li>감지 즉시 대응 파이프라인을 실행합니다.</li>
+              <li>사람 개입 없이 수집 단계로 넘깁니다.</li>
             </ul>
             <figure class="diagram">
               <svg
                 viewBox="0 0 220 100"
                 class="impl-img"
                 role="img"
-                aria-label="모니터링 스택"
+                aria-label="n8n 감지 트리거"
               >
-                <rect
-                  x="52"
-                  y="10"
-                  width="116"
-                  height="62"
-                  rx="10"
-                  fill="#fff"
+                <path
+                  d="M36 10 L22 54 h11 L31 90 L50 44 h-13 L45 10 z"
+                  fill="#4a6a53"
+                />
+                <path
+                  d="M62 50 h26 m0 0 -7 -7 m7 7 -7 7"
+                  stroke="#a99aa3"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="112"
+                  cy="50"
+                  r="17"
+                  fill="#e9f0e7"
                   stroke="#51655c"
-                  stroke-width="5"
+                  stroke-width="4"
                 />
-                <rect x="66" y="52" width="20" height="20" fill="#c9d4cb" />
-                <rect x="92" y="42" width="20" height="30" fill="#9db3a4" />
-                <rect x="118" y="30" width="20" height="42" fill="#4a6a53" />
-                <rect x="102" y="72" width="16" height="10" fill="#51655c" />
-                <rect
-                  x="82"
-                  y="82"
-                  width="56"
-                  height="7"
-                  rx="3.5"
-                  fill="#51655c"
+                <circle cx="112" cy="50" r="6" fill="#4a6a53" />
+                <path
+                  d="M133 50 h26 m0 0 -7 -7 m7 7 -7 7"
+                  stroke="#a99aa3"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
+                <circle
+                  cx="183"
+                  cy="50"
+                  r="17"
+                  fill="#e9f0e7"
+                  stroke="#51655c"
+                  stroke-width="4"
+                />
+                <circle cx="183" cy="50" r="6" fill="#4a6a53" />
               </svg>
             </figure>
           </div>
           <div class="impl-panel">
-            <h4>② MCP 기반 진단</h4>
+            <h4>② LLM 분석</h4>
             <ul class="tight">
+              <li>server-mcp로 메트릭과 로그를 수집합니다.</li>
               <li>
-                server-mcp로 docker ps·팬/온도·로그를 단일 진입점에서
-                조회합니다.
+                LLM API가 incident-mcp 과거 원인과 대조해 분석합니다.
               </li>
-              <li>
-                incident-mcp에서 과거 장애 사례를 검색해 원인을 대조합니다.
-              </li>
-              <li>
-                조치 결과는 incident-mcp에 기록해 다음 대응에 재활용합니다.
-              </li>
+              <li>분석 결과로 해결 방안을 도출합니다.</li>
             </ul>
             <figure class="diagram">
               <svg
@@ -1038,30 +1044,26 @@
             </figure>
           </div>
           <div class="impl-panel">
-            <h4>③ 알람·백업 자동화</h4>
+            <h4>③ incident DB 기록·선순환</h4>
             <ul class="tight">
-              <li>
-                n8n 워크플로우와 Grafana 알람으로 이상 징후를 통지합니다.
-              </li>
-              <li>mysql-main 일일 덤프를 자동화하고 7개를 유지합니다.</li>
-              <li>
-                Jenkins 파이프라인을 안정화했습니다 (스테이지 agent 분리·dev
-                체크아웃 제거).
-              </li>
+              <li>해결 결과를 incident DB에 기록합니다.</li>
+              <li>쌓인 히스토리가 다음 분석의 근거가 됩니다.</li>
+              <li>반복될수록 해결 과정이 개선됩니다.</li>
             </ul>
             <figure class="diagram">
               <svg
                 viewBox="0 0 220 100"
                 class="impl-img"
                 role="img"
-                aria-label="알람과 백업 자동화"
+                aria-label="기록과 선순환"
               >
                 <path
-                  d="M52 22 c-8 0 -14 6 -14 14 0 9 -4 11 -4 17 h36 c0 -6 -4 -8 -4 -17 0 -8 -6 -14 -14 -14 z M46 58 a6 6 0 0 0 12 0 z"
+                  d="M28 38 v28 c0 5 9 9 20 9 s20 -4 20 -9 v-28"
                   fill="#51655c"
                 />
+                <ellipse cx="48" cy="38" rx="20" ry="7" fill="#4a6a53" />
                 <path
-                  d="M96 50 h30 m0 0 -8 -8 m8 8 -8 8"
+                  d="M74 53 h28 m0 0 -8 -8 m8 8 -8 8"
                   stroke="#a99aa3"
                   stroke-width="4"
                   fill="none"
@@ -1069,21 +1071,30 @@
                   stroke-linejoin="round"
                 />
                 <path
-                  d="M136 34 v30 c0 5 10 9 22 9 s22 -4 22 -9 v-30"
-                  fill="#51655c"
-                />
-                <ellipse cx="158" cy="34" rx="22" ry="8" fill="#4a6a53" />
-                <path
-                  d="M196 30 a22 22 0 1 1 -15 -15 m0 0 0 10 m0 -10 10 0"
+                  d="M150 68 a24 24 0 1 1 17 -17 m0 0 0 11 m0 -11 -11 0"
                   stroke="#4a6a53"
                   stroke-width="4"
                   fill="none"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
+                <circle cx="196" cy="26" r="12" fill="#51655c" />
+                <path
+                  d="M196 20 v12 M190 26 h12"
+                  stroke="#fff"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                />
               </svg>
             </figure>
           </div>
+          <figure class="diagram rise" style="--d:.2s">
+            <div class="diagram-empty" data-diagram="p2-n8n">
+              <span>n8n 노드 캡쳐</span
+              ><em>빈 이미지 — 실제 캡쳐로 교체 예정</em>
+            </div>
+            <figcaption>그림 2-4. n8n 워크플로우 (예정)</figcaption>
+          </figure>
         </div>
         <footer class="page-tag">12/16</footer>
       </section>
@@ -1100,31 +1111,28 @@
               <th>주요 확인사항</th>
             </tr>
             <tr>
-              <td>메트릭 수집</td>
-              <td>node·cadvisor·weed 지표가 Prometheus에 수집되는가</td>
+              <td>감지</td>
+              <td>n8n이 배포 오류·장애 발생을 감지하는가</td>
             </tr>
             <tr>
-              <td>로그 조회</td>
-              <td>Loki 대시보드에서 컨테이너 로그·에러를 찾을 수 있는가</td>
+              <td>수집·분석</td>
+              <td>server-mcp 수집과 LLM 분석으로 원인을 특정할 수 있는가</td>
             </tr>
             <tr>
-              <td>장애 진단</td>
-              <td>
-                server-mcp 상태와 incident-mcp 과거 사례로 원인을 특정할 수
-                있는가
-              </td>
+              <td>과거 대조</td>
+              <td>incident-mcp 과거 원인에서 답을 찾을 수 있는가</td>
             </tr>
             <tr>
-              <td>알람·기록</td>
-              <td>임계치 초과 시 알람이 울리고 incident에 기록되는가</td>
+              <td>기록·선순환</td>
+              <td>해결 결과가 incident DB에 쌓여 재활용되는가</td>
             </tr>
           </table>
           <figure class="diagram rise" style="--d: 0.1s">
             <div class="diagram-empty sm" data-diagram="p2-test">
-              <span>모니터링 화면 캡쳐</span
+              <span>AI 대응 결과 캡쳐</span
               ><em>빈 이미지 — 실제 캡쳐로 교체 예정</em>
             </div>
-            <figcaption>그림 2-4. 모니터링 화면 (예정)</figcaption>
+            <figcaption>그림 2-5. AI 대응 결과 (예정)</figcaption>
           </figure>
         </div>
         <footer class="page-tag">13/16</footer>
@@ -1138,14 +1146,16 @@
           <h3>Effect <span class="ko">개선효과</span></h3>
           <ul class="tight rise" style="--d: 0.05s">
             <li>
-              <b>단일 진입점:</b> 흩어진 확인 절차를 Grafana·MCP로 모았습니다.
+              <b>수동 확인 탈피:</b> 직접 로그를 뒤지던 대응을 AI 수집·분석으로
+              바꿨습니다.
             </li>
             <li>
-              <b>오탐 감소:</b> 팬 RPM 알람을 1500→2000RPM으로 현실화했습니다.
+              <b>과거 활용:</b> incident DB의 원인을 재사용해 반복 장애에
+              대응합니다.
             </li>
             <li>
-              <b>정돈된 운영:</b> mysql 일일 덤프 7개 유지, 리스닝 58→51개로
-              축소했습니다.
+              <b>선순환:</b> 해결 기록이 쌓여 다음 해결이 나아지는 구조를
+              만들었습니다.
             </li>
           </ul>
           <h3 class="rise" style="--d: 0.1s">
@@ -1153,18 +1163,18 @@
           </h3>
           <h4 class="rise" style="--d: 0.12s">Keep <span class="ko">계속할점</span></h4>
           <ul class="tight rise" style="--d: 0.13s">
-            <li>현재 상태와 과거 사례를 함께 보고 조치했습니다.</li>
-            <li>대시보드는 코드로, 대응은 문서·기록으로 남겼습니다.</li>
+            <li>수집→분석→해결→기록 선순환 구조를 만들었습니다.</li>
+            <li>사람은 최종 판단에 집중했습니다.</li>
           </ul>
           <h4 class="rise" style="--d: 0.14s">Problem <span class="ko">아쉬운점</span></h4>
           <ul class="tight rise" style="--d: 0.15s">
-            <li>Spring Boot actuator 메트릭이 수집되지 않았습니다.</li>
-            <li>알람 이후 조치가 수동으로 이어졌습니다.</li>
+            <li>쌓인 히스토리 초기에는 분석 근거가 부족했습니다.</li>
+            <li>복구 실행의 자동화는 다음 단계입니다.</li>
           </ul>
           <h4 class="rise" style="--d: 0.16s">Try <span class="ko">시도할점</span></h4>
           <ul class="tight rise" style="--d: 0.17s">
-            <li>actuator 스크랩과 전용 대시보드를 완성하겠습니다.</li>
-            <li>n8n으로 알람→자동복구를 확대하겠습니다.</li>
+            <li>쌓이는 기록으로 분석 기준을 개선하겠습니다.</li>
+            <li>승인 후 자동 복구까지 확대하겠습니다.</li>
           </ul>
         </div>
         <footer class="page-tag">14/16</footer>
@@ -1187,7 +1197,7 @@
         <footer class="page-tag">15/16</footer>
       </section>
 
-      <!-- 12. P3 문제 -->
+      <!-- 16. P3 문제 -->
       <section id="p3-problem" class="screen">
         <div class="screen-kicker">Project 03 · MatchUP</div>
         <div class="screen-inner">

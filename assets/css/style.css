@@ -565,6 +565,35 @@ ol.steps {
   border: 1px solid var(--line);
   border-radius: 10px;
 }
+/* 화면 빈공간을 채우는 이미지 (fill-screen 쪽 전용) */
+.fill-screen .fit {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.fill-figure {
+  flex: 1 1 auto;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 0;
+}
+.fill-frame {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.fill-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* 핵심 구현 (펼침형: 데스크탑 3단, 인쇄·모바일 쌓기) */
 @media screen and (min-width: 861px) {
@@ -933,6 +962,12 @@ ol.steps {
   .content-img {
     height: 50mm;
     border-radius: 2mm;
+  }
+  .fill-screen .fit {
+    height: auto;
+  }
+  .fill-figure {
+    min-height: 55mm;
   }
   .impl-tabs {
     display: none !important;

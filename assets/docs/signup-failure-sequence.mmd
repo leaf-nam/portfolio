@@ -1,0 +1,25 @@
+%% 회원가입 실패 시퀀스 (초안)
+%% 미리보기: https://mermaid.live 에 붙여넣기 / VS Code "Markdown Preview Mermaid Support" 확장
+sequenceDiagram
+    autonumber
+    participant U as 사용자
+    participant GW as API Gateway
+    participant US as User Service
+    participant UDB as User DB
+    participant AU as Auth Service
+    participant AUDB as Auth DB
+
+    U->>GW: 회원가입 요청
+    GW->>US: 회원가입 전달
+    US->>UDB: 사용자 데이터 저장
+    UDB-->>US: 저장 OK
+    US->>AU: 인증 정보 생성 요청
+    AU--xUS: 오류 발생 (인증 생성 실패)
+    Note over US,AUDB: 사용자 데이터만 남고<br/>인증 정보는 없는 불일치 상태
+
+    U->>GW: 회원가입 재시도
+    GW->>US: 회원가입 전달
+    US->>UDB: 사용자 데이터 저장 시도
+    UDB--xUS: 기존 데이터와 충돌 (실패)
+    US--xGW: 가입 실패 응답
+    GW--xU: 가입 실패 안내

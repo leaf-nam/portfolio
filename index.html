@@ -38,7 +38,9 @@
       <a href="#index" data-dot="index" title="Projects 목차">2</a>
       <a href="#p1-overview" data-dot="p1-overview" title="P1 개요">3</a>
       <a href="#p1-problem" data-dot="p1-problem" title="P1 문제">4</a>
-      <a href="#p1-scenario" data-dot="p1-scenario" title="P1 시나리오·원인">5</a>
+      <a href="#p1-scenario" data-dot="p1-scenario" title="P1 시나리오·원인"
+        >5</a
+      >
       <a href="#p1-solve" data-dot="p1-solve" title="P1 해결·구현">6</a>
       <a href="#p1-verify" data-dot="p1-verify" title="P1 검증">7</a>
       <a href="#p1-effect" data-dot="p1-effect" title="P1 효과·회고">8</a>
@@ -358,10 +360,12 @@
           <h1>MSA 내 데이터 정합성 확보</h1>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
-            인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
-            데이터 불일치 문제를 해결했습니다. <br/>
-            서비스 간 요청이 부분적으로 실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
-            만드는 것이 목표였습니다.
+            <strong>인증 기능과 사용자 기능을 분리</strong>하는 과정에서 발생한
+            회원가입 실패 및 데이터 불일치 문제를 해결했습니다. <br />
+            서비스 간 요청이 부분적으로 실패하더라도
+            <strong
+              >데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조</strong
+            >를 만드는 것이 목표였습니다.
           </p>
           <figure class="diagram fill-figure rise" style="--d: 0.1s">
             <div class="fill-frame">
@@ -386,8 +390,9 @@
             Situation <span class="ko">상황</span>
           </h3>
           <p class="rise" style="--d: 0.12s">
-            기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을
-            분리한 이후 회원가입 과정에서 문제가 발생했습니다.
+            기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만,
+            <strong>기능별로 서비스를 분리</strong>한 이후 회원가입 과정에서
+            문제가 발생했습니다.
           </p>
           <figure class="diagram fill-figure rise" style="--d: 0.1s">
             <div class="fill-frame">
@@ -1233,9 +1238,9 @@
           </h3>
           <p class="rise" style="--d: 0.12s">
             매 요청마다 게임 데이터 응답을 확인한 뒤에야 사용자 데이터를
-            생성하는 동기 구조라, 100명분 생성에 65분이 걸렸습니다. 
-            <br/>3만명의 데이터를 수집해야 했지만, 약 325시간(2주)이 필요해 기한 내 학습 데이터 수집이
-            불가능했습니다.
+            생성하는 동기 구조라, 100명분 생성에 65분이 걸렸습니다.
+            <br />3만명의 데이터를 수집해야 했지만, 약 325시간(2주)이 필요해
+            기한 내 학습 데이터 수집이 불가능했습니다.
           </p>
           <div class="paired">
             <figure class="diagram rise" style="--d: 0.15s">
@@ -1271,9 +1276,7 @@
               <b>동기 블로킹:</b> 매 요청마다 응답을 기다린 뒤에야 다음 단계로
               넘어갔습니다.
             </li>
-            <li>
-              <b>순차 반복:</b> 1개 요청-응답을 20회 반복했습니다.
-            </li>
+            <li><b>순차 반복:</b> 1개 요청-응답을 20회 반복했습니다.</li>
             <li>
               <b>일괄 처리 부재:</b> 전체 응답을 모아 한 번에 처리하는 구조가
               없었습니다.
@@ -1364,7 +1367,9 @@
               <div class="solve-card">
                 <h4>② Mono.zip + Latch 일괄 생성</h4>
                 <ul class="tight">
-                  <li>매치별 상세·타임라인 Mono를 zip으로 묶어 병렬 호출합니다.</li>
+                  <li>
+                    매치별 상세·타임라인 Mono를 zip으로 묶어 병렬 호출합니다.
+                  </li>
                   <li>CountDownLatch(20)로 20건 완료를 대기합니다.</li>
                   <li>전체 응답 확인 시 지표를 한 번에 생성합니다.</li>
                 </ul>
@@ -1417,18 +1422,18 @@
                 </svg>
               </div>
             </div>
-          <figure class="diagram rise" style="--d:.1s">
-            <div
-              class="mermaid-slot"
-              data-mmd="./assets/docs/async-metric-flow.mmd"
-            >
-              <div class="diagram-empty" data-diagram="p3-async-flow">
-                <span>개선된 지표 생성과정</span
-                ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
+            <figure class="diagram rise" style="--d: 0.1s">
+              <div
+                class="mermaid-slot"
+                data-mmd="./assets/docs/async-metric-flow.mmd"
+              >
+                <div class="diagram-empty" data-diagram="p3-async-flow">
+                  <span>개선된 지표 생성과정</span
+                  ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
+                </div>
               </div>
-            </div>
-            <figcaption>그림 3-4. 개선된 지표 생성과정</figcaption>
-          </figure>
+              <figcaption>그림 3-4. 개선된 지표 생성과정</figcaption>
+            </figure>
           </div>
         </div>
         <footer class="page-tag">17/18</footer>
@@ -1453,12 +1458,21 @@
             <div class="log-compare">
               <div class="log-card">
                 <p class="log-cap">변경 전</p>
-                <code>2024-03-25T14:56:15.201+09:00 INFO 13988 --- [nio-8080-exec-1] c.s.m.s.s.sub.SummonerTotalService : 전체 소환사 생성완료[소요시간 : <b>3950292ms</b>]</code>
+                <code
+                  >2024-03-25T14:56:15.201+09:00 INFO 13988 ---
+                  [nio-8080-exec-1] c.s.m.s.s.sub.SummonerTotalService : 전체
+                  소환사 생성완료[소요시간 : <b>3950292ms</b>]</code
+                >
               </div>
               <div class="log-arrow"><span>81% 단축</span><i>→</i></div>
               <div class="log-card">
                 <p class="log-cap">변경 후</p>
-                <code>2024-03-27T13:23:08.887+09:00 INFO 5368 --- [nio-8080-exec-1] c.s.m.s.s.sub.SummonerTotalFluxService : created all summoner(전체 소환사 생성완료, 총 소요시간 : <b>755445ms</b>)</code>
+                <code
+                  >2024-03-27T13:23:08.887+09:00 INFO 5368 --- [nio-8080-exec-1]
+                  c.s.m.s.s.sub.SummonerTotalFluxService : created all
+                  summoner(전체 소환사 생성완료, 총 소요시간 :
+                  <b>755445ms</b>)</code
+                >
               </div>
             </div>
             <figcaption>그림 3-5. 개선 전후 소요시간 로그</figcaption>
@@ -1466,24 +1480,38 @@
           <h3 class="rise" style="--d: 0.1s">
             Review <span class="ko">회고</span>
           </h3>
-          <h4 class="rise" style="--d: 0.12s">Keep <span class="ko">계속할점</span></h4>
+          <h4 class="rise" style="--d: 0.12s">
+            Keep <span class="ko">계속할점</span>
+          </h4>
           <ul class="tight rise" style="--d: 0.13s">
-            <li>기능 구현 시 추상 클래스 및 생성자 활용으로 가독성과 재사용성을 높였습니다.</li>
+            <li>
+              기능 구현 시 추상 클래스 및 생성자 활용으로 가독성과 재사용성을
+              높였습니다.
+            </li>
             <li>비동기 로직에서 CS 기본기의 도움을 받았습니다.</li>
           </ul>
-          <h4 class="rise" style="--d: 0.14s">Problem <span class="ko">아쉬운점</span></h4>
+          <h4 class="rise" style="--d: 0.14s">
+            Problem <span class="ko">아쉬운점</span>
+          </h4>
           <ul class="tight rise" style="--d: 0.15s">
             <li>수집시간을 미리 판단하지 못해 일정에 영향을 미쳤습니다.</li>
-            <li>단위 테스트가 세부 로직에 묶여 리팩터링 시 쉽게 실패했습니다.</li>
+            <li>
+              단위 테스트가 세부 로직에 묶여 리팩터링 시 쉽게 실패했습니다.
+            </li>
           </ul>
-          <h4 class="rise" style="--d: 0.16s">Try <span class="ko">시도할점</span></h4>
+          <h4 class="rise" style="--d: 0.16s">
+            Try <span class="ko">시도할점</span>
+          </h4>
           <ul class="tight rise" style="--d: 0.17s">
             <li>설계과정에서 예상 시간을 추정하고 미리 대응하겠습니다.</li>
-            <li>블랙박스 테스트를 작성하여 테스트가 쉽게 깨지지 않도록 하겠습니다.</li>
+            <li>
+              블랙박스 테스트를 작성하여 테스트가 쉽게 깨지지 않도록 하겠습니다.
+            </li>
           </ul>
         </div>
         <footer class="page-tag">18/18</footer>
       </section>
+    </main>
 
     <script src="./assets/js/main.js"></script>
   </body>

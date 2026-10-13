@@ -1,46 +1,60 @@
 // 진행률 + 도트 + 리빌 리플레이 + 구현 탭 + 용지 맞춤(fit)
 (function () {
-  const scroller = document.getElementById('scroller');
-  const bar = document.getElementById('progress-bar');
+  const scroller = document.getElementById("scroller");
+  const bar = document.getElementById("progress-bar");
 
-  scroller.addEventListener('scroll', () => {
-    const max = scroller.scrollHeight - scroller.clientHeight;
-    const p = max > 0 ? (scroller.scrollTop / max) * 100 : 0;
-    bar.style.width = p + '%';
-  }, { passive: true });
+  scroller.addEventListener(
+    "scroll",
+    () => {
+      const max = scroller.scrollHeight - scroller.clientHeight;
+      const p = max > 0 ? (scroller.scrollTop / max) * 100 : 0;
+      bar.style.width = p + "%";
+    },
+    { passive: true },
+  );
 
   // 섹션 표시: 도트 + .visible (떠나면 제거 → 돌아오면 애니메이션 리플레이)
-  const dots = [...document.querySelectorAll('[data-dot]')];
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        dots.forEach((d) => d.classList.toggle('active', d.dataset.dot === e.target.id));
-        e.target.classList.remove('visible');
-        void e.target.offsetWidth;
-        e.target.classList.add('visible');
-      } else {
-        e.target.classList.remove('visible');
-      }
-    });
-  }, { root: scroller, threshold: 0.3 });
-  document.querySelectorAll('.screen').forEach((s) => { s.classList.add('reveal'); io.observe(s); });
+  const dots = [...document.querySelectorAll("[data-dot]")];
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          dots.forEach((d) =>
+            d.classList.toggle("active", d.dataset.dot === e.target.id),
+          );
+          e.target.classList.remove("visible");
+          void e.target.offsetWidth;
+          e.target.classList.add("visible");
+        } else {
+          e.target.classList.remove("visible");
+        }
+      });
+    },
+    { root: scroller, threshold: 0.3 },
+  );
+  document.querySelectorAll(".screen").forEach((s) => {
+    s.classList.add("reveal");
+    io.observe(s);
+  });
 
   // PDF 버튼
-  document.getElementById('btn-print').addEventListener('click', () => window.print());
+  document
+    .getElementById("btn-print")
+    .addEventListener("click", () => window.print());
 
   // mermaid: .mmd 파일을 SVG로 인라인 렌더 (실패 시 플레이스홀더 유지)
   function loadMermaid() {
     return new Promise((resolve, reject) => {
       if (window.mermaid) return resolve(window.mermaid);
-      const s = document.createElement('script');
-      s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+      const s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js";
       s.onload = () => resolve(window.mermaid);
       s.onerror = reject;
       document.head.appendChild(s);
     });
   }
   async function renderMermaids() {
-    const slots = [...document.querySelectorAll('.mermaid-slot[data-mmd]')];
+    const slots = [...document.querySelectorAll(".mermaid-slot[data-mmd]")];
     if (!slots.length) return;
     let mm;
     try {
@@ -50,7 +64,7 @@
     }
     mm.initialize({
       startOnLoad: false,
-      theme: 'neutral',
+      theme: "neutral",
       themeVariables: {
         fontFamily: '"Pretendard Variable", Pretendard, sans-serif',
       },
@@ -60,7 +74,7 @@
         const res = await fetch(slot.dataset.mmd);
         if (!res.ok) continue;
         const text = await res.text();
-        const { svg } = await mm.render('mmd-' + i, text);
+        const { svg } = await mm.render("mmd-" + i, text);
         slot.innerHTML = svg;
       } catch {
         /* 플레이스홀더 유지 */
@@ -74,38 +88,41 @@
 
   // 용지 맞춤: 내용이 고정비율 용지를 넘치면 Web에서만 축소 (인쇄 CSS는 별도 검증됨)
   function fitOne(inner) {
-    const fit = inner.querySelector(':scope > .fit');
+    const fit = inner.querySelector(":scope > .fit");
     if (!fit) return;
-    if (window.matchMedia('(print)').matches || window.innerWidth < 861) {
-      if (fit.style.zoom) fit.style.zoom = '';
+    if (window.matchMedia("(print)").matches || window.innerWidth < 861) {
+      if (fit.style.zoom) fit.style.zoom = "";
       return;
     }
-    fit.style.zoom = '';
+    fit.style.zoom = "";
     const cs = getComputedStyle(inner);
-    const avail = inner.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const avail =
+      inner.clientHeight -
+      parseFloat(cs.paddingTop) -
+      parseFloat(cs.paddingBottom);
     const need = fit.scrollHeight;
     if (need > avail && avail > 0) {
       fit.style.zoom = String((avail * 0.94) / need);
     }
   }
   function fitPapers() {
-    document.querySelectorAll('.screen-inner').forEach(fitOne);
+    document.querySelectorAll(".screen-inner").forEach(fitOne);
   }
 
   // .screen-inner 자식들을 .fit 하나로 감싸기 (용지 박스는 그대로, 내용만 스케일)
-  document.querySelectorAll('.screen-inner').forEach((inner) => {
-    const fit = document.createElement('div');
-    fit.className = 'fit';
+  document.querySelectorAll(".screen-inner").forEach((inner) => {
+    const fit = document.createElement("div");
+    fit.className = "fit";
     while (inner.firstChild) fit.appendChild(inner.firstChild);
     inner.appendChild(fit);
   });
 
   // 펼침형 구현 패널 3개를 가로 그리드로 묶기 (데스크탑만 3단, 인쇄·모바일은 쌓기)
-  document.querySelectorAll('.screen-inner .fit').forEach((fit) => {
-    const panels = fit.querySelectorAll(':scope > .impl-panel');
+  document.querySelectorAll(".screen-inner .fit").forEach((fit) => {
+    const panels = fit.querySelectorAll(":scope > .impl-panel");
     if (panels.length > 1) {
-      const grid = document.createElement('div');
-      grid.className = 'impl-grid';
+      const grid = document.createElement("div");
+      grid.className = "impl-grid";
       fit.insertBefore(grid, panels[0]);
       panels.forEach((p) => grid.appendChild(p));
     }
@@ -116,23 +133,30 @@
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(fitPapers);
   };
-  window.addEventListener('resize', scheduleFit);
-  window.addEventListener('load', fitPapers);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitPapers);
+  window.addEventListener("resize", scheduleFit);
+  window.addEventListener("load", fitPapers);
+  if (document.fonts && document.fonts.ready)
+    document.fonts.ready.then(fitPapers);
   setTimeout(fitPapers, 600);
   setTimeout(fitPapers, 1500);
   // 용지 크기 변화를 감지해 늦게 바뀌는 내용(웹폰트 등)에도 맞춤 유지
-  if ('ResizeObserver' in window) {
+  if ("ResizeObserver" in window) {
     const ros = new ResizeObserver(scheduleFit);
-    document.querySelectorAll('.screen-inner').forEach((inner) => ros.observe(inner));
+    document
+      .querySelectorAll(".screen-inner")
+      .forEach((inner) => ros.observe(inner));
   }
-  window.addEventListener('beforeprint', () => {
-    document.querySelectorAll('.screen-inner .fit').forEach((f) => { f.style.zoom = ''; });
+  window.addEventListener("beforeprint", () => {
+    document.querySelectorAll(".screen-inner .fit").forEach((f) => {
+      f.style.zoom = "";
+    });
   });
-  window.addEventListener('afterprint', fitPapers);
-  window.matchMedia('(print)').addEventListener('change', (e) => {
+  window.addEventListener("afterprint", fitPapers);
+  window.matchMedia("(print)").addEventListener("change", (e) => {
     if (e.matches) {
-      document.querySelectorAll('.screen-inner .fit').forEach((f) => { f.style.zoom = ''; });
+      document.querySelectorAll(".screen-inner .fit").forEach((f) => {
+        f.style.zoom = "";
+      });
     } else fitPapers();
   });
 })();

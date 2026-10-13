@@ -829,9 +829,9 @@
           <p class="rise" style="--d: 0.05s">
             배포 오류나 장애가 나면 사용자가 직접 로그를 확인하고 원인을
             분석해야 했습니다. n8n과 LLM API, incident-MCP·server-MCP를 엮어
-            AI가 메트릭을 수집하고 과거 원인에서 답을 찾아 해결하도록
-            했습니다. 해결된 결과는 다시 incident DB에 쌓여 다음 해결을 더
-            낫게 만드는 선순환 구조가 목표였습니다.
+            AI가 메트릭을 수집하고 과거 원인에서 답을 찾아 해결하도록 했습니다.
+            해결된 결과는 다시 incident DB에 쌓여 다음 해결을 더 낫게 만드는
+            선순환 구조가 목표였습니다.
           </p>
           <figure class="diagram fill-figure rise" style="--d: 0.1s">
             <div class="fill-frame">
@@ -899,8 +899,8 @@
           <h3>Idea <span class="ko">아이디어</span></h3>
           <p class="compact">
             n8n이 감지하고, MCP가 수집하고, LLM이 분석·해결하고, 결과가 DB에
-            쌓이는 선순환으로 연결했습니다. 사람은 최종 판단만 하고, 수집·분석·기록은
-            AI에게 맡기는 것이 목표였습니다.
+            쌓이는 선순환으로 연결했습니다. 사람은 최종 판단만 하고,
+            수집·분석·기록은 AI에게 맡기는 것이 목표였습니다.
           </p>
           <h3>Operation Scenario <span class="ko">대응 시나리오</span></h3>
           <ol class="steps rise" style="--d: 0.05s">
@@ -913,8 +913,8 @@
             <li>해결 결과를 incident DB에 기록해 히스토리를 쌓습니다.</li>
           </ol>
           <p class="note">
-            수집→분석→해결→기록이 자동으로 돌고, 기록이 쌓일수록 해결이
-            나아지는 선순환 구조입니다.
+            수집→분석→해결→기록이 자동으로 돌고, 기록이 쌓일수록 해결이 나아지는
+            선순환 구조입니다.
           </p>
           <figure class="diagram rise" style="--d: 0.1s">
             <div
@@ -940,9 +940,7 @@
           <div class="impl-panel">
             <h4>① n8n 감지·트리거</h4>
             <ul class="tight">
-              <li>
-                n8n 워크플로우가 배포 오류·장애 발생을 감지합니다.
-              </li>
+              <li>n8n 워크플로우가 배포 오류·장애 발생을 감지합니다.</li>
               <li>감지 즉시 대응 파이프라인을 실행합니다.</li>
               <li>사람 개입 없이 수집 단계로 넘깁니다.</li>
             </ul>
@@ -998,9 +996,7 @@
             <h4>② LLM 분석</h4>
             <ul class="tight">
               <li>server-mcp로 메트릭과 로그를 수집합니다.</li>
-              <li>
-                LLM API가 incident-mcp 과거 원인과 대조해 분석합니다.
-              </li>
+              <li>LLM API가 incident-mcp 과거 원인과 대조해 분석합니다.</li>
               <li>분석 결과로 해결 방안을 도출합니다.</li>
             </ul>
             <figure class="diagram">
@@ -1090,7 +1086,7 @@
               </svg>
             </figure>
           </div>
-          <figure class="diagram rise" style="--d:.2s">
+          <figure class="diagram rise" style="--d: 0.2s">
             <img
               class="content-img"
               src="./assets/image/content/p2-n8n.png"
@@ -1103,7 +1099,7 @@
       </section>
 
       <!-- 13. P2 검증 -->
-      <section id="p2-verify" class="screen">
+      <section id="p2-verify" class="screen fill-screen">
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
           <h2>Result <span class="ko">결과</span></h2>
@@ -1130,12 +1126,15 @@
               <td>해결 결과가 incident DB에 쌓여 재활용되는가</td>
             </tr>
           </table>
-          <figure class="diagram rise" style="--d: 0.1s">
-            <div class="diagram-empty sm" data-diagram="p2-test">
-              <span>AI 대응 결과 캡쳐</span
-              ><em>빈 이미지 — 실제 캡쳐로 교체 예정</em>
+          <figure class="diagram fill-figure rise" style="--d: 0.1s">
+            <div class="fill-frame">
+              <img
+                class="fill-img"
+                src="./assets/image/content/p2-result.png"
+                alt="P2 개요 다이어그램"
+              />
             </div>
-            <figcaption>그림 2-5. AI 대응 결과 (예정)</figcaption>
+            <figcaption>그림 2-5. AI 대응 결과</figcaption>
           </figure>
         </div>
         <footer class="page-tag">13/16</footer>
@@ -1164,17 +1163,23 @@
           <h3 class="rise" style="--d: 0.1s">
             Review <span class="ko">회고</span>
           </h3>
-          <h4 class="rise" style="--d: 0.12s">Keep <span class="ko">계속할점</span></h4>
+          <h4 class="rise" style="--d: 0.12s">
+            Keep <span class="ko">계속할점</span>
+          </h4>
           <ul class="tight rise" style="--d: 0.13s">
             <li>수집→분석→해결→기록 선순환 구조를 만들었습니다.</li>
             <li>사람은 최종 판단에 집중했습니다.</li>
           </ul>
-          <h4 class="rise" style="--d: 0.14s">Problem <span class="ko">아쉬운점</span></h4>
+          <h4 class="rise" style="--d: 0.14s">
+            Problem <span class="ko">아쉬운점</span>
+          </h4>
           <ul class="tight rise" style="--d: 0.15s">
             <li>쌓인 히스토리 초기에는 분석 근거가 부족했습니다.</li>
             <li>복구 실행의 자동화는 다음 단계입니다.</li>
           </ul>
-          <h4 class="rise" style="--d: 0.16s">Try <span class="ko">시도할점</span></h4>
+          <h4 class="rise" style="--d: 0.16s">
+            Try <span class="ko">시도할점</span>
+          </h4>
           <ul class="tight rise" style="--d: 0.17s">
             <li>쌓이는 기록으로 분석 기준을 개선하겠습니다.</li>
             <li>승인 후 자동 복구까지 확대하겠습니다.</li>

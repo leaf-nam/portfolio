@@ -508,8 +508,11 @@ ol.steps {
   gap: 3px;
   margin: 0;
 }
-#p1-scenario .mermaid-slot svg {
+#p1-scenario .paired .mermaid-slot {
   min-height: 450px;
+}
+#p1-scenario .mermaid-slot svg {
+  min-height: 0;
 }
 .btn-row {
   display: flex;

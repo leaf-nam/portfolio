@@ -316,11 +316,13 @@ h4 {
   flex: none;
   fill: var(--brand2);
 }
-/* 표지 상단: 소개글+연락처 | 사진 */
+/* 표지 상단: 사진 | 소개글+연락처 (와이드 가로, 모바일 세로) */
 .cover-top {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
   gap: 18px;
-  align-items: stretch;
   margin: 12px 0 4px;
 }
 .cover-intro {
@@ -328,17 +330,24 @@ h4 {
   min-width: 0;
 }
 .cover-intro .lead {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
 }
 .cover-intro .meta {
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 4px;
+}
+#cover h3 {
+  margin: 8px 0 4px;
+}
+#cover .skills div {
+  padding: 6px 10px;
 }
 .photo-box {
   position: relative;
-  flex: 0 0 auto;
-  width: clamp(150px, 24%, 200px);
+  flex: none;
+  order: -1;
+  width: min(100%, 200px);
   aspect-ratio: 4 / 5;
   min-width: 0;
   border: 2px dashed #b9c4d8;
@@ -644,6 +653,11 @@ ol.steps {
   }
   .cover-top {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .cover-intro .meta {
+    align-items: center;
   }
   .photo-box {
     width: min(100%, 260px);
@@ -655,8 +669,8 @@ ol.steps {
   }
 }
 
-/* ===== 인쇄: 흐름 배치 + 상하 여백 + h2(프로젝트명) 앞 쪽바꿈 =====
- * @page 상하 14mm·좌우 12mm 여백. 웹 2쪽=PDF 1쪽 규칙 없음.
+/* ===== 인쇄: 흐름 배치 + 상하 여백 + h1(프로젝트명) 앞 쪽바꿈 =====
+ * @page 10mm + 용지 패딩 상하 8mm·좌우 6mm.
  * Chrome: 여백 "기본값", 머리글/바닥글 OFF, 배경 그래픽 ON.
  */
 @page {
@@ -785,6 +799,7 @@ ol.steps {
   }
   .photo-box {
     min-width: 0;
+    width: 34mm;
     padding: 3mm;
     border-radius: 2mm;
     -webkit-print-color-adjust: exact;

@@ -1,43 +1,57 @@
 flowchart LR
     %% 문제 상황: 기존 모놀리식 vs 개선 MSA (초안)
     %% 미리보기: https://mermaid.live 에 붙여넣기
-    subgraph OLD["기존 모놀리식 구조"]
+    subgraph C1[" "]
         direction TB
-        NX1((NGinX))
-        subgraph WAS["SpringBoot WAS"]
-            direction TB
-            A1(["Auth Service<br/>(인증 서비스)"])
-            U1(["User Service<br/>(유저 서비스)"])
+        subgraph OLD[" "]
+            direction LR
+            NX1((NGinX))
+            subgraph WAS["SpringBoot WAS"]
+                direction TB
+                A1(["Auth Service<br/>(인증 서비스)"])
+                U1(["User Service<br/>(유저 서비스)"])
+            end
+            DB1[("MySQL")]
+            NX1 --> WAS
+            A1 <--> DB1
+            U1 <--> DB1
         end
-        DB1[(MySQL)]
-        NX1 --> WAS
-        A1 <--> DB1
-        U1 <--> DB1
+        CAP1["기존 모놀리식 구조"]
+        OLD ~~~ CAP1
     end
     SEP(["서비스 분리"])
-    OLD -.-> SEP
-    SEP -.-> NEW
-    subgraph NEW["개선된 MSA 구조"]
+    C1 -.-> SEP
+    SEP -.-> C2
+    subgraph C2[" "]
         direction TB
-        NX2((NGinX))
-        subgraph DOCK["Docker Container"]
-            direction TB
-            GW((GW))
-            A2(["Auth<br/>(인증)"])
-            U2(["User<br/>(유저)"])
-            DB2[("MySQL<br/>(인증)")]
-            DB3[("MySQL<br/>(유저)")]
-            GW --> A2 & U2
-            A2 <--> DB2
-            U2 <--> DB3
+        subgraph NEW[" "]
+            direction LR
+            NX2((NGinX))
+            subgraph DOCK["Docker Container"]
+                direction LR
+                GW((GW))
+                A2(["Auth<br/>(인증)"])
+                U2(["User<br/>(유저)"])
+                DB2[("MySQL<br/>(인증)")]
+                DB3[("MySQL<br/>(유저)")]
+                GW --> A2 & U2
+                A2 <--> DB2
+                U2 <--> DB3
+            end
+            NX2 --> GW
         end
-        NX2 --> GW
+        CAP2["개선된 MSA 구조"]
+        NEW ~~~ CAP2
     end
     classDef svc fill:#e9f0e7,stroke:#4a6a53,stroke-width:2px,color:#1a2233
     classDef infra fill:#ffffff,stroke:#51655c,stroke-width:2px,color:#1a2233
     classDef db fill:#eef2ed,stroke:#51655c,stroke-width:2px,color:#1a2233
     classDef sep fill:#f2ede9,stroke:#a99aa3,stroke-width:2px,stroke-dasharray:6 4,color:#1a2233
+    classDef clear fill:transparent,stroke:transparent
+    classDef cap fill:transparent,stroke:transparent,color:#1a2233,font-weight:bold
     class A1,U1,A2,U2 svc
     class NX1,NX2,GW infra
     class DB1,DB2,DB3 db
     class SEP sep
+    class C1,C2 clear
+    class CAP1,CAP2 cap

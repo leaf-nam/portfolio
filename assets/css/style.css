@@ -358,7 +358,7 @@ h4 {
   padding: 8px 10px;
 }
 #p3-effect .log-card code {
-  font-size: 11.5px;
+  font-size: 11px;
 }
 #p3-effect .diagram {
   margin: 6px 0;
@@ -1055,6 +1055,7 @@ ol.steps {
     break-before: page;
     page-break-before: always;
   }
+
   .screen-inner {
     width: auto;
     height: auto;
@@ -1282,25 +1283,40 @@ ol.steps {
   .impl-tabs {
     display: none !important;
   }
+  .impl-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3mm;
+  }
+  #p3-solve .impl-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .impl-panel {
     display: block !important;
-    border: 0;
-    padding: 0;
-    background: none;
-    margin: 0 0 1.5mm;
+    border: 1px solid var(--line);
+    border-radius: 3mm;
+    padding: 2.5mm 3mm;
+    background: #fbfcff;
+    margin: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
   .impl-panel h4 {
-    margin: 0 0 0.5mm;
+    margin: 0 0 1mm;
   }
   .impl-panel ul.tight {
-    gap: 0.5mm;
-    margin: 0 0 0.5mm;
+    gap: 0.8mm;
+    margin: 0 0 1mm;
   }
   .impl-panel .diagram {
-    margin: 0.8mm 0 0;
+    margin: 1mm 0 0;
   }
   .impl-img {
-    height: 13mm;
+    width: 100%;
+    height: auto;
+    max-height: 22mm;
     border-radius: 2mm;
   }
   .log-card {
@@ -1311,7 +1327,7 @@ ol.steps {
     margin: 0 0 1mm;
   }
   .log-card code {
-    font-size: 6.5pt;
+    font-size: 6pt;
   }
   .log-arrow {
     font-size: 8pt;

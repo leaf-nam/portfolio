@@ -15,6 +15,14 @@
 
   // 섹션 표시: 도트 + .visible (떠나면 제거 → 돌아오면 애니메이션 리플레이)
   const dots = [...document.querySelectorAll("[data-dot]")];
+  // title → data-tip (기본 툴팁 대신 커스텀 툴팁 사용, 접근성용 aria-label 유지)
+  dots.forEach((d) => {
+    const t = d.getAttribute("title");
+    if (!t) return;
+    d.dataset.tip = t;
+    d.setAttribute("aria-label", t);
+    d.removeAttribute("title");
+  });
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {

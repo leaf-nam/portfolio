@@ -1,0 +1,14 @@
+flowchart TB
+    %% Riot API 전처리 흐름: 추출-분석-집계 (초안)
+    %% 미리보기: https://mermaid.live 에 붙여넣기
+    MD["MatchDetailEntity"] --> PT["개인·팀 데이터 추출"]
+    TL["MatchTimelineEntity<br/>(15분 이전 분당 데이터)"] --> LN["라인전 지표 분석"]
+    PT --> MC["거시지표 분석"]
+    MC --> ST["통계 집계·생성"]
+    LN --> ST
+    classDef src fill:#ffffff,stroke:#51655c,stroke-width:2px,color:#1a2233
+    classDef step fill:#e9f0e7,stroke:#4a6a53,stroke-width:2px,color:#1a2233
+    classDef out fill:#f2ede9,stroke:#a99aa3,stroke-width:2px,stroke-dasharray:6 4,color:#1a2233
+    class MD,TL src
+    class PT,LN,MC step
+    class ST out

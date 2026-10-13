@@ -1243,18 +1243,32 @@
             명분이면 약 325시간(2주)이 필요해 기한 내 학습 데이터 수집이
             불가능했습니다.
           </p>
-          <figure class="diagram rise" style="--d: 0.15s">
-            <div
-              class="mermaid-slot"
-              data-mmd="./assets/docs/sync-metric-flow.mmd"
-            >
-              <div class="diagram-empty" data-diagram="p3-sync-flow">
-                <span>기존 지표 생성과정</span
-                ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
+          <div class="paired">
+            <figure class="diagram rise" style="--d: 0.15s">
+              <div
+                class="mermaid-slot"
+                data-mmd="./assets/docs/sync-metric-flow.mmd"
+              >
+                <div class="diagram-empty" data-diagram="p3-sync-flow">
+                  <span>기존 지표 생성과정</span
+                  ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
+                </div>
               </div>
-            </div>
-            <figcaption>그림 3-2. 기존 지표 생성과정</figcaption>
-          </figure>
+              <figcaption>그림 3-2. 기존 지표 생성과정</figcaption>
+            </figure>
+            <figure class="diagram rise" style="--d: 0.18s">
+              <div
+                class="mermaid-slot"
+                data-mmd="./assets/docs/preprocessing-flow.mmd"
+              >
+                <div class="diagram-empty" data-diagram="p3-preprocess">
+                  <span>Riot API 전처리 흐름</span
+                  ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
+                </div>
+              </div>
+              <figcaption>그림 3-3. Riot API 전처리 흐름</figcaption>
+            </figure>
+          </div>
           <h3 class="rise" style="--d: 0.12s">
             Reason <span class="ko">원인분석</span>
           </h3>
@@ -1416,7 +1430,7 @@
                 ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
               </div>
             </div>
-            <figcaption>그림 3-3. 개선된 지표 생성과정</figcaption>
+            <figcaption>그림 3-4. 개선된 지표 생성과정</figcaption>
           </figure>
           </div>
         </div>

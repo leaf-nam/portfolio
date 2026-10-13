@@ -657,7 +657,7 @@ ol.steps {
 /* Solve 2단: 카드 2개(위아래) + 순서도 */
 .solve-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 3fr;
   gap: 14px;
   align-items: stretch;
   margin-top: 8px;
@@ -679,6 +679,12 @@ ol.steps {
 }
 .solve-card .impl-img {
   margin-top: 8px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 92px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .solve-grid .diagram {
   margin: 0;

@@ -677,10 +677,11 @@ ol.steps {
     overflow: hidden;
     display: block;
   }
-  /* 짝수 번째 웹쪽 뒤에서 PDF 쪽바꿈 → 웹 2쪽 = PDF 1쪽 (총 9쪽) */
+  /* 프로젝트마다 새 PDF 쪽에서 시작 (총 6쪽) */
   #index,
   #p1-scenario,
   #p1-verify,
+  #p1-effect,
   #p2-overview {
     break-after: always;
     page-break-after: always;
@@ -695,7 +696,7 @@ ol.steps {
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    padding: 7mm 10mm;
+    padding: 3mm 8mm;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -703,16 +704,6 @@ ol.steps {
   }
   .screen-inner .fit {
     zoom: 1 !important;
-  }
-  #cover .screen-inner,
-  #index .screen-inner,
-  #p1-overview .screen-inner,
-  #p1-verify .screen-inner,
-  #p2-overview .screen-inner,
-  #p2-verify .screen-inner,
-  #p3-overview .screen-inner,
-  #p3-verify .screen-inner {
-    border-bottom: 0.4mm dashed #d4d9e4;
   }
   .page-tag,
   .screen-kicker {

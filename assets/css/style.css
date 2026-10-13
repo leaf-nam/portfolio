@@ -1,6 +1,6 @@
 :root{
   --bg:#f7f8fb; --ink:#1a2233; --muted:#5b657a; --line:#e3e8f2;
-  --brand:#51655c; --brand2:#4a6a53; --accent:#ff5e0e; --heading:#a99aa3; --card:#ffffff; --pill:#eef4ff;
+  --brand:#51655c; --brand2:#4a6a53; --heading:#a99aa3; --card:#ffffff; --pill:#eef4ff;
   --radius:16px;
 }
 *{box-sizing:border-box}
@@ -55,8 +55,9 @@ body{
 
 /* 타이포 */
 .kicker{color:var(--brand); font-weight:800; font-size:13px; letter-spacing:.5px; margin:0 0 6px}
-h1{font-size:clamp(30px,4.6vw,48px); line-height:1.18; margin:.1em 0 .3em; letter-spacing:-.5px; color:var(--brand)}
-h2,h3,h4{color:var(--heading)}
+h1{font-size:clamp(30px,4.6vw,48px); line-height:1.18; margin:.1em 0 .3em; letter-spacing:-.5px; color:var(--brand2)}
+h2{color:var(--brand2)}
+h3,h4{color:var(--heading)}
 b,strong{color:var(--brand2)}
 h1.cover-title{font-size:clamp(26px,3.8vw,40px)}
 h2{font-size:clamp(22px,3vw,30px); margin:.1em 0 .25em; letter-spacing:-.3px}
@@ -86,7 +87,7 @@ ol.steps{margin:0 0 6px; padding-left:22px; font-size:14px; color:#33405e; displ
 .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
 .p-card{border:1px solid var(--line); border-radius:var(--radius); padding:20px; background:#fff; text-decoration:none; color:inherit; display:block}
 .p-card:hover{border-color:var(--brand); box-shadow:0 6px 18px rgba(81,101,92,.20)}
-.pill{display:inline-block; background:var(--accent); color:#fff; font-size:12px; font-weight:800; border-radius:99px; padding:4px 10px; margin:0 0 8px}
+.pill{display:inline-block; background:var(--brand2); color:#fff; font-size:12px; font-weight:800; border-radius:99px; padding:4px 10px; margin:0 0 8px}
 .p-card h3{margin:0 0 6px}
 .p-card p{margin:0 0 8px; font-size:14px; color:#33405e}
 .stack{font-size:13px; color:var(--muted); border-top:1px dashed var(--line); padding-top:10px; margin-bottom:0}

@@ -2,11 +2,11 @@
 flowchart LR
     %% 장애 대응 흐름 + 선순환 구분 (초안)
     %% 미리보기: https://mermaid.live 에 붙여넣기
-    TR["n8n: 오류·장애 감지"] --> C["server-mcp 메트릭·로그 수집"] --> L
+    TR["n8n<br/>오류·장애 감지"] --> C["server-mcp<br/>메트릭·로그 수집"] --> L
     subgraph CYCLE["선순환 구조"]
         direction LR
-        L["LLM API 원인 분석"]
-        L --> I["incident-mcp 과거 원인 대조"]
+        L["LLM API<br/>원인 분석"]
+        L --> I["incident-mcp<br/>과거 원인 대조"]
         I --> S["문제 해결"]
         S --> R["incident DB에 기록"]
         R -. "히스토리 축적" .-> L

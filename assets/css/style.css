@@ -676,7 +676,7 @@ ol.steps {
     overflow: hidden;
     display: block;
   }
-  /* h2(프로젝트명)가 나오면 새 쪽에서 시작 */
+  /* h1(프로젝트명)이 나오면 새 쪽에서 시작 (표지 h1 제외) */
   #p1-overview,
   #p2-overview,
   #p3-overview {

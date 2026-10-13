@@ -35,15 +35,18 @@
     <aside class="dots no-print" aria-label="섹션 이동">
       <a href="#cover" data-dot="cover" title="표지·소개">1</a>
       <a href="#index" data-dot="index" title="Projects 목차">2</a>
-      <a href="#p1-overview" data-dot="p1-overview" title="P1 개요·문제">3</a>
+      <a href="#p1-overview" data-dot="p1-overview" title="P1 개요">3</a>
+      <a href="#p1-problem" data-dot="p1-problem" title="P1 문제">4</a>
       <a href="#p1-scenario" data-dot="p1-scenario" title="P1 시나리오·원인"
-        >4</a
+        >5</a
       >
-      <a href="#p1-solve" data-dot="p1-solve" title="P1 해결·구현">5</a>
-      <a href="#p1-verify" data-dot="p1-verify" title="P1 검증">6</a>
-      <a href="#p1-effect" data-dot="p1-effect" title="P1 효과·회고">7</a>
-      <a href="#p2-overview" data-dot="p2-overview" title="P2 개요·문제">8</a>
-      <a href="#p3-overview" data-dot="p3-overview" title="P3 개요·문제">9</a>
+      <a href="#p1-solve" data-dot="p1-solve" title="P1 해결·구현">6</a>
+      <a href="#p1-verify" data-dot="p1-verify" title="P1 검증">7</a>
+      <a href="#p1-effect" data-dot="p1-effect" title="P1 효과·회고">8</a>
+      <a href="#p2-overview" data-dot="p2-overview" title="P2 개요">9</a>
+      <a href="#p2-problem" data-dot="p2-problem" title="P2 문제">10</a>
+      <a href="#p3-overview" data-dot="p3-overview" title="P3 개요">11</a>
+      <a href="#p3-problem" data-dot="p3-problem" title="P3 문제">12</a>
     </aside>
 
     <main id="scroller">
@@ -153,7 +156,7 @@
             </div>
           </dl>
         </div>
-        <footer class="page-tag">1/9</footer>
+        <footer class="page-tag">1/12</footer>
       </section>
 
       <!-- 2. Projects 목차 -->
@@ -194,7 +197,7 @@
             </a>
           </div>
         </div>
-        <footer class="page-tag">2/9</footer>
+        <footer class="page-tag">2/12</footer>
       </section>
 
       <!-- 3. P1 개요 + 문제 -->
@@ -202,7 +205,6 @@
         <div class="screen-kicker">Project 01 · House Of Ong R</div>
         <div class="screen-inner">
           <h1>서비스 간 데이터 정합성 확보</h1>
-          <h2>Problem <span class="ko">문제</span></h2>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
             인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
@@ -210,6 +212,19 @@
             실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
             만드는 것이 목표였습니다.
           </p>
+          <div class="diagram-empty" data-diagram="p1-before-after">
+            <span>프로젝트 다이어그램</span
+            ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+          </div>
+        </div>
+        <footer class="page-tag">3/12</footer>
+      </section>
+
+      <!-- 4. P1 문제 -->
+      <section id="p1-problem" class="screen">
+        <div class="screen-kicker">Project 01 · House Of Ong R</div>
+        <div class="screen-inner">
+          <h2>Problem <span class="ko">문제</span></h2>
           <h3 class="rise" style="--d: 0.1s">
             Problem <span class="ko">문제상황</span>
           </h3>
@@ -225,13 +240,14 @@
             <figcaption>그림 1-1. 개선 전후 다이어그램 (예정)</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">3/9</footer>
+        <footer class="page-tag">4/12</footer>
       </section>
 
-      <!-- 4. P1 시나리오 + 원인 (세로 쌓기) -->
+      <!-- 5. P1 시나리오 + 원인 (세로 쌓기) -->
       <section id="p1-scenario" class="screen">
         <div class="screen-kicker">Project 01 · House Of Ong R</div>
         <div class="screen-inner">
+          <h2>Solve <span class="ko">해결</span></h2>
           <h3>Problem Scenario <span class="ko">문제 시나리오</span></h3>
           <ol class="steps rise" style="--d: 0.05s">
             <li>사용자가 회원가입을 요청합니다.</li>
@@ -272,7 +288,7 @@
             </li>
           </ul>
         </div>
-        <footer class="page-tag">4/9</footer>
+        <footer class="page-tag">5/12</footer>
       </section>
 
       <!-- 5. P1 해결 + 핵심 구현 (펼침형) -->
@@ -280,7 +296,7 @@
         <div class="screen-kicker">Project 01 · House Of Ong R</div>
         <div class="screen-inner">
           <h2>Solve <span class="ko">해결</span></h2>
-          <h3>Solve <span class="ko">해결방안</span></h3>
+          <h3>Idea <span class="ko">아이디어</span></h3>
           <p class="compact">
             회원가입 과정에서 각 서비스의 처리 결과를 구분하고, 중간 단계에서
             실패하더라도 데이터가 불일치한 상태로 방치되지 않도록 처리 흐름을
@@ -336,7 +352,7 @@
             </figure>
           </div>
         </div>
-        <footer class="page-tag">5/9</footer>
+        <footer class="page-tag">6/12</footer>
       </section>
 
       <!-- 6. P1 검증 -->
@@ -378,7 +394,7 @@
             <figcaption>그림 1-3. 통합테스트 결과 (예정)</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">6/9</footer>
+        <footer class="page-tag">7/12</footer>
       </section>
 
       <!-- 7. P1 효과 + 회고 -->
@@ -416,7 +432,7 @@
             안정적으로 관리하고자 합니다.
           </p>
         </div>
-        <footer class="page-tag">7/9</footer>
+        <footer class="page-tag">8/12</footer>
       </section>
 
       <!-- 8. P2 개요 + 문제 (작성 중) -->
@@ -425,7 +441,6 @@
         <div class="screen-inner">
           <h1>운영 자동화 및 장애대응</h1>
           <p class="sub">AI 및 MCP 활용 모니터링, 알람 자동화</p>
-          <h2>Problem <span class="ko">문제</span></h2>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
             인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
@@ -433,6 +448,15 @@
             실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
             만드는 것이 목표였습니다.
           </p>
+        </div>
+        <footer class="page-tag">9/12</footer>
+      </section>
+
+      <!-- 10. P2 문제 -->
+      <section id="p2-problem" class="screen">
+        <div class="screen-kicker">Project 02 · Chaerok</div>
+        <div class="screen-inner">
+          <h2>Problem <span class="ko">문제</span></h2>
           <h3 class="rise" style="--d: 0.1s">
             Problem <span class="ko">문제상황</span>
           </h3>
@@ -448,7 +472,7 @@
             <figcaption>그림 2-1. 개선 전후 다이어그램 (예정)</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">8/9</footer>
+        <footer class="page-tag">10/12</footer>
       </section>
 
       <!-- 9. P3 개요 + 문제 (작성 중) -->
@@ -457,7 +481,6 @@
         <div class="screen-inner">
           <h1>대규모 데이터 처리 성능 개선</h1>
           <p class="sub">병목 분석과 비동기 처리</p>
-          <h2>Problem <span class="ko">문제</span></h2>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
             인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
@@ -465,6 +488,15 @@
             실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
             만드는 것이 목표였습니다.
           </p>
+        </div>
+        <footer class="page-tag">11/12</footer>
+      </section>
+
+      <!-- 12. P3 문제 -->
+      <section id="p3-problem" class="screen">
+        <div class="screen-kicker">Project 03 · MatchUP</div>
+        <div class="screen-inner">
+          <h2>Problem <span class="ko">문제</span></h2>
           <h3 class="rise" style="--d: 0.1s">
             Problem <span class="ko">문제상황</span>
           </h3>
@@ -480,7 +512,7 @@
             <figcaption>그림 3-1. 개선 전후 다이어그램 (예정)</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">9/9</footer>
+        <footer class="page-tag">12/12</footer>
       </section>
     </main>
 

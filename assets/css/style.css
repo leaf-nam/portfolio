@@ -344,6 +344,25 @@ h4 {
 #cover .skills div {
   padding: 6px 10px;
 }
+#p3-effect h3 {
+  margin: 8px 0 4px;
+}
+#p3-effect h4 {
+  margin: 0 0 3px;
+}
+#p3-effect ul.tight {
+  margin-bottom: 5px;
+  gap: 4px;
+}
+#p3-effect .log-card {
+  padding: 8px 10px;
+}
+#p3-effect .log-card code {
+  font-size: 9.5px;
+}
+#p3-effect .diagram {
+  margin: 6px 0;
+}
 .photo-box {
   position: relative;
   flex: none;
@@ -726,17 +745,18 @@ ol.steps {
 /* Solve 2단: 카드 2개(위아래) + 순서도 */
 .solve-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 14px;
   align-items: stretch;
   margin-top: 8px;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .solve-cards {
   display: grid;
   gap: 10px;
-  align-content: stretch;
-  grid-template-rows: 1fr 1fr;
-  height: 100%;
+  align-content: start;
+  height: auto;
 }
 .solve-card {
   border: 1px solid var(--line);
@@ -751,7 +771,7 @@ ol.steps {
   font-size: 15px;
 }
 .solve-card .impl-img {
-  margin-top: auto;
+  margin-top: 8px;
   padding-top: 8px;
   width: auto;
   max-width: 100%;
@@ -763,7 +783,7 @@ ol.steps {
 .solve-grid .diagram {
   margin: 0;
   position: relative;
-  min-height: 300px;
+  min-height: 0;
 }
 .solve-grid .mermaid-slot {
   position: absolute;
@@ -794,9 +814,6 @@ ol.steps {
 }
 #p3-solve .solve-card ul.tight {
   gap: 3px;
-}
-#p3-solve .mermaid-slot svg {
-  max-height: 360px;
 }
 #p3-solve h3 {
   margin: 10px 0 4px;
@@ -918,6 +935,9 @@ ol.steps {
   .photo-box {
     width: min(100%, 260px);
     margin: 0 auto;
+  }
+  .solve-grid .diagram {
+    min-height: 280px;
   }
   .rise {
     opacity: 1;

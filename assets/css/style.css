@@ -505,30 +505,20 @@ ol.steps {
   padding-top: 10px;
   margin-bottom: 0;
 }
-/* 목차 대표 이미지 자리 */
+/* 목차 대표 이미지 (높이 통일) */
 .thumb {
-  border: 2px dashed #b9c4d8;
+  border: 1px solid var(--line);
   border-radius: 12px;
-  background: #f2f5fa;
-  min-height: 84px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  color: #5b657a;
+  background: #fbfcff;
+  height: 120px;
+  overflow: hidden;
   margin-bottom: 10px;
-  text-align: center;
-  padding: 8px;
 }
-.thumb span {
-  font-weight: 800;
-  font-size: 13px;
-}
-.thumb em {
-  font-style: normal;
-  font-size: 11px;
-  opacity: 0.8;
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* 다이어그램 빈 이미지 자리 */
@@ -857,8 +847,7 @@ ol.steps {
     font-size: 8pt;
   }
   .thumb {
-    min-height: 0;
-    height: 14mm;
+    height: 20mm;
     margin-bottom: 2mm;
     border-radius: 2mm;
     -webkit-print-color-adjust: exact;

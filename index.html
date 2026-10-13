@@ -1303,17 +1303,19 @@
           <div class="solve-grid">
             <div class="solve-cards">
               <div class="solve-card">
-                <h4>① 비동기 동시요청</h4>
+                <h4>① WebClient 비동기 전송</h4>
                 <ul class="tight">
-                  <li>요청을 동시에 전송합니다 (300개 동시).</li>
-                  <li>응답을 기다리지 않고 다음 요청을 보냅니다.</li>
+                  <li>
+                    RestTemplate 동기 호출을 WebFlux WebClient로 바꿨습니다.
+                  </li>
+                  <li>논블로킹 I/O로 300개 요청을 동시에 전송합니다.</li>
                   <li>100명 생성 65분 → 12분으로 단축했습니다.</li>
                 </ul>
                 <svg
                   viewBox="0 0 220 100"
                   class="impl-img"
                   role="img"
-                  aria-label="비동기 동시요청"
+                  aria-label="WebClient 비동기 전송"
                 >
                   <path
                     d="M20 30 H90 m0 0 -8 -8 m8 8 -8 8"
@@ -1366,10 +1368,11 @@
                 </svg>
               </div>
               <div class="solve-card">
-                <h4>② 전체 응답 일괄 생성</h4>
+                <h4>② Mono.zip + Latch 일괄 생성</h4>
                 <ul class="tight">
+                  <li>매치별 상세·타임라인 Mono를 zip으로 묶어 병렬 호출합니다.</li>
+                  <li>CountDownLatch(20)로 20건 완료를 대기합니다.</li>
                   <li>전체 응답 확인 시 지표를 한 번에 생성합니다.</li>
-                  <li>20회 반복 전송 구조를 일괄 처리로 개선했습니다.</li>
                 </ul>
                 <svg
                   viewBox="0 0 220 100"

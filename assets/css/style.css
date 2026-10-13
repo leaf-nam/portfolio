@@ -239,6 +239,7 @@ body {
   margin: 4px auto auto;
   color: #8a94ab;
   font-size: 12px;
+  text-align: center;
 }
 /*
  * A4 절반 비율(가로 210 : 세로 148.5 = 1.41414)을 웹에서도 그대로 고정한다.

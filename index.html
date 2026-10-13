@@ -52,6 +52,10 @@
       <a href="#p2-effect" data-dot="p2-effect" title="P2 효과·회고">14</a>
       <a href="#p3-overview" data-dot="p3-overview" title="P3 개요">15</a>
       <a href="#p3-problem" data-dot="p3-problem" title="P3 문제">16</a>
+      <a href="#p3-scenario" data-dot="p3-scenario" title="P3 측정·원인">17</a>
+      <a href="#p3-solve" data-dot="p3-solve" title="P3 해결·구현">18</a>
+      <a href="#p3-verify" data-dot="p3-verify" title="P3 검증">19</a>
+      <a href="#p3-effect" data-dot="p3-effect" title="P3 효과·회고">20</a>
     </aside>
 
     <main id="scroller">
@@ -171,7 +175,7 @@
             </div>
           </dl>
         </div>
-        <footer class="page-tag">1/12</footer>
+        <footer class="page-tag">1/20</footer>
       </section>
 
       <!-- 2. Projects 목차 -->
@@ -348,7 +352,7 @@
             </a>
           </div>
         </div>
-        <footer class="page-tag">2/12</footer>
+        <footer class="page-tag">2/20</footer>
       </section>
 
       <!-- 3. P1 개요 + 문제 -->
@@ -374,7 +378,7 @@
             <figcaption>그림 1-1. 개요 다이어그램</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">3/12</footer>
+        <footer class="page-tag">3/20</footer>
       </section>
 
       <!-- 4. P1 문제 -->
@@ -404,7 +408,7 @@
             <figcaption>그림 1-2. 상황 다이어그램</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">4/12</footer>
+        <footer class="page-tag">4/20</footer>
       </section>
 
       <!-- 5. P1 시나리오 + 원인 (세로 쌓기) -->
@@ -463,7 +467,7 @@
             </li>
           </ul>
         </div>
-        <footer class="page-tag">5/12</footer>
+        <footer class="page-tag">5/20</footer>
       </section>
 
       <!-- 6. P1 해결 + 핵심 구현 (펼침형) -->
@@ -714,7 +718,7 @@
             </figure>
           </div>
         </div>
-        <footer class="page-tag">6/12</footer>
+        <footer class="page-tag">6/20</footer>
       </section>
 
       <!-- 7. P1 검증 -->
@@ -765,7 +769,7 @@
             <figcaption>그림 1-4. 개선 후 통합테스트 결과</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">7/12</footer>
+        <footer class="page-tag">7/20</footer>
       </section>
 
       <!-- 8. P1 효과 + 회고 -->
@@ -825,7 +829,7 @@
             <li>Transactional Outbox 패턴을 학습해서 적용해보고 싶습니다.</li>
           </ul>
         </div>
-        <footer class="page-tag">8/12</footer>
+        <footer class="page-tag">8/20</footer>
       </section>
 
       <!-- 9. P2 개요 + 문제 (작성 중) -->
@@ -853,7 +857,7 @@
             <figcaption>그림 2-1. AI 장애대응 구조</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">9/15</footer>
+        <footer class="page-tag">9/20</footer>
       </section>
 
       <!-- 10. P2 문제 -->
@@ -897,7 +901,7 @@
             </li>
           </ul>
         </div>
-        <footer class="page-tag">10/15</footer>
+        <footer class="page-tag">10/20</footer>
       </section>
 
       <!-- 11. P2 해결 (아이디어 + 대응 시나리오) -->
@@ -938,7 +942,7 @@
             <figcaption>그림 2-3. 장애 대응 흐름</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">11/16</footer>
+        <footer class="page-tag">11/20</footer>
       </section>
 
       <!-- 12. P2 구현 -->
@@ -1104,7 +1108,7 @@
             <figcaption>그림 2-4. n8n 워크플로우</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">12/16</footer>
+        <footer class="page-tag">12/20</footer>
       </section>
 
       <!-- 13. P2 검증 -->
@@ -1146,7 +1150,7 @@
             <figcaption>그림 2-5. AI 대응 결과(이메일 알림)</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">13/16</footer>
+        <footer class="page-tag">13/20</footer>
       </section>
 
       <!-- 14. P2 효과 + 회고 -->
@@ -1194,24 +1198,40 @@
             <li>승인 후 자동 복구까지 확대하겠습니다.</li>
           </ul>
         </div>
-        <footer class="page-tag">14/16</footer>
+        <footer class="page-tag">14/20</footer>
       </section>
 
       <!-- 15. P3 개요 + 문제 (작성 중) -->
-      <section id="p3-overview" class="screen">
+      <section id="p3-overview" class="screen fill-screen">
         <div class="screen-kicker">Project 03 · MatchUP</div>
         <div class="screen-inner">
           <h1>대규모 데이터 처리 성능 개선</h1>
           <p class="sub">병목 분석과 비동기 처리</p>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
-            인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
-            데이터 불일치 문제를 해결했습니다. 서비스 간 요청이 부분적으로
-            실패하더라도 데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조를
-            만드는 것이 목표였습니다.
+            게임 유저 추천·전략 분석 커뮤니티 MatchUp에서 백엔드 개발을 맡아
+            통계서버·DB·파일서버를 관리하고, 모델 학습 데이터를 수집했습니다.
+            게임 데이터 처리속도 향상과 전처리를 통한 저장용량 확보에
+            기여했습니다.
           </p>
+          <ul class="tight rise" style="--d: 0.1s">
+            <li>승률 분석 알고리즘 (MLP 모델, 증분학습)</li>
+            <li>유사도 추천 알고리즘 (FAISS)</li>
+            <li>웹소켓 (Stomp·WebRTC) 채팅 구현</li>
+            <li>SNS 및 RSO(Riot Sign On) 로그인</li>
+          </ul>
+          <figure class="diagram fill-figure rise" style="--d: 0.15s">
+            <div class="fill-frame">
+              <img
+                class="fill-img"
+                src="./assets/image/content/p3-arch.png"
+                alt="MatchUp 시스템 아키텍처"
+              />
+            </div>
+            <figcaption>그림 3-1. 시스템 아키텍처</figcaption>
+          </figure>
         </div>
-        <footer class="page-tag">15/16</footer>
+        <footer class="page-tag">15/20</footer>
       </section>
 
       <!-- 16. P3 문제 -->
@@ -1220,23 +1240,342 @@
         <div class="screen-inner">
           <h2>Problem <span class="ko">문제</span></h2>
           <h3 class="rise" style="--d: 0.1s">
-            Problem <span class="ko">문제상황</span>
+            Situation <span class="ko">상황</span>
           </h3>
           <p class="rise" style="--d: 0.12s">
-            기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만, 기능을
-            분리한 이후 회원가입 과정에서 문제가 발생했습니다.
+            매 요청마다 게임 데이터 응답을 확인한 뒤에야 사용자 데이터를
+            생성하는 동기 구조라, 100명분 생성에 65분이 걸렸습니다. Riot API
+            응답을 Gson 그대로 MongoDB에 저장해 게임당 약 129KB, 3만 명분이면
+            약 77.5GB가 필요했지만 서버 가용 용량은 50GB 수준이었습니다.
           </p>
           <figure class="diagram rise" style="--d: 0.15s">
-            <div class="diagram-empty" data-diagram="p3-before-after">
-              <span>개선 전후 다이어그램</span
-              ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+            <div class="fill-frame">
+              <img
+                class="fill-img"
+                src="./assets/image/content/p3-pipeline.png"
+                alt="데이터 처리 흐름도"
+              />
             </div>
-            <figcaption>그림 3-1. 개선 전후 다이어그램 (예정)</figcaption>
+            <figcaption>그림 3-2. 데이터 처리 흐름도</figcaption>
           </figure>
         </div>
-        <footer class="page-tag">16/16</footer>
+        <footer class="page-tag">16/20</footer>
       </section>
-    </main>
+
+      <!-- 17. P3 측정 시나리오 + 원인 -->
+      <section id="p3-scenario" class="screen">
+        <div class="screen-kicker">Project 03 · MatchUP</div>
+        <div class="screen-inner">
+          <h3>Measure Scenario <span class="ko">측정 시나리오</span></h3>
+          <ol class="steps rise" style="--d: 0.05s">
+            <li>100명분 사용자 데이터 생성 시간을 측정합니다 (65분).</li>
+            <li>요청-응답을 순차 처리하는 동기 구간을 확인합니다.</li>
+            <li>저장 용량을 산정합니다 (129KB/건 → 77.5GB).</li>
+            <li>비동기 전환 후 다시 측정합니다 (12분).</li>
+            <li>전처리 후 건당 용량을 확인합니다 (2.93KB).</li>
+          </ol>
+          <p class="note">
+            측정→병목 특정→개선→재측정 순서로 진행했습니다.
+          </p>
+          <figure class="diagram rise" style="--d: 0.1s">
+            <div class="fill-frame">
+              <img
+                class="fill-img"
+                src="./assets/image/content/p3-async.png"
+                alt="개선 전후 지표 생성과정"
+              />
+            </div>
+            <figcaption>그림 3-3. 개선 전후 지표 생성과정</figcaption>
+          </figure>
+          <h3 class="rise" style="--d: 0.12s">
+            Reason <span class="ko">원인분석</span>
+          </h3>
+          <ul class="tight rise" style="--d: 0.15s">
+            <li>
+              <b>동기 블로킹:</b> 매 요청마다 응답을 기다린 뒤에야 다음 단계로
+              넘어갔습니다.
+            </li>
+            <li>
+              <b>원본 그대로 저장:</b> 불필요한 데이터까지 통째로 저장했습니다.
+            </li>
+            <li>
+              <b>용량 한계:</b> 전체 데이터 저장이 물리적으로 불가능했습니다.
+            </li>
+          </ul>
+        </div>
+        <footer class="page-tag">17/20</footer>
+      </section>
+
+      <!-- 18. P3 해결 + 핵심 구현 (펼침형) -->
+      <section id="p3-solve" class="screen">
+        <div class="screen-kicker">Project 03 · MatchUP</div>
+        <div class="screen-inner">
+          <h2>Solve <span class="ko">해결</span></h2>
+          <h3>Idea <span class="ko">아이디어</span></h3>
+          <p class="compact">
+            기다림을 없애고(비동기), 버릴 건 버리고(전처리), 용도에 맞게 나눠
+            담는(저장 분리) 것이 목표였습니다.
+          </p>
+          <h3>Implementation <span class="ko">핵심구현</span></h3>
+          <div class="impl-panel">
+            <h4>① 비동기 동시요청</h4>
+            <ul class="tight">
+              <li>
+                요청을 동시에 전송하고 전체 응답 확인 시 생성하도록 바꿨습니다.
+              </li>
+              <li>20회 반복 전송 구조를 일괄 처리로 개선했습니다.</li>
+              <li>100명 생성 65분 → 12분으로 단축했습니다.</li>
+            </ul>
+            <figure class="diagram">
+              <svg
+                viewBox="0 0 220 100"
+                class="impl-img"
+                role="img"
+                aria-label="비동기 동시요청"
+              >
+                <path
+                  d="M20 30 H90 m0 0 -8 -8 m8 8 -8 8"
+                  stroke="#51655c"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20 50 H90 m0 0 -8 -8 m8 8 -8 8"
+                  stroke="#51655c"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M20 70 H90 m0 0 -8 -8 m8 8 -8 8"
+                  stroke="#51655c"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M110 22 v56 m0 0 -8 -8 m8 8 8 -8"
+                  stroke="#a99aa3"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <rect
+                  x="140"
+                  y="30"
+                  width="60"
+                  height="40"
+                  rx="8"
+                  fill="#4a6a53"
+                />
+                <path
+                  d="M155 50 l7 7 l13 -14"
+                  stroke="#fff"
+                  stroke-width="5"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </figure>
+          </div>
+          <div class="impl-panel">
+            <h4>② 전처리 파이프라인</h4>
+            <ul class="tight">
+              <li>MatchDetail에서 개인·팀 데이터를 추출했습니다.</li>
+              <li>MatchTimeline 15분 이전 분당 데이터로 라인전 지표를 분석했습니다.</li>
+              <li>거시·라인전 지표로 통계를 집계해 저장했습니다.</li>
+            </ul>
+            <figure class="diagram">
+              <svg
+                viewBox="0 0 220 100"
+                class="impl-img"
+                role="img"
+                aria-label="전처리 파이프라인"
+              >
+                <path
+                  d="M30 15 h100 l-20 30 h-60 z"
+                  fill="#e9f0e7"
+                  stroke="#51655c"
+                  stroke-width="4"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M60 45 h60 l-15 25 h-30 z"
+                  fill="#9db3a4"
+                  stroke="#51655c"
+                  stroke-width="4"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M85 70 h30 m0 0 -7 -7 m7 7 -7 7"
+                  stroke="#4a6a53"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <rect
+                  x="150"
+                  y="30"
+                  width="52"
+                  height="40"
+                  rx="8"
+                  fill="#4a6a53"
+                />
+                <path
+                  d="M163 50 l7 7 l13 -14"
+                  stroke="#fff"
+                  stroke-width="5"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </figure>
+          </div>
+          <div class="impl-panel">
+            <h4>③ 용도별 저장 분리</h4>
+            <ul class="tight">
+              <li>정합성이 필요한 유저 정보는 RDB에 저장했습니다.</li>
+              <li>실시간 통계 지표는 NoSQL에 저장했습니다.</li>
+              <li>파일서버·API 문서 서버를 분리 구축했습니다.</li>
+            </ul>
+            <figure class="diagram">
+              <svg
+                viewBox="0 0 220 100"
+                class="impl-img"
+                role="img"
+                aria-label="용도별 저장 분리"
+              >
+                <rect
+                  x="86"
+                  y="8"
+                  width="48"
+                  height="26"
+                  rx="7"
+                  fill="#e9f0e7"
+                  stroke="#51655c"
+                  stroke-width="3"
+                />
+                <path
+                  d="M110 38 v12 m0 0 -6 -6 m6 6 6 -6"
+                  stroke="#a99aa3"
+                  stroke-width="4"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M40 56 v20 c0 4 8 8 18 8 s18 -4 18 -8 v-20"
+                  fill="#51655c"
+                />
+                <ellipse cx="58" cy="56" rx="18" ry="7" fill="#4a6a53" />
+                <path
+                  d="M100 56 v20 c0 4 8 8 18 8 s18 -4 18 -8 v-20"
+                  fill="#51655c"
+                />
+                <ellipse cx="118" cy="56" rx="18" ry="7" fill="#4a6a53" />
+                <path
+                  d="M160 56 v20 c0 4 8 8 18 8 s18 -4 18 -8 v-20"
+                  fill="#9db3a4"
+                />
+                <ellipse cx="178" cy="56" rx="18" ry="7" fill="#51655c" />
+              </svg>
+            </figure>
+          </div>
+        </div>
+        <footer class="page-tag">18/20</footer>
+      </section>
+
+      <!-- 19. P3 검증 -->
+      <section id="p3-verify" class="screen">
+        <div class="screen-kicker">Project 03 · MatchUP</div>
+        <div class="screen-inner">
+          <h2>Result <span class="ko">결과</span></h2>
+          <h3>Verification <span class="ko">검증</span></h3>
+          <table class="v-table rise" style="--d: 0.05s">
+            <tr>
+              <th>확인 항목</th>
+              <th>주요 확인사항</th>
+            </tr>
+            <tr>
+              <td>생성 속도</td>
+              <td>100명 생성 65분 → 12분인가</td>
+            </tr>
+            <tr>
+              <td>대량 생성</td>
+              <td>3만 명 325시간 → 60시간인가</td>
+            </tr>
+            <tr>
+              <td>저장 용량</td>
+              <td>건당 129KB → 2.93KB인가</td>
+            </tr>
+            <tr>
+              <td>즉시 조회</td>
+              <td>별도 처리 없이 필요한 정보를 조회할 수 있는가</td>
+            </tr>
+          </table>
+        </div>
+        <footer class="page-tag">19/20</footer>
+      </section>
+
+      <!-- 20. P3 효과 + 회고 -->
+      <section id="p3-effect" class="screen">
+        <div class="screen-kicker">Project 03 · MatchUP</div>
+        <div class="screen-inner">
+          <h2>Result <span class="ko">결과</span></h2>
+          <h3>Effect <span class="ko">개선효과</span></h3>
+          <ul class="tight rise" style="--d: 0.05s">
+            <li>
+              <b>생성속도 420%:</b> 100명 65분 → 12분, 3만 명은 325시간 →
+              60시간(2.5일)으로 기한 내 수집 완료했습니다.
+            </li>
+            <li>
+              <b>저장용량 절감:</b> 건당 129KB → 2.93KB(2.26%), 3만 명 77.5GB →
+              1.22GB(가용 용량의 2.4%)로 줄였습니다.
+            </li>
+            <li>
+              <b>즉시 조회·공유:</b> 별도 처리 없이 필요한 정보만 바로 조회하고,
+              Git(SCM)으로 데이터를 관리·공유했습니다.
+            </li>
+          </ul>
+          <h3 class="rise" style="--d: 0.1s">
+            Review <span class="ko">회고</span>
+          </h3>
+          <h4 class="rise" style="--d: 0.12s">Keep <span class="ko">계속할점</span></h4>
+          <ul class="tight rise" style="--d: 0.13s">
+            <li>변화하는 요구사항을 최대한 수용했습니다.</li>
+            <li>기술적 난관을 회피하지 않고 도전했습니다.</li>
+            <li>추상 클래스·생성자 활용으로 가독성·재사용성을 높였습니다.</li>
+          </ul>
+          <h4 class="rise" style="--d: 0.14s">Problem <span class="ko">아쉬운점</span></h4>
+          <ul class="tight rise" style="--d: 0.15s">
+            <li>DB 설계의 중요성을 간과해 변화에 늦게 대응했습니다.</li>
+            <li>DATA 수집 과다로 E2E 테스트·디버깅 시간이 부족했습니다.</li>
+            <li>단위 테스트가 세부 로직에 묶여 리팩터링 시 쉽게 실패했습니다.</li>
+          </ul>
+          <h4 class="rise" style="--d: 0.16s">Try <span class="ko">시도할점</span></h4>
+          <ul class="tight rise" style="--d: 0.17s">
+            <li>가능성을 열어둔 설계로 변화에 대처하겠습니다.</li>
+            <li>최소 요구사항 우선 달성 후 개선하겠습니다.</li>
+            <li>블랙박스 테스트와 외부 의존 분리를 하겠습니다.</li>
+          </ul>
+          <h4 class="rise" style="--d: 0.18s">Impression <span class="ko">느낀점</span></h4>
+          <ul class="tight rise" style="--d: 0.19s">
+            <li>백엔드 역할을 오롯이 수행하며 다양한 시도를 했습니다.</li>
+            <li>테스트의 중요성을 느꼈습니다.</li>
+            <li>비동기 로직에서 CS 기본기의 도움을 받았습니다.</li>
+            <li>로깅·조건문 등 디테일이 성능에 영향을 줍니다.</li>
+          </ul>
+        </div>
+        <footer class="page-tag">20/20</footer>
+      </section>
 
     <script src="./assets/js/main.js"></script>
   </body>

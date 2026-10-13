@@ -1,0 +1,16 @@
+flowchart LR
+    %% 기존 수동 대응 흐름 (초안)
+    %% 미리보기: https://mermaid.live 에 붙여넣기
+    E["배포 오류·장애 발생"] --> S["서버 직접 접속"]
+    S --> L["방대한 로그<br/>수동 확인"]
+    L --> D{"원인 특정?"}
+    D -- "실패" --> L
+    D -- "성공" --> F["수동 조치"]
+    F --> R["같은 장애도<br/>매번 처음부터 분석"]
+    R -. "반복될 때마다 처음부터" .-> S
+    classDef step fill:#e9f0e7,stroke:#4a6a53,stroke-width:2px,color:#1a2233
+    classDef pain fill:#f2ede9,stroke:#a99aa3,stroke-width:2px,stroke-dasharray:6 4,color:#1a2233
+    classDef dec fill:#ffffff,stroke:#51655c,stroke-width:2px,color:#1a2233
+    class E,S,F step
+    class L,R pain
+    class D dec

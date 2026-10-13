@@ -556,9 +556,7 @@
           <div class="impl-panel">
             <h4>② 실패 시 보상 처리</h4>
             <ul class="tight">
-              <li>
-                Saga 패턴으로 서비스 작업을 이벤트로 연결해 Kafka로 전달합니다.
-              </li>
+              <li>Saga 패턴으로 작업을 이벤트로 연결해 Kafka로 전달합니다.</li>
               <li>
                 후속 단계 실패 시 보상 트랜잭션을 발행해 이전 커밋을 되돌립니다.
               </li>
@@ -637,10 +635,17 @@
                   stroke-dasharray="3 3"
                 />
                 <path
-                  d="M200 76 C160 92 60 92 20 76 m0 0 14 4 m-14 -4 10 -12"
+                  d="M200 76 C160 92 60 92 20 76"
                   stroke="#a99aa3"
                   stroke-width="4"
                   stroke-dasharray="7 5"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M20 76 l6 11 M20 76 l11 -4"
+                  stroke="#a99aa3"
+                  stroke-width="4"
                   fill="none"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1066,7 +1071,7 @@
             <h4>③ incident DB 기록·선순환</h4>
             <ul class="tight">
               <li>해결 결과를 incident DB에 기록합니다.</li>
-              <li>쌓인 히스토리가 다음 분석의 근거가 됩니다.</li>
+              <li>쌓인 히스토리가 다음 오류 분석과 해결의 근거가 됩니다.</li>
               <li>반복될수록 해결 과정이 개선됩니다.</li>
             </ul>
             <figure class="diagram">
@@ -1090,7 +1095,7 @@
                   stroke-linejoin="round"
                 />
                 <path
-                  d="M150 68 a24 24 0 1 1 17 -17 m0 0 0 11 m0 -11 -11 0"
+                  d="M150 68 a24 24 0 1 1 17 -17 m-7 -7 l7 7 l7 -7"
                   stroke="#4a6a53"
                   stroke-width="4"
                   fill="none"

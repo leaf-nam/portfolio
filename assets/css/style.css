@@ -358,7 +358,7 @@ h4 {
   padding: 8px 10px;
 }
 #p3-effect .log-card code {
-  font-size: 9.5px;
+  font-size: 11.5px;
 }
 #p3-effect .diagram {
   margin: 6px 0;
@@ -656,6 +656,10 @@ ol.steps {
   width: 100%;
   height: 100%;
 }
+#p3-problem .paired {
+  flex: 1 1 auto;
+  min-height: 0;
+}
 /* mermaid 렌더 슬롯 */
 .mermaid-slot svg {
   width: auto;
@@ -799,8 +803,20 @@ ol.steps {
   margin: 0;
 }
 #p3-solve .solve-grid {
+  flex: 1 1 auto;
+  min-height: 0;
   gap: 10px;
   margin-top: 6px;
+}
+#p3-solve .solve-cards {
+  background: #fbfcff;
+  border-radius: 14px;
+  padding: 12px;
+}
+#p3-solve .solve-card {
+  background: transparent;
+  border: 0;
+  padding: 6px 4px;
 }
 #p3-solve .solve-card {
   padding: 4px 10px;

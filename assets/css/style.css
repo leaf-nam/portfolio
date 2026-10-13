@@ -282,6 +282,66 @@ h4 {
   color: var(--muted);
   font-size: 14px;
 }
+.meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.meta svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  fill: var(--brand2);
+}
+/* 표지 상단: 소개글+연락처 | 사진 */
+.cover-top {
+  display: flex;
+  gap: 18px;
+  align-items: stretch;
+  margin: 12px 0 4px;
+}
+.cover-intro {
+  flex: 1.25;
+  min-width: 0;
+}
+.cover-intro .lead {
+  margin: 0 0 10px;
+}
+.cover-intro .meta {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.photo-box {
+  flex: 0.75;
+  min-width: 180px;
+  border: 2px dashed #b9c4d8;
+  border-radius: 12px;
+  background: #f2f5fa;
+  color: #5b657a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  padding: 14px;
+  overflow: hidden;
+}
+.photo-box span {
+  font-weight: 800;
+  font-size: 14px;
+}
+.photo-box em {
+  font-style: normal;
+  font-size: 12px;
+  opacity: 0.8;
+}
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 ul.tight {
   margin: 0 0 8px;
   padding-left: 20px;
@@ -536,6 +596,12 @@ ol.steps {
   .dots {
     display: none;
   }
+  .cover-top {
+    flex-direction: column;
+  }
+  .photo-box {
+    min-height: 180px;
+  }
   .rise {
     opacity: 1;
     transform: none;
@@ -669,6 +735,30 @@ ol.steps {
     gap: 1.5mm 4mm;
     font-size: 8pt;
     margin: 0 0 1.5mm;
+  }
+  .meta li {
+    gap: 1.5mm;
+  }
+  .meta svg {
+    width: 3.5mm;
+    height: 3.5mm;
+  }
+  .cover-top {
+    gap: 4mm;
+    margin: 2mm 0 1mm;
+  }
+  .photo-box {
+    min-width: 0;
+    padding: 3mm;
+    border-radius: 2mm;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .photo-box span {
+    font-size: 8.5pt;
+  }
+  .photo-box em {
+    font-size: 7pt;
   }
   .print-note {
     font-size: 7.5pt;

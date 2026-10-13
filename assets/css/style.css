@@ -631,14 +631,13 @@ ol.steps {
   }
 }
 
-/* ===== 인쇄: 웹 2쪽 → PDF 1쪽 (A4 절반 비율 고정) =====
- * @page margin 0, 여백은 종이 안쪽 padding(상하 8mm·좌우 10mm).
- * 내용 영역 = 190 x 132.5mm.
- * Chrome: 여백 "없음", 머리글/바닥글 OFF, 배경 그래픽 ON.
+/* ===== 인쇄: 흐름 배치 + 상하 여백 + h2(프로젝트명) 앞 쪽바꿈 =====
+ * @page 상하 14mm·좌우 12mm 여백. 웹 2쪽=PDF 1쪽 규칙 없음.
+ * Chrome: 여백 "기본값", 머리글/바닥글 OFF, 배경 그래픽 ON.
  */
 @page {
   size: A4 portrait;
-  margin: 0;
+  margin: 14mm 12mm;
 }
 @media print {
   .no-print {
@@ -665,7 +664,7 @@ ol.steps {
     background: #fff;
   }
   .screen {
-    width: 210mm;
+    width: auto;
     height: auto;
     min-height: 0;
     max-height: none;
@@ -677,17 +676,15 @@ ol.steps {
     overflow: hidden;
     display: block;
   }
-  /* 프로젝트마다 새 PDF 쪽에서 시작 (총 6쪽) */
-  #index,
-  #p1-scenario,
-  #p1-verify,
-  #p1-effect,
-  #p2-overview {
-    break-after: always;
-    page-break-after: always;
+  /* h2(프로젝트명)가 나오면 새 쪽에서 시작 */
+  #p1-overview,
+  #p2-overview,
+  #p3-overview {
+    break-before: page;
+    page-break-before: always;
   }
   .screen-inner {
-    width: 210mm;
+    width: auto;
     height: auto;
     min-height: 0;
     max-height: none;
@@ -696,7 +693,7 @@ ol.steps {
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    padding: 3mm 8mm;
+    padding: 2mm 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;

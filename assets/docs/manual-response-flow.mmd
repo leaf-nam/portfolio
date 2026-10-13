@@ -7,7 +7,7 @@ flowchart LR
     D -- "실패" --> L
     D -- "성공" --> F["수동 조치"]
     F --> R["같은 장애도<br/>매번 처음부터 분석"]
-    R -. "반복될 때마다 처음부터" .-> S
+    R -. "반복될 때마다 처음부터" .-> E
     classDef step fill:#e9f0e7,stroke:#4a6a53,stroke-width:2px,color:#1a2233
     classDef pain fill:#f2ede9,stroke:#a99aa3,stroke-width:2px,stroke-dasharray:6 4,color:#1a2233
     classDef dec fill:#ffffff,stroke:#51655c,stroke-width:2px,color:#1a2233

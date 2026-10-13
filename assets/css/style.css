@@ -556,6 +556,14 @@ ol.steps {
   color: #8a94ab;
   margin-top: 4px;
 }
+.impl-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fbfcff;
+}
 .content-img {
   width: 100%;
   height: 220px;
@@ -988,6 +996,10 @@ ol.steps {
   }
   .impl-panel .diagram {
     margin: 0.8mm 0 0;
+  }
+  .impl-img {
+    height: 13mm;
+    border-radius: 2mm;
   }
   .v-table {
     font-size: 8pt;

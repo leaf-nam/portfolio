@@ -1080,6 +1080,15 @@ ol.steps {
   #p1-scenario .paired-text .note {
     font-size: 13px;
   }
+  /* 표지 소개글: 모바일에서 <br> 단위로 한 줄씩 보이도록 화면 폭에 맞춰 글자 크기 조절 */
+  #cover .screen-inner {
+    padding: 20px 14px;
+  }
+  #cover .cover-intro .lead {
+    white-space: nowrap;
+    font-size: clamp(9px, calc((100vw - 56px) / 29), 16.5px);
+    line-height: 1.7;
+  }
 }
 
 /* ===== 인쇄: 흐름 배치 + 상하 여백 + h1(프로젝트명) 앞 쪽바꿈 =====

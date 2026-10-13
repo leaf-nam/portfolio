@@ -404,27 +404,38 @@
         <div class="screen-kicker">Project 01 · House Of Ong R</div>
         <div class="screen-inner">
           <h3>Problem Scenario <span class="ko">문제 시나리오</span></h3>
-          <ol class="steps rise" style="--d: 0.05s">
-            <li>사용자가 회원가입을 요청합니다.</li>
-            <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
-            <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
-            <li>사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.</li>
-            <li>
-              사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수
-              없습니다.
-            </li>
-          </ol>
-          <p class="note">
-            서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입 요청이
-            부분적으로만 완료될 수 있었습니다.
-          </p>
-          <figure class="diagram rise" style="--d: 0.1s">
-            <div class="diagram-empty" data-diagram="p1-signup-seq">
-              <span>회원가입 실패 시퀀스 다이어그램</span
-              ><em>빈 이미지 — 실제 다이어그램으로 교체 예정</em>
+          <div class="paired">
+            <div class="paired-text">
+              <ol class="steps rise" style="--d: 0.05s">
+                <li>사용자가 회원가입을 요청합니다.</li>
+                <li>사용자 서비스에서 사용자 데이터가 저장됩니다.</li>
+                <li>인증 정보 생성 과정에서 오류가 발생합니다.</li>
+                <li>
+                  사용자 데이터는 남아 있지만 인증 정보는 생성되지 않습니다.
+                </li>
+                <li>
+                  사용자가 재시도하면 기존 데이터와 충돌해 정상적으로 가입할 수
+                  없습니다.
+                </li>
+              </ol>
+              <p class="note">
+                서비스별 데이터 저장이 독립적으로 수행되면서, 하나의 회원가입
+                요청이 부분적으로만 완료될 수 있었습니다.
+              </p>
             </div>
-            <figcaption>그림 1-2. 회원가입 실패 시퀀스 (예정)</figcaption>
-          </figure>
+            <figure class="diagram rise" style="--d: 0.1s">
+              <div
+                class="mermaid-slot"
+                data-mmd="./assets/docs/signup-failure-sequence.mmd"
+              >
+                <div class="diagram-empty" data-diagram="p1-signup-seq">
+                  <span>회원가입 실패 시퀀스 다이어그램</span
+                  ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
+                </div>
+              </div>
+              <figcaption>그림 1-2. 회원가입 실패 시퀀스</figcaption>
+            </figure>
+          </div>
           <h3 class="rise" style="--d: 0.12s">
             Reason <span class="ko">원인분석</span>
           </h3>

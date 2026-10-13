@@ -404,6 +404,17 @@ ol.steps {
   display: grid;
   gap: 5px;
 }
+/* 시나리오 2단: 텍스트 | 다이어그램 */
+.paired {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 10px;
+}
+.paired .diagram {
+  margin: 0;
+}
 .btn-row {
   display: flex;
   gap: 10px;
@@ -556,6 +567,18 @@ ol.steps {
   color: #8a94ab;
   margin-top: 4px;
 }
+/* mermaid 렌더 슬롯 */
+.mermaid-slot svg {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 430px;
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 0 auto;
+}
 .impl-img {
   width: 100%;
   height: auto;
@@ -676,6 +699,9 @@ ol.steps {
     scroll-snap-type: y proximity;
   }
   .cards {
+    grid-template-columns: 1fr;
+  }
+  .paired {
     grid-template-columns: 1fr;
   }
   .topic-img {
@@ -966,6 +992,12 @@ ol.steps {
   .diagram figcaption {
     font-size: 7pt;
     margin-top: 1mm;
+  }
+  .mermaid-slot svg {
+    max-width: 100%;
+    max-height: 62mm;
+    width: auto;
+    margin: 0 auto;
   }
   .content-img {
     height: 50mm;

@@ -28,6 +28,50 @@
   // PDF 버튼
   document.getElementById('btn-print').addEventListener('click', () => window.print());
 
+  // mermaid: .mmd 파일을 SVG로 인라인 렌더 (실패 시 플레이스홀더 유지)
+  function loadMermaid() {
+    return new Promise((resolve, reject) => {
+      if (window.mermaid) return resolve(window.mermaid);
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+      s.onload = () => resolve(window.mermaid);
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  async function renderMermaids() {
+    const slots = [...document.querySelectorAll('.mermaid-slot[data-mmd]')];
+    if (!slots.length) return;
+    let mm;
+    try {
+      mm = await loadMermaid();
+    } catch {
+      return;
+    }
+    mm.initialize({
+      startOnLoad: false,
+      theme: 'neutral',
+      themeVariables: {
+        fontFamily: '"Pretendard Variable", Pretendard, sans-serif',
+      },
+    });
+    for (const [i, slot] of slots.entries()) {
+      try {
+        const res = await fetch(slot.dataset.mmd);
+        if (!res.ok) continue;
+        const text = await res.text();
+        const { svg } = await mm.render('mmd-' + i, text);
+        slot.innerHTML = svg;
+      } catch {
+        /* 플레이스홀더 유지 */
+      }
+    }
+    fitPapers();
+    setTimeout(fitPapers, 800);
+    setTimeout(fitPapers, 2000);
+  }
+  renderMermaids();
+
   // 용지 맞춤: 내용이 고정비율 용지를 넘치면 Web에서만 축소 (인쇄 CSS는 별도 검증됨)
   function fitOne(inner) {
     const fit = inner.querySelector(':scope > .fit');

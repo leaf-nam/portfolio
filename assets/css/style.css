@@ -567,6 +567,28 @@ ol.steps {
   font-size: 12px;
   color: #8a94ab;
   margin-top: 4px;
+  text-align: center;
+}
+/* paired 2단 그림: 높이 통일 */
+.paired {
+  align-items: stretch;
+}
+.paired > figure {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+.paired .mermaid-slot {
+  flex: 1 1 auto;
+  min-height: 200px;
+  position: relative;
+}
+.paired .mermaid-slot svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 /* mermaid 렌더 슬롯 */
 .mermaid-slot svg {

@@ -21,9 +21,9 @@
         <nav class="topnav">
           <a href="#cover">메인</a>
           <a href="#index">목차</a>
-          <a href="#p1-overview">프로젝트1</a>
-          <a href="#p2-overview">프로젝트2</a>
-          <a href="#p3-overview">프로젝트3</a>
+          <a href="#p1-overview">MSA 정합성</a>
+          <a href="#p2-overview">AI 자동화</a>
+          <a href="#p3-overview">비동기 최적화</a>
         </nav>
         <div class="top-actions">
           <span class="pdf-hint">프로젝트별 새 쪽</span>
@@ -188,13 +188,13 @@
                 />
               </div>
               <p class="pill">01 · HouseOfOngr</p>
-              <h3>서비스 간 데이터 정합성 확보</h3>
+              <h3>MSA 내 데이터 정합성 확보</h3>
               <p>분산된 서비스의 실패처리와 복구</p>
               <svg
                 viewBox="0 0 200 110"
                 class="topic-img"
                 role="img"
-                aria-label="서비스 간 데이터 정합성"
+                aria-label="MSA 내 데이터 정합성"
               >
                 <path
                   d="M25 38 v38 c0 6 12 11 27 11 s27 -5 27 -11 v-38"
@@ -355,7 +355,7 @@
       <section id="p1-overview" class="screen fill-screen">
         <div class="screen-kicker">Project 01 · HouseOfOngr</div>
         <div class="screen-inner">
-          <h1>서비스 간 데이터 정합성 확보</h1>
+          <h1>MSA 내 데이터 정합성 확보</h1>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
             인증 기능과 사용자 기능을 분리하는 과정에서 발생한 회원가입 실패 및
@@ -1306,10 +1306,10 @@
                 <h4>① WebClient 비동기 전송</h4>
                 <ul class="tight">
                   <li>
-                    RestTemplate 동기 호출을 WebFlux WebClient로 바꿨습니다.
+                    RestTemplate 동기 호출을 WebFlux의 WebClient로 바꿨습니다.
                   </li>
-                  <li>논블로킹 I/O로 300개 요청을 동시에 전송합니다.</li>
-                  <li>100명 생성 65분 → 12분으로 단축했습니다.</li>
+                  <li>논블로킹 I/O로 20개의 상세정보를 한번에 수집합니다.</li>
+                  <li>이어서 300개 타임라인 정보를 동시에 수집합니다.</li>
                 </ul>
                 <svg
                   viewBox="0 0 220 100"
@@ -1474,28 +1474,18 @@
           </h3>
           <h4 class="rise" style="--d: 0.12s">Keep <span class="ko">계속할점</span></h4>
           <ul class="tight rise" style="--d: 0.13s">
-            <li>변화하는 요구사항을 최대한 수용했습니다.</li>
-            <li>기술적 난관을 회피하지 않고 도전했습니다.</li>
-            <li>추상 클래스·생성자 활용으로 가독성·재사용성을 높였습니다.</li>
+            <li>기능 구현 시 추상 클래스 및 생성자 활용으로 가독성과 재사용성을 높였습니다.</li>
+            <li>비동기 로직에서 CS 기본기의 도움을 받았습니다.</li>
           </ul>
           <h4 class="rise" style="--d: 0.14s">Problem <span class="ko">아쉬운점</span></h4>
           <ul class="tight rise" style="--d: 0.15s">
-            <li>DB 설계의 중요성을 간과해 변화에 늦게 대응했습니다.</li>
-            <li>DATA 수집 과다로 E2E 테스트·디버깅 시간이 부족했습니다.</li>
+            <li>수집시간을 미리 판단하지 못해 일정에 영향을 미쳤습니다.</li>
             <li>단위 테스트가 세부 로직에 묶여 리팩터링 시 쉽게 실패했습니다.</li>
           </ul>
           <h4 class="rise" style="--d: 0.16s">Try <span class="ko">시도할점</span></h4>
           <ul class="tight rise" style="--d: 0.17s">
-            <li>가능성을 열어둔 설계로 변화에 대처하겠습니다.</li>
-            <li>최소 요구사항 우선 달성 후 개선하겠습니다.</li>
-            <li>블랙박스 테스트와 외부 의존 분리를 하겠습니다.</li>
-          </ul>
-          <h4 class="rise" style="--d: 0.18s">Impression <span class="ko">느낀점</span></h4>
-          <ul class="tight rise" style="--d: 0.19s">
-            <li>백엔드 역할을 오롯이 수행하며 다양한 시도를 했습니다.</li>
-            <li>테스트의 중요성을 느꼈습니다.</li>
-            <li>비동기 로직에서 CS 기본기의 도움을 받았습니다.</li>
-            <li>로깅·조건문 등 디테일이 성능에 영향을 줍니다.</li>
+            <li>설계과정에서 예상 시간을 추정하고 미리 대응하겠습니다.</li>
+            <li>블랙박스 테스트를 작성하여 테스트가 쉽게 깨지지 않도록 하겠습니다.</li>
           </ul>
         </div>
         <footer class="page-tag">18/18</footer>

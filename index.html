@@ -182,7 +182,7 @@
         <div class="screen-inner">
           <h3>Project Indexes <span class="ko">프로젝트 목차</span></h3>
           <div class="cards">
-            <a class="p-card rise" style="--d: 0.05s" href="#p1-overview">
+            <a class="p-card" style="--d: 0.05s" href="#p1-overview">
               <div class="thumb" data-thumb="p1">
                 <img
                   src="./assets/image/houseofongr.png"
@@ -238,7 +238,7 @@
               </svg>
               <p class="stack">2025.10.01. ~ 2025.10.31. (4주)</p>
             </a>
-            <a class="p-card rise" style="--d: 0.15s" href="#p2-overview">
+            <a class="p-card" style="--d: 0.15s" href="#p2-overview">
               <div class="thumb" data-thumb="p2">
                 <img
                   src="./assets/image/chaerok.png"
@@ -289,7 +289,7 @@
               </svg>
               <p class="stack">2026.06.10. ~ 2026.07.31. (7주)</p>
             </a>
-            <a class="p-card rise" style="--d: 0.25s" href="#p3-overview">
+            <a class="p-card" style="--d: 0.25s" href="#p3-overview">
               <div class="thumb" data-thumb="p3">
                 <img
                   src="./assets/image/matchup.png"
@@ -358,8 +358,8 @@
         <div class="screen-kicker">Project 01 · HouseOfOngr</div>
         <div class="screen-inner">
           <h1>MSA 내 데이터 정합성 확보</h1>
-          <h3 class="rise">Overview <span class="ko">개요</span></h3>
-          <p class="rise" style="--d: 0.05s">
+          <h3 class="">Overview <span class="ko">개요</span></h3>
+          <p class="" style="--d: 0.05s">
             <strong>인증 기능과 사용자 기능을 분리</strong>하는 과정에서 발생한
             회원가입 실패 및 데이터 불일치 문제를 해결했습니다. <br />
             서비스 간 요청이 부분적으로 실패하더라도
@@ -367,7 +367,7 @@
               >데이터 정합성을 유지하고, 재시도와 복구가 가능한 구조</strong
             >를 만드는 것이 목표였습니다.
           </p>
-          <figure class="diagram fill-figure rise" style="--d: 0.1s">
+          <figure class="diagram fill-figure" style="--d: 0.1s">
             <div class="fill-frame">
               <img
                 class="fill-img"
@@ -386,15 +386,15 @@
         <div class="screen-kicker">Project 01 · HouseOfOngr</div>
         <div class="screen-inner">
           <h2>Problem <span class="ko">문제</span></h2>
-          <h3 class="rise" style="--d: 0.1s">
+          <h3 class="" style="--d: 0.1s">
             Situation <span class="ko">상황</span>
           </h3>
-          <p class="rise" style="--d: 0.12s">
+          <p class="" style="--d: 0.12s">
             기존에는 인증과 사용자 기능이 하나의 서비스에서 처리됐지만,
             <strong>기능별로 서비스를 분리</strong>한 이후 회원가입 과정에서
             문제가 발생했습니다.
           </p>
-          <figure class="diagram fill-figure rise" style="--d: 0.1s">
+          <figure class="diagram fill-figure" style="--d: 0.1s">
             <div class="fill-frame">
               <div
                 class="mermaid-slot"
@@ -419,7 +419,7 @@
           <h3>Problem Scenario <span class="ko">문제 시나리오</span></h3>
           <div class="paired">
             <div class="paired-text">
-              <ol class="steps rise" style="--d: 0.05s">
+              <ol class="steps" style="--d: 0.05s">
                 <li>사용자가 회원가입을 요청합니다.</li>
                 <li>유저 서비스에서 인증 생성 요청을 전송합니다.</li>
                 <li>인증 서비스에서 인증 정보를 저장합니다.</li>
@@ -437,10 +437,10 @@
                 회원가입 요청이 부분적으로만 완료될 수 있었습니다.
               </p>
               <div class="reason-block">
-                <h3 class="rise" style="--d: 0.12s">
+                <h3 class="" style="--d: 0.12s">
                   Reason <span class="ko">원인분석</span>
                 </h3>
-                <ul class="tight rise" style="--d: 0.15s">
+                <ul class="tight" style="--d: 0.15s">
                   <li>
                     <b>재시도에 대한 안전성 부족:</b> <br />
                     동일한 요청이 반복됐을 때 중복 데이터나 충돌이 발생할 수
@@ -459,7 +459,7 @@
                 </ul>
               </div>
             </div>
-            <figure class="diagram rise" style="--d: 0.1s">
+            <figure class="diagram" style="--d: 0.1s">
               <div
                 class="mermaid-slot"
                 data-mmd="./assets/docs/signup-failure-sequence.mmd"
@@ -734,7 +734,7 @@
           <h2>Result <span class="ko">결과</span></h2>
           <h3>Verification <span class="ko">검증</span></h3>
           <table
-            class="v-table rise"
+            class="v-table"
             style="--d: 0.05s; font-size: 12.5px; margin: 4px 0 2px"
             id="p1-vtable"
           >
@@ -763,7 +763,7 @@
             </tr>
           </table>
           <div class="paired" style="flex: 1 1 auto; min-height: 0">
-            <figure class="diagram rise" style="--d: 0.1s; margin: 0">
+            <figure class="diagram" style="--d: 0.1s; margin: 0">
               <img
                 class="content-img"
                 src="./assets/image/content/p1-before.png"
@@ -774,7 +774,7 @@
                 그림 1-3. 개선 전 통합테스트 결과(정상 회원가입만 통과)
               </figcaption>
             </figure>
-            <figure class="diagram rise" style="--d: 0.15s; margin: 0">
+            <figure class="diagram" style="--d: 0.15s; margin: 0">
               <img
                 class="content-img"
                 src="./assets/image/content/p1-after.png"
@@ -787,7 +787,7 @@
             </figure>
           </div>
           <h3>Effect <span class="ko">개선효과</span></h3>
-          <ul class="tight rise" style="--d: 0.05s">
+          <ul class="tight" style="--d: 0.05s">
             <li>
               <b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리
               문제를 방지했습니다.
@@ -809,13 +809,13 @@
       <section id="p1-effect" class="screen">
         <div class="screen-kicker">Project 01 · HouseOfOngr</div>
         <div class="screen-inner">
-          <h3 class="rise" style="--d: 0.1s">
+          <h3 class="" style="--d: 0.1s">
             Review <span class="ko">회고</span>
           </h3>
-          <h4 class="rise" style="--d: 0.12s">
+          <h4 class="" style="--d: 0.12s">
             Keep <span class="ko">계속할점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.13s">
+          <ul class="tight" style="--d: 0.13s">
             <li>
               정상 흐름과 실패·재시도·복구를 함께 설계하며 안정적인 서비스
               로직을 구현할 수 있었습니다.
@@ -825,10 +825,10 @@
               정합성을 관리하는 방법을 배웠습니다.
             </li>
           </ul>
-          <h4 class="rise" style="--d: 0.14s">
+          <h4 class="" style="--d: 0.14s">
             Problem <span class="ko">아쉬운점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.15s">
+          <ul class="tight" style="--d: 0.15s">
             <li>장애 상황별 테스트와 커버리지가 부족했습니다.</li>
             <li>
               데이터가 불일치되거나 복구 이력을 관측하는 로그 등이 부족했습니다.
@@ -838,10 +838,10 @@
               한계).
             </li>
           </ul>
-          <h4 class="rise" style="--d: 0.16s">
+          <h4 class="" style="--d: 0.16s">
             Try <span class="ko">시도할점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.17s">
+          <ul class="tight" style="--d: 0.17s">
             <li>장애 상황별로 대응 가능한 테스트를 작성하겠습니다.</li>
             <li>복구 이력을 추적할 수 있는 구조를 고민하겠습니다.</li>
             <li>Transactional Outbox 패턴을 학습해서 적용해보고 싶습니다.</li>
@@ -856,15 +856,15 @@
         <div class="screen-inner">
           <h1>운영 자동화 및 장애대응</h1>
           <p class="sub">n8n·LLM·MCP 기반 장애 자동분석 체계 구축</p>
-          <h3 class="rise">Overview <span class="ko">개요</span></h3>
-          <p class="rise" style="--d: 0.05s">
+          <h3 class="">Overview <span class="ko">개요</span></h3>
+          <p class="" style="--d: 0.05s">
             배포 오류나 장애가 나면
             <strong>개발자가 직접 원인을 분석</strong>해야 했습니다.<br />
             이러한 과정의 불편함을 개선하고,
             <strong>빠르게 문제의 해결책을 찾아 조치</strong>하는 시스템이
             필요했습니다.
           </p>
-          <figure class="diagram fill-figure rise" style="--d: 0.1s">
+          <figure class="diagram fill-figure" style="--d: 0.1s">
             <div class="fill-frame">
               <img
                 class="fill-img"
@@ -883,15 +883,15 @@
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
           <h2>Problem <span class="ko">문제</span></h2>
-          <h3 class="rise" style="--d: 0.1s">
+          <h3 class="" style="--d: 0.1s">
             Problem <span class="ko">문제상황</span>
           </h3>
-          <p class="rise" style="--d: 0.12s">
+          <p class="" style="--d: 0.12s">
             배포 오류나 장애가 발생하면
             <strong>문제 해결까지 많은 시간</strong>이 걸렸고,
             <strong>개발에 집중하지 못해</strong> 피로도가 높았습니다.
           </p>
-          <figure class="diagram rise" style="--d: 0.15s">
+          <figure class="diagram" style="--d: 0.15s">
             <div
               class="mermaid-slot"
               data-mmd="./assets/docs/manual-response-flow.mmd"
@@ -903,10 +903,10 @@
             </div>
             <figcaption>그림 2-2. 기존 수동 대응 흐름</figcaption>
           </figure>
-          <h3 class="rise" style="--d: 0.12s">
+          <h3 class="" style="--d: 0.12s">
             Reason <span class="ko">원인분석</span>
           </h3>
-          <ul class="tight rise" style="--d: 0.15s">
+          <ul class="tight" style="--d: 0.15s">
             <li>
               <b>직접 확인:</b> 장애가 나면 서버에 접속해 로그를 직접 뒤져야
               했습니다.
@@ -936,7 +936,7 @@
             설계하는 것이 핵심이었습니다.
           </p>
           <h3>Operation Scenario <span class="ko">대응 시나리오</span></h3>
-          <ol class="steps rise" style="--d: 0.05s">
+          <ol class="steps" style="--d: 0.05s">
             <li>
               n8n이 Jenkins나 Grafana로부터 배포 오류·장애 발생을 전달받습니다.
             </li>
@@ -951,7 +951,7 @@
             수집→분석→해결→기록이 자동으로 돌고, 기록이 쌓일수록 해결이 나아지는
             선순환 구조입니다.
           </p>
-          <figure class="diagram rise" style="--d: 0.1s">
+          <figure class="diagram" style="--d: 0.1s">
             <div
               class="mermaid-slot"
               data-mmd="./assets/docs/ops-response-flow.mmd"
@@ -1121,7 +1121,7 @@
               </svg>
             </figure>
           </div>
-          <figure class="diagram rise" style="--d: 0.2s">
+          <figure class="diagram" style="--d: 0.2s">
             <img
               class="content-img"
               src="./assets/image/content/p2-n8n.png"
@@ -1139,7 +1139,7 @@
         <div class="screen-inner">
           <h2>Result <span class="ko">결과</span></h2>
           <h3>Verification <span class="ko">검증</span></h3>
-          <table class="v-table rise" style="--d: 0.05s">
+          <table class="v-table" style="--d: 0.05s">
             <tr>
               <th>확인 항목</th>
               <th>주요 확인사항</th>
@@ -1161,7 +1161,7 @@
               <td>해결 결과가 incident DB에 쌓여 재활용되는가</td>
             </tr>
           </table>
-          <figure class="diagram fill-figure rise" style="--d: 0.1s">
+          <figure class="diagram fill-figure" style="--d: 0.1s">
             <div class="fill-frame">
               <img
                 class="fill-img"
@@ -1180,7 +1180,7 @@
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
           <h3>Effect <span class="ko">개선효과</span></h3>
-          <ul class="tight rise" style="--d: 0.05s">
+          <ul class="tight" style="--d: 0.05s">
             <li>
               <b>자동 분석:</b> 직접 로그를 뒤지던 대응을 AI 수집·분석으로
               자동화했습니다.
@@ -1194,13 +1194,13 @@
               만들었습니다.
             </li>
           </ul>
-          <h3 class="rise" style="--d: 0.1s">
+          <h3 class="" style="--d: 0.1s">
             Review <span class="ko">회고</span>
           </h3>
-          <h4 class="rise" style="--d: 0.12s">
+          <h4 class="" style="--d: 0.12s">
             Keep <span class="ko">계속할점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.13s">
+          <ul class="tight" style="--d: 0.13s">
             <li>
               <strong>수집→분석→해결→기록</strong>의 선순환을 만들었습니다.
               문제상황에서 피드백 구조를 찾아 성능을 지속적으로 높이겠습니다.
@@ -1211,20 +1211,20 @@
               구축하겠습니다.
             </li>
           </ul>
-          <h4 class="rise" style="--d: 0.14s">
+          <h4 class="" style="--d: 0.14s">
             Problem <span class="ko">아쉬운점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.15s">
+          <ul class="tight" style="--d: 0.15s">
             <li>장애 이력이 쌓일수록 검색 성능이 떨어졌습니다.</li>
             <li>
               간단한 장애나 문제도 일일이 알림을 받아 나중에는 민감하게 반응하지
               못했습니다.
             </li>
           </ul>
-          <h4 class="rise" style="--d: 0.16s">
+          <h4 class="" style="--d: 0.16s">
             Try <span class="ko">시도할점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.17s">
+          <ul class="tight" style="--d: 0.17s">
             <li>
               수집한 장애 이력을 LLM이 빠르게 검색할 수 있도록 RAG를 도입해보고
               싶습니다.
@@ -1244,14 +1244,14 @@
         <div class="screen-inner">
           <h1>대규모 데이터 처리 성능 개선</h1>
           <p class="sub">데이처 처리 병목 분석을 통한 비동기 처리 구조 도입</p>
-          <h3 class="rise">Overview <span class="ko">개요</span></h3>
-          <p class="rise" style="--d: 0.05s">
+          <h3 class="">Overview <span class="ko">개요</span></h3>
+          <p class="" style="--d: 0.05s">
             게임 유저 추천·전략 분석 커뮤니티 <strong>MatchUp</strong>에서 모델
             학습 데이터 30,000건을 수집했습니다. <br />
             동기 구조의 병목을 해소하고자 <strong>비동기 처리 구조</strong>로
             전환했습니다.
           </p>
-          <figure class="diagram fill-figure rise" style="--d: 0.15s">
+          <figure class="diagram fill-figure" style="--d: 0.15s">
             <div class="fill-frame">
               <img
                 class="fill-img"
@@ -1270,10 +1270,10 @@
         <div class="screen-kicker">Project 03 · MatchUP</div>
         <div class="screen-inner">
           <h2>Problem <span class="ko">문제</span></h2>
-          <h3 class="rise" style="--d: 0.1s">
+          <h3 class="" style="--d: 0.1s">
             Situation <span class="ko">상황</span>
           </h3>
-          <p class="rise" style="--d: 0.12s">
+          <p class="" style="--d: 0.12s">
             매 요청마다 게임 데이터 응답을 확인한 뒤에야 사용자 데이터를
             생성하는 동기 구조라, <strong>100명 생성에 65분</strong>이
             걸렸습니다. <br />3만명의 데이터를 수집해야 했지만, 약
@@ -1281,7 +1281,7 @@
             불가능했습니다.
           </p>
           <div class="paired">
-            <figure class="diagram rise" style="--d: 0.15s">
+            <figure class="diagram" style="--d: 0.15s">
               <div
                 class="mermaid-slot"
                 data-mmd="./assets/docs/sync-metric-flow.mmd"
@@ -1293,7 +1293,7 @@
               </div>
               <figcaption>그림 3-2. 기존 지표 생성과정</figcaption>
             </figure>
-            <figure class="diagram rise" style="--d: 0.18s">
+            <figure class="diagram" style="--d: 0.18s">
               <div
                 class="mermaid-slot"
                 data-mmd="./assets/docs/preprocessing-flow.mmd"
@@ -1306,10 +1306,10 @@
               <figcaption>그림 3-3. Riot API 전처리 흐름</figcaption>
             </figure>
           </div>
-          <h3 class="rise" style="--d: 0.12s">
+          <h3 class="" style="--d: 0.12s">
             Reason <span class="ko">원인분석</span>
           </h3>
-          <ul class="tight rise" style="--d: 0.15s">
+          <ul class="tight" style="--d: 0.15s">
             <li>
               <b>순차 반복:</b> 1인당 게임 데이터를 20개 수집하고, 이어서 15개의
               분당 데이터를 수집하면서 총 300회의 요청이 필요했습니다.
@@ -1463,7 +1463,7 @@
                 </svg>
               </div>
             </div>
-            <figure class="diagram rise" style="--d: 0.1s">
+            <figure class="diagram" style="--d: 0.1s">
               <div
                 class="mermaid-slot"
                 data-mmd="./assets/docs/async-metric-flow.mmd"
@@ -1486,13 +1486,13 @@
         <div class="screen-inner">
           <h2>Result <span class="ko">결과</span></h2>
           <h3>Effect <span class="ko">개선효과</span></h3>
-          <ul class="tight rise" style="--d: 0.05s">
+          <ul class="tight" style="--d: 0.05s">
             <li>
               <b>생성시간 81% 단축:</b> 100명 65분 → 12분, 3만 명은 325시간 →
               60시간(2.5일)으로 기한 내 수집 완료했습니다.
             </li>
           </ul>
-          <figure class="diagram rise" style="--d: 0.08s">
+          <figure class="diagram" style="--d: 0.08s">
             <div class="log-compare">
               <div class="log-card">
                 <p class="log-cap">변경 전</p>
@@ -1514,31 +1514,31 @@
             </div>
             <figcaption>그림 3-5. 개선 전후 소요시간 로그</figcaption>
           </figure>
-          <h3 class="rise" style="--d: 0.1s">
+          <h3 class="" style="--d: 0.1s">
             Review <span class="ko">회고</span>
           </h3>
-          <h4 class="rise" style="--d: 0.12s">
+          <h4 class="" style="--d: 0.12s">
             Keep <span class="ko">계속할점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.13s">
+          <ul class="tight" style="--d: 0.13s">
             <li>
               비동기 로직에서 CS 기본기의 도움을 받았습니다. 기본기의 중요성을
               느꼈고, 중요한 순간에 도움받도록 계속 학습하겠습니다.
             </li>
           </ul>
-          <h4 class="rise" style="--d: 0.14s">
+          <h4 class="" style="--d: 0.14s">
             Problem <span class="ko">아쉬운점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.15s">
+          <ul class="tight" style="--d: 0.15s">
             <li>수집시간을 미리 판단하지 못해 일정에 영향을 미쳤습니다.</li>
             <li>
               단위 테스트가 세부 로직에 묶여 리팩터링 시 쉽게 실패했습니다.
             </li>
           </ul>
-          <h4 class="rise" style="--d: 0.16s">
+          <h4 class="" style="--d: 0.16s">
             Try <span class="ko">시도할점</span>
           </h4>
-          <ul class="tight rise" style="--d: 0.17s">
+          <ul class="tight" style="--d: 0.17s">
             <li>설계과정에서 예상 시간을 추정하고 미리 대응하겠습니다.</li>
             <li>
               블랙박스 테스트를 작성하여 테스트가 쉽게 깨지지 않도록 하겠습니다.

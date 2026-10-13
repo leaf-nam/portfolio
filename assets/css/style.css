@@ -1327,6 +1327,7 @@ ol.steps {
   .rise {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
   }
   a {
     color: inherit;

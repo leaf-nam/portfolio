@@ -109,6 +109,20 @@
     document.querySelectorAll(".screen-inner").forEach(fitOne);
   }
 
+  // h1~h3 제외 직계 자식에 .rise 자동 부여 (반드시 .fit 감싸기보다 먼저)
+  document.querySelectorAll(".screen-inner").forEach((inner) => {
+    let i = 0;
+    inner
+      .querySelectorAll(":scope > *:not(h1):not(h2):not(h3)")
+      .forEach((el) => {
+        el.classList.add("rise");
+        if (!el.style.getPropertyValue("--d")) {
+          el.style.setProperty("--d", `${Math.min(0.05 + i * 0.05, 0.5)}s`);
+        }
+        i++;
+      });
+  });
+
   // .screen-inner 자식들을 .fit 하나로 감싸기 (용지 박스는 그대로, 내용만 스케일)
   document.querySelectorAll(".screen-inner").forEach((inner) => {
     const fit = document.createElement("div");

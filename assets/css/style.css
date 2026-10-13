@@ -256,7 +256,8 @@ h3 {
   margin: 14px 0 6px;
 }
 h2 .ko,
-h3 .ko {
+h3 .ko,
+h4 .ko {
   font-size: 0.8em;
   margin-left: 0.15em;
   white-space: nowrap;

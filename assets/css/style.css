@@ -666,9 +666,9 @@ ol.steps {
   }
   .screen {
     width: 210mm;
-    height: 148.4mm;
+    height: auto;
     min-height: 0;
-    max-height: 148.4mm;
+    max-height: none;
     margin: 0;
     padding: 0;
     scroll-snap-align: unset;
@@ -688,9 +688,9 @@ ol.steps {
   }
   .screen-inner {
     width: 210mm;
-    height: 148.4mm;
+    height: auto;
     min-height: 0;
-    max-height: 148.4mm;
+    max-height: none;
     aspect-ratio: auto;
     margin: 0;
     border: 0;

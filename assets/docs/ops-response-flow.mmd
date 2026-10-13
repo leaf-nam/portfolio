@@ -1,13 +1,20 @@
 flowchart LR
-    %% AI 장애 자동대응 흐름 (초안)
+    %% 장애 대응 흐름 + 선순환 구분 (초안)
     %% 미리보기: https://mermaid.live 에 붙여넣기
-    TR["n8n: 오류·장애 감지"] --> C["server-mcp 메트릭·로그 수집"]
-    C --> L["LLM API 원인 분석"]
-    L --> I["incident-mcp 과거 원인 대조"]
-    I --> S["문제 해결"]
-    S --> R["incident DB에 기록"]
-    R -. "히스토리 축적" .-> L
+    TR["n8n: 오류·장애 감지"] --> C["server-mcp 메트릭·로그 수집"] --> L
+    subgraph CYCLE["선순환 구조"]
+        direction LR
+        L["LLM API 원인 분석"]
+        L --> I["incident-mcp 과거 원인 대조"]
+        I --> S["문제 해결"]
+        S --> R["incident DB에 기록"]
+        R -. "히스토리 축적" .-> L
+    end
     classDef step fill:#e9f0e7,stroke:#4a6a53,stroke-width:2px,color:#1a2233
     classDef rec fill:#f2ede9,stroke:#a99aa3,stroke-width:2px,stroke-dasharray:6 4,color:#1a2233
-    class TR,C,L,I,S step
+    classDef cyclebox fill:#f4f8f4,stroke:#4a6a53,stroke-width:2px,stroke-dasharray:8 5
+    classDef trig fill:#ffffff,stroke:#51655c,stroke-width:2px,color:#1a2233
+    class C,L,I,S step
     class R rec
+    class TR trig
+    class CYCLE cyclebox

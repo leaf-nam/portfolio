@@ -1450,26 +1450,23 @@
               <b>생성시간 81% 단축:</b> 100명 65분 → 12분, 3만 명은 325시간 →
               60시간(2.5일)으로 기한 내 수집 완료했습니다.
             </li>
-            <li>
-              <b>대기 제거:</b> 요청마다 응답을 기다리던 구조를 해소했습니다.
-            </li>
           </ul>
           <figure class="diagram rise" style="--d: 0.08s">
             <div class="log-compare">
               <div class="log-card">
                 <p class="log-cap">변경 전</p>
                 <code
-                  >2024-03-25T14:56:15.201+09:00 INFO 13988 ---<br />[nio-8080-exec-1]
-                  c.s.m.s.s.sub.SummonerTotalService :<br />전체 소환사
-                  생성완료[소요시간 : <b>3950292ms</b>]</code
+                  >2024-03-25T14:56:15.201+09:00 INFO 13988 ---
+                  [nio-8080-exec-1] c.s.m.s.s.sub.SummonerTotalService : 전체
+                  소환사 생성완료[소요시간 : <b>3950292ms</b>]</code
                 >
               </div>
               <div class="log-arrow"><span>81% 단축</span><i>→</i></div>
               <div class="log-card">
                 <p class="log-cap">변경 후</p>
                 <code
-                  >2024-03-27T13:23:08.887+09:00 INFO 5368 ---<br />[nio-8080-exec-1]
-                  c.s.m.s.s.sub.SummonerTotalFluxService :<br />created all
+                  >2024-03-27T13:23:08.887+09:00 INFO 5368 --- [nio-8080-exec-1]
+                  c.s.m.s.s.sub.SummonerTotalFluxService : created all
                   summoner(전체 소환사 생성완료, 총 소요시간 :
                   <b>755445ms</b>)</code
                 >
@@ -1484,10 +1481,6 @@
             Keep <span class="ko">계속할점</span>
           </h4>
           <ul class="tight rise" style="--d: 0.13s">
-            <li>
-              기능 구현 시 추상 클래스 및 생성자 활용으로 가독성과 재사용성을
-              높였습니다.
-            </li>
             <li>비동기 로직에서 CS 기본기의 도움을 받았습니다.</li>
           </ul>
           <h4 class="rise" style="--d: 0.14s">

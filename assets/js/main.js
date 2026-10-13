@@ -137,8 +137,12 @@
   window.addEventListener("load", fitPapers);
   if (document.fonts && document.fonts.ready)
     document.fonts.ready.then(fitPapers);
+  // 웹폰트 교체 등 늦은 레이아웃 변화를 따라가도록 추가 재측정
+  if (document.fonts && document.fonts.addEventListener)
+    document.fonts.addEventListener("loadingdone", scheduleFit);
   setTimeout(fitPapers, 600);
   setTimeout(fitPapers, 1500);
+  setTimeout(fitPapers, 4000);
   // 용지 크기 변화를 감지해 늦게 바뀌는 내용(웹폰트 등)에도 맞춤 유지
   if ("ResizeObserver" in window) {
     const ros = new ResizeObserver(scheduleFit);

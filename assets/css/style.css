@@ -615,7 +615,7 @@ ol.steps {
   font-size: 11.5px;
   line-height: 1.6;
   word-break: break-all;
-  white-space: pre-wrap;
+  white-space: normal;
 }
 .log-card code b {
   color: #ffd166;
@@ -758,7 +758,7 @@ ol.steps {
 }
 .solve-cards {
   display: grid;
-  gap: 10px;
+  gap: 50px;
   align-content: start;
   height: auto;
 }

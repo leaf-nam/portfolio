@@ -246,6 +246,12 @@ h3 {
   font-size: 17px;
   margin: 14px 0 6px;
 }
+h3 .ko {
+  font-size: 0.8em;
+  letter-spacing: 0.3em;
+  margin-left: 0.15em;
+  white-space: nowrap;
+}
 h4 {
   font-size: 15px;
   margin: 0 0 6px;

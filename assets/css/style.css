@@ -726,7 +726,7 @@ ol.steps {
 /* Solve 2단: 카드 2개(위아래) + 순서도 */
 .solve-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 14px;
   align-items: stretch;
   margin-top: 8px;
@@ -768,13 +768,20 @@ ol.steps {
   margin-top: 6px;
 }
 #p3-solve .solve-card {
-  padding: 10px 12px;
+  padding: 4px 10px;
+}
+#p3-solve .solve-card h4 {
+  font-size: 14px;
+  margin: 0 0 4px;
 }
 #p3-solve .solve-card .impl-img {
-  max-height: 80px;
+  max-height: 36px;
+}
+#p3-solve .solve-card ul.tight {
+  gap: 3px;
 }
 #p3-solve .mermaid-slot svg {
-  max-height: 300px;
+  max-height: 360px;
 }
 #p3-solve h3 {
   margin: 10px 0 4px;

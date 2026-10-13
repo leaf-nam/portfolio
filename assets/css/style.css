@@ -645,6 +645,14 @@ ol.steps {
   max-width: none;
   max-height: none;
 }
+/* fill 프레임 안의 빈 박스도 늘어나게 */
+.fill-frame > .diagram-empty {
+  position: absolute;
+  inset: 8px;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+}
 
 /* 핵심 구현 (펼침형: 데스크탑 3단, 인쇄·모바일 쌓기) */
 @media screen and (min-width: 861px) {

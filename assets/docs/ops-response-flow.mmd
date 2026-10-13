@@ -1,0 +1,12 @@
+flowchart LR
+    %% 장애 대응 흐름 (초안)
+    %% 미리보기: https://mermaid.live 에 붙여넣기
+    AL["Grafana 알람·제보"] --> S["server-mcp 현재 상태 조회"]
+    S --> I["incident-mcp 과거 사례 조회"]
+    I --> A["조치"]
+    A --> R["incident-mcp에 기록"]
+    R -. "재발 시 참조" .-> I
+    classDef step fill:#e9f0e7,stroke:#4a6a53,stroke-width:2px,color:#1a2233
+    classDef rec fill:#f2ede9,stroke:#a99aa3,stroke-width:2px,stroke-dasharray:6 4,color:#1a2233
+    class AL,S,I,A step
+    class R rec

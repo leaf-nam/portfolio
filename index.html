@@ -897,35 +897,31 @@
             AI에게 맡기는 것이 목표였습니다.
           </p>
           <h3>Operation Scenario <span class="ko">대응 시나리오</span></h3>
-          <div class="paired">
-            <div class="paired-text">
-              <ol class="steps rise" style="--d: 0.05s">
-                <li>n8n이 배포 오류·장애 발생을 감지합니다.</li>
-                <li>server-mcp로 메트릭과 로그를 수집합니다.</li>
-                <li>
-                  LLM API가 incident-mcp 과거 원인과 대조해 원인을 분석합니다.
-                </li>
-                <li>분석 결과로 문제를 해결합니다.</li>
-                <li>해결 결과를 incident DB에 기록해 히스토리를 쌓습니다.</li>
-              </ol>
-              <p class="note">
-                수집→분석→해결→기록이 자동으로 돌고, 기록이 쌓일수록 해결이
-                나아지는 선순환 구조입니다.
-              </p>
-            </div>
-            <figure class="diagram rise" style="--d: 0.1s">
-              <div
-                class="mermaid-slot"
-                data-mmd="./assets/docs/ops-response-flow.mmd"
-              >
-                <div class="diagram-empty" data-diagram="p2-ops-flow">
-                  <span>장애 대응 흐름도</span
-                  ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
-                </div>
+          <ol class="steps rise" style="--d: 0.05s">
+            <li>n8n이 배포 오류·장애 발생을 감지합니다.</li>
+            <li>server-mcp로 메트릭과 로그를 수집합니다.</li>
+            <li>
+              LLM API가 incident-mcp 과거 원인과 대조해 원인을 분석합니다.
+            </li>
+            <li>분석 결과로 문제를 해결합니다.</li>
+            <li>해결 결과를 incident DB에 기록해 히스토리를 쌓습니다.</li>
+          </ol>
+          <p class="note">
+            수집→분석→해결→기록이 자동으로 돌고, 기록이 쌓일수록 해결이
+            나아지는 선순환 구조입니다.
+          </p>
+          <figure class="diagram rise" style="--d: 0.1s">
+            <div
+              class="mermaid-slot"
+              data-mmd="./assets/docs/ops-response-flow.mmd"
+            >
+              <div class="diagram-empty" data-diagram="p2-ops-flow">
+                <span>장애 대응 흐름도</span
+                ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
               </div>
-              <figcaption>그림 2-3. 장애 대응 흐름</figcaption>
-            </figure>
-          </div>
+            </div>
+            <figcaption>그림 2-3. 장애 대응 흐름</figcaption>
+          </figure>
         </div>
         <footer class="page-tag">11/16</footer>
       </section>

@@ -1047,6 +1047,35 @@ ol.steps {
     opacity: 1;
     transform: none;
   }
+  /* P1 시나리오: 모바일에서는 텍스트 → 다이어그램 순서로 세로 배치 */
+  #p1-scenario .paired {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    flex: none;
+  }
+  #p1-scenario .paired > figure {
+    height: auto;
+  }
+  #p1-scenario .paired .mermaid-slot {
+    position: static;
+    min-height: 0;
+  }
+  #p1-scenario .paired .mermaid-slot svg {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  /* 모바일에서는 글자 크기를 다시 키움 */
+  #p1-scenario .paired-text .steps,
+  #p1-scenario .reason-block .tight {
+    font-size: 14px;
+    gap: 5px;
+  }
+  #p1-scenario .paired-text .note {
+    font-size: 13px;
+  }
 }
 
 /* ===== 인쇄: 흐름 배치 + 상하 여백 + h1(프로젝트명) 앞 쪽바꿈 =====

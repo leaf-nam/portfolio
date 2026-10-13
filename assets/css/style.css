@@ -245,7 +245,7 @@ h1.cover-title {
 }
 h2 {
   font-size: clamp(19px, 2.4vw, 24px);
-  margin: 0.1em 0 0.25em;
+  margin: 0.1em 0 0.1em;
   letter-spacing: -0.3px;
 }
 h2.h2-sm {
@@ -253,7 +253,7 @@ h2.h2-sm {
 }
 h3 {
   font-size: 17px;
-  margin: 14px 0 6px;
+  margin: 5px 0 5px;
 }
 h2 .ko,
 h3 .ko,
@@ -427,13 +427,42 @@ ol.steps {
 /* 시나리오 2단: 텍스트 | 다이어그램 */
 .paired {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   align-items: start;
   margin-bottom: 10px;
 }
 .paired .diagram {
   margin: 0;
+}
+/* p1-scenario: 텍스트 축소 + 다이어그램 확대 */
+#p1-scenario .paired {
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+#p1-scenario .paired-text .steps {
+  font-size: 12px;
+  gap: 3px;
+  margin: 0 0 4px;
+  padding-left: 18px;
+}
+#p1-scenario .paired-text .note {
+  font-size: 11px;
+  margin: 0 0 10px;
+}
+#p1-scenario .reason-block h3 {
+  font-size: 15px;
+  margin: 0 0 4px;
+}
+#p1-scenario .reason-block .tight {
+  font-size: 12px;
+  gap: 3px;
+  margin: 0;
+}
+#p1-scenario .mermaid-slot svg {
+  min-height: 450px;
 }
 .btn-row {
   display: flex;
@@ -788,10 +817,13 @@ ol.steps {
   margin: 0;
   position: relative;
   min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .solve-grid .mermaid-slot {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 .solve-grid .mermaid-slot svg {
   position: absolute;
@@ -802,21 +834,24 @@ ol.steps {
   max-height: none;
   margin: 0;
 }
+#p2-problem .mermaid-slot svg {
+  height: 200px;
+  width: 100%;
+}
 #p3-solve .solve-grid {
   flex: 1 1 auto;
   min-height: 0;
   gap: 10px;
-  margin-top: 6px;
 }
 #p3-solve .solve-cards {
   background: #fbfcff;
   border-radius: 14px;
-  padding: 12px;
+  padding: 8px;
+  gap: 8px;
 }
 #p3-solve .solve-card {
   background: transparent;
   border: 0;
-  padding: 6px 4px;
 }
 #p3-solve .solve-card {
   padding: 4px 10px;
@@ -825,14 +860,17 @@ ol.steps {
   font-size: 14px;
   margin: 0 0 4px;
 }
+#p3-solve .solve-card li {
+  font-size: 10px;
+}
 #p3-solve .solve-card .impl-img {
-  max-height: 72px;
+  max-height: 75px;
 }
 #p3-solve .solve-card ul.tight {
   gap: 3px;
 }
 #p3-solve h3 {
-  margin: 10px 0 4px;
+  margin: 5px 0 4px;
 }
 @media screen and (min-width: 861px) {
   .impl-grid {
@@ -883,6 +921,10 @@ ol.steps {
   white-space: nowrap;
   font-weight: 700;
   color: var(--brand2);
+}
+#p1-vtable th,
+#p1-vtable td {
+  padding: 5px 8px;
 }
 
 /* 스크롤 리빌 애니메이션 (떠나면 리셋·돌아오면 리플레이) */
@@ -1190,6 +1232,9 @@ ol.steps {
   }
   .diagram {
     margin: 1.5mm 0;
+  }
+  .solve-grid .diagram {
+    min-height: 55mm;
   }
   .diagram-empty {
     min-height: 0;

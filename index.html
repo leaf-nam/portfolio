@@ -247,7 +247,7 @@
               </div>
               <p class="pill">02 · Chaerok</p>
               <h3>운영 자동화 및 장애대응</h3>
-              <p><strong>n8n·LLM·MCP 기반 장애 자동대응</strong></p>
+              <p><strong>n8n·LLM·MCP 기반 장애대응</strong></p>
               <svg
                 viewBox="0 0 200 110"
                 class="topic-img"
@@ -436,6 +436,28 @@
                 인증 정보가 먼저 저장된 뒤 계정 정보 저장이 실패하면서, 하나의
                 회원가입 요청이 부분적으로만 완료될 수 있었습니다.
               </p>
+              <div class="reason-block">
+                <h3 class="rise" style="--d: 0.12s">
+                  Reason <span class="ko">원인분석</span>
+                </h3>
+                <ul class="tight rise" style="--d: 0.15s">
+                  <li>
+                    <b>재시도에 대한 안전성 부족:</b> <br />
+                    동일한 요청이 반복됐을 때 중복 데이터나 충돌이 발생할 수
+                    있었습니다.
+                  </li>
+                  <li>
+                    <b>부분 실패에 대한 처리 부족:</b> <br />
+                    한 서비스의 실패가 다른 서비스에 이미 반영된 데이터를
+                    자동으로 되돌리지 못했습니다.
+                  </li>
+                  <li>
+                    <b>데이터 복구 절차 부족:</b> <br />요청 처리 도중 발생한
+                    불일치를 찾아 복구하여, 결과적 정합성을 달성하는 절차가
+                    필요했습니다.
+                  </li>
+                </ul>
+              </div>
             </div>
             <figure class="diagram rise" style="--d: 0.1s">
               <div
@@ -443,30 +465,13 @@
                 data-mmd="./assets/docs/signup-failure-sequence.mmd"
               >
                 <div class="diagram-empty" data-diagram="p1-signup-seq">
-                  <span>회원가입 실패 시퀀스 다이어그램</span
-                  ><em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
+                  <span>회원가입 실패 시퀀스 다이어그램</span>
+                  <em>mmd 로드 중… (오프라인이면 이 자리 유지)</em>
                 </div>
               </div>
               <figcaption>그림 1-2. 회원가입 실패 시퀀스</figcaption>
             </figure>
           </div>
-          <h3 class="rise" style="--d: 0.12s">
-            Reason <span class="ko">원인분석</span>
-          </h3>
-          <ul class="tight rise" style="--d: 0.15s">
-            <li>
-              <b>재시도에 대한 안전성 부족:</b> 동일한 요청이 반복됐을 때 중복
-              데이터나 충돌이 발생할 수 있었습니다.
-            </li>
-            <li>
-              <b>부분 실패에 대한 처리 부족:</b> 한 서비스의 실패가 다른
-              서비스에 이미 반영된 데이터를 자동으로 되돌리지 못했습니다.
-            </li>
-            <li>
-              <b>데이터 복구 절차 부족:</b> 요청 처리 도중 발생한 불일치를 찾아
-              복구하여, 결과적 정합성을 달성하는 절차가 필요했습니다.
-            </li>
-          </ul>
         </div>
         <footer class="page-tag">5/18</footer>
       </section>
@@ -728,7 +733,11 @@
         <div class="screen-inner">
           <h2>Result <span class="ko">결과</span></h2>
           <h3>Verification <span class="ko">검증</span></h3>
-          <table class="v-table rise" style="--d: 0.05s">
+          <table
+            class="v-table rise"
+            style="--d: 0.05s; font-size: 12.5px; margin: 4px 0 2px"
+            id="p1-vtable"
+          >
             <tr>
               <th>테스트 시나리오</th>
               <th>주요 확인사항</th>
@@ -753,35 +762,35 @@
               </td>
             </tr>
           </table>
-          <figure class="diagram rise" style="--d: 0.1s">
-            <img
-              class="content-img"
-              src="./assets/image/content/p1-before.png"
-              alt="개선 전 통합테스트"
-            />
-            <figcaption>그림 1-3. 개선 전 통합테스트 결과</figcaption>
-          </figure>
-          <figure class="diagram rise" style="--d: 0.15s">
-            <img
-              class="content-img"
-              src="./assets/image/content/p1-after.png"
-              alt="개선 후 통합테스트 "
-            />
-            <figcaption>그림 1-4. 개선 후 통합테스트 결과</figcaption>
-          </figure>
-        </div>
-        <footer class="page-tag">7/18</footer>
-      </section>
-
-      <!-- 8. P1 효과 + 회고 -->
-      <section id="p1-effect" class="screen">
-        <div class="screen-kicker">Project 01 · HouseOfOngr</div>
-        <div class="screen-inner">
+          <div class="paired" style="flex: 1 1 auto; min-height: 0">
+            <figure class="diagram rise" style="--d: 0.1s; margin: 0">
+              <img
+                class="content-img"
+                src="./assets/image/content/p1-before.png"
+                alt="개선 전 통합테스트"
+                style="height: 150px"
+              />
+              <figcaption>
+                그림 1-3. 개선 전 통합테스트 결과(정상 회원가입만 통과)
+              </figcaption>
+            </figure>
+            <figure class="diagram rise" style="--d: 0.15s; margin: 0">
+              <img
+                class="content-img"
+                src="./assets/image/content/p1-after.png"
+                alt="개선 후 통합테스트 "
+                style="height: 150px"
+              />
+              <figcaption>
+                그림 1-4. 개선 후 통합테스트 결과(전체 통과)
+              </figcaption>
+            </figure>
+          </div>
           <h3>Effect <span class="ko">개선효과</span></h3>
           <ul class="tight rise" style="--d: 0.05s">
             <li>
               <b>중복 요청 대응:</b> 재시도로 인해 발생할 수 있는 중복 처리
-              문제를 방지합니다.
+              문제를 방지했습니다.
             </li>
             <li>
               <b>실패 복구 가능성:</b> 중간 단계 실패 시 데이터 상태를 복구할 수
@@ -792,6 +801,14 @@
               확인하고 복구할 수 있도록 개선했습니다.
             </li>
           </ul>
+        </div>
+        <footer class="page-tag">7/18</footer>
+      </section>
+
+      <!-- 8. P1 효과 + 회고 -->
+      <section id="p1-effect" class="screen">
+        <div class="screen-kicker">Project 01 · HouseOfOngr</div>
+        <div class="screen-inner">
           <h3 class="rise" style="--d: 0.1s">
             Review <span class="ko">회고</span>
           </h3>
@@ -838,14 +855,14 @@
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
           <h1>운영 자동화 및 장애대응</h1>
-          <p class="sub">n8n·LLM·MCP 기반 장애 자동대응</p>
+          <p class="sub">n8n·LLM·MCP 기반 장애 자동분석 체계 구축</p>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
-            배포 오류나 장애가 나면 사용자가 직접 로그를 확인하고 원인을
-            분석해야 했습니다. n8n과 LLM API, incident-MCP·server-MCP를 엮어
-            AI가 메트릭을 수집하고 과거 원인에서 답을 찾아 해결하도록 했습니다.
-            해결된 결과는 다시 incident DB에 쌓여 다음 해결을 더 낫게 만드는
-            선순환 구조가 목표였습니다.
+            배포 오류나 장애가 나면
+            <strong>개발자가 직접 원인을 분석</strong>해야 했습니다.<br />
+            이러한 과정의 불편함을 개선하고,
+            <strong>빠르게 문제의 해결책을 찾아 조치</strong>하는 시스템이
+            필요했습니다.
           </p>
           <figure class="diagram fill-figure rise" style="--d: 0.1s">
             <div class="fill-frame">
@@ -870,9 +887,9 @@
             Problem <span class="ko">문제상황</span>
           </h3>
           <p class="rise" style="--d: 0.12s">
-            배포 오류나 장애가 발생하면 사용자가 직접 서버에 접속해 로그를
-            뒤지고 원인을 분석해야 했습니다. 로그 양이 많고 원인이 흩어져 있어
-            특정이 느렸고, 같은 장애가 반복돼도 매번 처음부터 살펴봐야 했습니다.
+            배포 오류나 장애가 발생하면
+            <strong>문제 해결까지 많은 시간</strong>이 걸렸고,
+            <strong>개발에 집중하지 못해</strong> 피로도가 높았습니다.
           </p>
           <figure class="diagram rise" style="--d: 0.15s">
             <div
@@ -912,13 +929,17 @@
           <h2>Solve <span class="ko">해결</span></h2>
           <h3>Idea <span class="ko">아이디어</span></h3>
           <p class="compact">
-            n8n이 감지하고, MCP가 수집하고, LLM이 분석·해결하고, 결과가 DB에
-            쌓이는 선순환으로 연결했습니다. 사람은 최종 판단만 하고,
-            수집·분석·기록은 AI에게 맡기는 것이 목표였습니다.
+            <strong>LLM이 과거 장애 사례를 활용해 원인 분석</strong>을 지원하고
+            대응 결과를 축적하는 자동화 구조를 구상했습니다.<br />
+            단순히 장애를 감지하는 데 그치지 않고,
+            <strong>축적된 기록을 이후 장애 대응에 재활용</strong>할 수 있도록
+            설계하는 것이 핵심이었습니다.
           </p>
           <h3>Operation Scenario <span class="ko">대응 시나리오</span></h3>
           <ol class="steps rise" style="--d: 0.05s">
-            <li>n8n이 배포 오류·장애 발생을 감지합니다.</li>
+            <li>
+              n8n이 Jenkins나 Grafana로부터 배포 오류·장애 발생을 전달받습니다.
+            </li>
             <li>server-mcp로 메트릭과 로그를 수집합니다.</li>
             <li>
               LLM API가 incident-mcp 과거 원인과 대조해 원인을 분석합니다.
@@ -1158,15 +1179,14 @@
       <section id="p2-effect" class="screen">
         <div class="screen-kicker">Project 02 · Chaerok</div>
         <div class="screen-inner">
-          <h2>Result <span class="ko">결과</span></h2>
           <h3>Effect <span class="ko">개선효과</span></h3>
           <ul class="tight rise" style="--d: 0.05s">
             <li>
-              <b>수동 확인 탈피:</b> 직접 로그를 뒤지던 대응을 AI 수집·분석으로
-              바꿨습니다.
+              <b>자동 분석:</b> 직접 로그를 뒤지던 대응을 AI 수집·분석으로
+              자동화했습니다.
             </li>
             <li>
-              <b>과거 활용:</b> incident DB의 원인을 재사용해 반복 장애에
+              <b>과거 활용:</b> 기존 장애이력을 DB로 저장 후 활용해 반복 장애에
               대응합니다.
             </li>
             <li>
@@ -1181,22 +1201,38 @@
             Keep <span class="ko">계속할점</span>
           </h4>
           <ul class="tight rise" style="--d: 0.13s">
-            <li>수집→분석→해결→기록 선순환 구조를 만들었습니다.</li>
-            <li>사람은 최종 판단에 집중했습니다.</li>
+            <li>
+              <strong>수집→분석→해결→기록</strong>의 선순환을 만들었습니다.
+              문제상황에서 피드백 구조를 찾아 성능을 지속적으로 높이겠습니다.
+            </li>
+            <li>
+              AI를 통해 반복업무를 자동화하고, 사람은
+              <strong>최종 판단에 집중</strong>할 수 있는 시스템을
+              구축하겠습니다.
+            </li>
           </ul>
           <h4 class="rise" style="--d: 0.14s">
             Problem <span class="ko">아쉬운점</span>
           </h4>
           <ul class="tight rise" style="--d: 0.15s">
-            <li>쌓인 히스토리 초기에는 분석 근거가 부족했습니다.</li>
-            <li>복구 실행의 자동화는 다음 단계입니다.</li>
+            <li>장애 이력이 쌓일수록 검색 성능이 떨어졌습니다.</li>
+            <li>
+              간단한 장애나 문제도 일일이 알림을 받아 나중에는 민감하게 반응하지
+              못했습니다.
+            </li>
           </ul>
           <h4 class="rise" style="--d: 0.16s">
             Try <span class="ko">시도할점</span>
           </h4>
           <ul class="tight rise" style="--d: 0.17s">
-            <li>쌓이는 기록으로 분석 기준을 개선하겠습니다.</li>
-            <li>승인 후 자동 복구까지 확대하겠습니다.</li>
+            <li>
+              수집한 장애 이력을 LLM이 빠르게 검색할 수 있도록 RAG를 도입해보고
+              싶습니다.
+            </li>
+            <li>
+              간단하거나 보고가 불필요한 복구는 판단 하에 생략하거나 직접
+              실행하는 구조로 개선하고 싶습니다.
+            </li>
           </ul>
         </div>
         <footer class="page-tag">14/18</footer>
@@ -1207,12 +1243,13 @@
         <div class="screen-kicker">Project 03 · MatchUP</div>
         <div class="screen-inner">
           <h1>대규모 데이터 처리 성능 개선</h1>
-          <p class="sub">병목 분석과 비동기 처리</p>
+          <p class="sub">데이처 처리 병목 분석을 통한 비동기 처리 구조 도입</p>
           <h3 class="rise">Overview <span class="ko">개요</span></h3>
           <p class="rise" style="--d: 0.05s">
-            게임 유저 추천·전략 분석 커뮤니티 MatchUp에서 백엔드 개발을 맡아
-            통계서버·DB·파일서버를 관리하고, 모델 학습 데이터를 수집했습니다.
-            게임 데이터 처리속도 향상에 기여했습니다.
+            게임 유저 추천·전략 분석 커뮤니티 <strong>MatchUp</strong>에서 모델
+            학습 데이터 30,000건을 수집했습니다. <br />
+            동기 구조의 병목을 해소하고자 <strong>비동기 처리 구조</strong>로
+            전환했습니다.
           </p>
           <figure class="diagram fill-figure rise" style="--d: 0.15s">
             <div class="fill-frame">
@@ -1238,9 +1275,10 @@
           </h3>
           <p class="rise" style="--d: 0.12s">
             매 요청마다 게임 데이터 응답을 확인한 뒤에야 사용자 데이터를
-            생성하는 동기 구조라, 100명분 생성에 65분이 걸렸습니다.
-            <br />3만명의 데이터를 수집해야 했지만, 약 325시간(2주)이 필요해
-            기한 내 학습 데이터 수집이 불가능했습니다.
+            생성하는 동기 구조라, <strong>100명 생성에 65분</strong>이
+            걸렸습니다. <br />3만명의 데이터를 수집해야 했지만, 약
+            <strong>325시간(2주)</strong>이 필요해 기한 내 학습 데이터 수집이
+            불가능했습니다.
           </p>
           <div class="paired">
             <figure class="diagram rise" style="--d: 0.15s">
@@ -1273,10 +1311,13 @@
           </h3>
           <ul class="tight rise" style="--d: 0.15s">
             <li>
-              <b>동기 블로킹:</b> 매 요청마다 응답을 기다린 뒤에야 다음 단계로
-              넘어갔습니다.
+              <b>순차 반복:</b> 1인당 게임 데이터를 20개 수집하고, 이어서 15개의
+              분당 데이터를 수집하면서 총 300회의 요청이 필요했습니다.
             </li>
-            <li><b>순차 반복:</b> 1개 요청-응답을 20회 반복했습니다.</li>
+            <li>
+              <b>동기 블로킹:</b> 매 요청마다 응답을 기다린 뒤에야 다음 단계로
+              넘어갔습니다. 요청마다 대기 시간이 누적되었습니다.
+            </li>
             <li>
               <b>일괄 처리 부재:</b> 전체 응답을 모아 한 번에 처리하는 구조가
               없었습니다.
@@ -1466,9 +1507,8 @@
                 <p class="log-cap">변경 후</p>
                 <code
                   >2024-03-27T13:23:08.887+09:00 INFO 5368 --- [nio-8080-exec-1]
-                  c.s.m.s.s.sub.SummonerTotalFluxService : created all
-                  summoner(전체 소환사 생성완료, 총 소요시간 :
-                  <b>755445ms</b>)</code
+                  c.s.m.s.s.sub.SummonerTotalFluxService : 전체 소환사
+                  생성완료[총 소요시간 : <b>755445ms</b>]</code
                 >
               </div>
             </div>
@@ -1481,7 +1521,10 @@
             Keep <span class="ko">계속할점</span>
           </h4>
           <ul class="tight rise" style="--d: 0.13s">
-            <li>비동기 로직에서 CS 기본기의 도움을 받았습니다.</li>
+            <li>
+              비동기 로직에서 CS 기본기의 도움을 받았습니다. 기본기의 중요성을
+              느꼈고, 중요한 순간에 도움받도록 계속 학습하겠습니다.
+            </li>
           </ul>
           <h4 class="rise" style="--d: 0.14s">
             Problem <span class="ko">아쉬운점</span>

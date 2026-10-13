@@ -637,7 +637,7 @@ ol.steps {
  */
 @page {
   size: A4 portrait;
-  margin: 14mm 12mm;
+  margin: 10mm;
 }
 @media print {
   .no-print {
@@ -669,7 +669,7 @@ ol.steps {
     min-height: 0;
     max-height: none;
     margin: 0;
-    padding: 0;
+    padding: 8mm 6mm;
     scroll-snap-align: unset;
     break-inside: avoid;
     page-break-inside: avoid;

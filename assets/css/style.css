@@ -762,6 +762,21 @@ ol.steps {
 }
 .solve-grid .diagram {
   margin: 0;
+  position: relative;
+  min-height: 300px;
+}
+.solve-grid .mermaid-slot {
+  position: absolute;
+  inset: 0;
+}
+.solve-grid .mermaid-slot svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
 }
 #p3-solve .solve-grid {
   gap: 10px;
@@ -775,7 +790,7 @@ ol.steps {
   margin: 0 0 4px;
 }
 #p3-solve .solve-card .impl-img {
-  max-height: 36px;
+  max-height: 72px;
 }
 #p3-solve .solve-card ul.tight {
   gap: 3px;

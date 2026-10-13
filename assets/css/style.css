@@ -480,6 +480,15 @@ ol.steps {
   font-size: 14px;
   color: #33405e;
 }
+.topic-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fbfcff;
+  margin: 2px 0 10px;
+}
 .stack {
   font-size: 13px;
   color: var(--muted);
@@ -848,6 +857,10 @@ ol.steps {
   }
   .cards {
     gap: 3.5mm;
+  }
+  .topic-img {
+    margin: 1mm 0 2mm;
+    border-radius: 2mm;
   }
   .p-card {
     padding: 3.5mm;

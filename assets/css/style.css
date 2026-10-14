@@ -111,6 +111,20 @@ body {
 #btn-print:hover {
   background: var(--brand2);
 }
+.resume-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand);
+  border: 1px solid var(--brand);
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.resume-link:hover {
+  background: #eef4ff;
+}
 .progress {
   height: 3px;
   background: #e9edf5;
